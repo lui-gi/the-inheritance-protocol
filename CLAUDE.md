@@ -35,3 +35,9 @@ The challenges are not independent: each one plants evidence that later challeng
 - The murder method stays deliberately non-technical and non-instructional. The cyber content is about cover-up, forged evidence, and timeline reconstruction only.
 - Player-facing material must never reveal the "Organizer-Only Truth" section. Keep organizer notes and solutions separate from anything distributed to players.
 - Tone: theatrical ensemble whodunit, funny in places, with original characters and plot.
+
+## Idea: one mock home directory for the whole room
+
+Instead of a separate download per task, ship a single mock home directory that covers the entire challenge room. Each task then just directs the player to a different directory inside it. This lets tasks share tooling: for example, one Python script can serve any site in the tree locally, so web tasks do not need their own hosting. Everything still runs on the player's machine, so the no-VM rule above holds.
+
+Tasks 1 and 2 were built before this idea and currently ship as per-task zips (`task1-invitation.zip`, `task2-portrait.zip`). They have not been migrated.
