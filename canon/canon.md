@@ -21,6 +21,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | Task 1 |
 | 2024-04-13T11:20:00-04:00 | Adrian's portrait digitised for the east hall frame. | Task 2 |
 | 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026". | Task 1 |
+| 2026-10-26 | Counsel opens the Legal Office's sealed recovery envelope for the `m.vale` account. The estate archive tells Adrian. Time of day not decided. | Task 8 |
 | 2026-10-27T20:52:16-04:00 | Adrian rereads his will in the archive. It still verifies. | Task 5 |
 | 2026-10-27T21:15:44-04:00 | Adrian writes a note into his hall portrait's metadata (the portrait file's last-modified time). | Task 2 |
 | 2026-10-28T23:41:07-04:00 | Guest list revision 2 saved by `a.vale`: Celeste Ward added. Invitations are not reprinted. | Task 1 |
@@ -28,6 +29,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-29T19:26:41-04:00 | Commit `4fc4f25` ("Tidy label formatting", author `unknown <>`) relabels `BH-TAB-0417` from `LEGAL-TABLET` to `MARCUS-ADMIN` in the dashboard. Signed by the key on `BH-WS-0418`. The hub deploys it at 19:26:44 and seals a signing record. | Task 7 |
 | 2026-10-29T23:12:40-04:00 | `hvac-sync` logs in for the last time (session ends 23:30:53). | Task 4 |
 | 2026-10-30T21:40:00-04:00 | Adrian seals his findings about `hvac-sync` in `findings.zip`. | Task 4 |
+| 2026-10-30T22:10:00-04:00 | Adrian records his message for the Trustee (archive entry `EA-0043`), set for release at midnight on 1 November. | Task 8 |
 | 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy players receive. | Task 1 |
 | 2026-10-31T19:00:00-04:00 | Guests arrive, cocktails in the hall. | Task 1 |
 | 2026-10-31T19:30:00-04:00 | Dinner is served. | Task 1 |
@@ -48,7 +50,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T22:21:15-04:00 | Marcus's phone opens the server room again (and at 22:47:36 and 23:26:09). | Task 3 |
 | 2026-10-31T22:26:17-04:00 | `c.ward`, on `BH-WS-0418`, replaces the will in the archive. The genuine file is renamed `Vale_Will_superseded.pdf`, the manifest check fails at 22:26:18, and the archive seals a replacement record. | Task 5 |
 | 2026-10-31T22:31:40-04:00 | `c.ward` reads the replacement will in the archive from `BH-WS-0418`. | Task 5 |
-| 2026-11-01T00:00:00-04:00 | Celeste's trustee authority was due to be revoked. | Design doc (Flag 8) |
+| 2026-11-01T00:00:00-04:00 | Celeste's trustee authority was due to be revoked, and `EA-0043` was due to be released to the Trustee. It was never released. | Design doc, Task 8 |
 | 2026-11-01T00:42:00-04:00 | Investigators scan the invitation found in the library. | Task 1 |
 | 2026-11-01T00:55:00-04:00 | Investigators pull the portrait file from the east hall frame. | Task 2 |
 | 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | Task 3 |
@@ -159,3 +161,14 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). Who they were is not decided.
 - Not decided here: how the tablet signed in as `m.vale` (still open from Task 3).
 - Flag: `THM{FOLLOW_THE_COMMIT}`
+
+## Task 8 facts
+
+- Artifact: `case-board/`, a WSGI app (local `serve.py`, or Vercel). A timeline with four locked rows, then the estate archive's release page for Adrian's message.
+- The four answers, in row order: `4fc4f25` (Task 7), `hvac-sync` (Task 4), `BH-TAB-0417` (Task 3), and the replacement will's SHA-256 (Task 5). If any of these change upstream, `build/make_board.py` must be updated and rerun.
+- The release page trusts a `role` cookie, set to `guest` on the first visit. Changing it to `trustee` releases the message once the board is complete.
+- Adrian's message: archive entry `EA-0043`, "For the Trustee, at midnight", recorded 2026-10-30T22:10:00-04:00, release time 2026-11-01T00:00:00-04:00, addressed to Celeste. It revokes her authority as Trustee at midnight and says an independent trustee takes over in the morning.
+- How Celeste signed in as `m.vale` (open since Task 3): the Legal Office kept a sealed recovery envelope, with the password, for every family account. Counsel opened the one for Marcus's account on 26 October, with no request from Marcus and no note in the file. The archive told Adrian, which is what set off his actions on 27 and 28 October.
+- Adrian knew about `hvac-sync` and considered it embarrassing, not dangerous. He did not know a replacement will existed. Nothing in this task describes how he died.
+- The solved rows name Celeste and `BH-WS-0418`. Nothing readable in the shipped `api/index.py` does: notes and message are sealed with the answers.
+- Flag: `THM{CELESTE_WARD}`
