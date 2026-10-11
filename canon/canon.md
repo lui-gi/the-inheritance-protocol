@@ -15,11 +15,16 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | When | What | Introduced by |
 | :---- | :---- | :---- |
 | 2026-05-12T23:48:09-04:00 | Marcus creates the hidden root account `hvac-sync` on the house server. | Task 4 |
+| 2026-10-01T13:05:27-04:00 | Celeste drafts the genuine will, `Vale_Will.pdf`, on the Legal Office workstation `BH-WS-0418`. | Task 5 |
+| 2026-10-01T15:20:00-04:00 | Adrian signs the genuine will. | Task 5 |
+| 2026-10-01T15:42:10-04:00 | Adrian files the will in the estate archive (entry `EA-0042`). The archive signs a manifest with its SHA-256 and writes his receipt. | Task 5 |
 | 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | Task 1 |
 | 2024-04-13T11:20:00-04:00 | Adrian's portrait digitised for the east hall frame. | Task 2 |
 | 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026". | Task 1 |
+| 2026-10-27T20:52:16-04:00 | Adrian rereads his will in the archive. It still verifies. | Task 5 |
 | 2026-10-27T21:15:44-04:00 | Adrian writes a note into his hall portrait's metadata (the portrait file's last-modified time). | Task 2 |
 | 2026-10-28T23:41:07-04:00 | Guest list revision 2 saved by `a.vale`: Celeste Ward added. Invitations are not reprinted. | Task 1 |
+| 2026-10-29T18:47:33-04:00 | Celeste creates the replacement will, `Vale_Will_FINAL_signed.pdf`, on `BH-WS-0418`. It claims to be signed that day. | Task 5 |
 | 2026-10-29T23:12:40-04:00 | `hvac-sync` logs in for the last time (session ends 23:30:53). | Task 4 |
 | 2026-10-30T21:40:00-04:00 | Adrian seals his findings about `hvac-sync` in `findings.zip`. | Task 4 |
 | 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy players receive. | Task 1 |
@@ -39,11 +44,14 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T22:19:03-04:00 | Lockdown engages and the exterior doors seal. | Task 3 |
 | 2026-10-31T22:19:41-04:00 | The house network uplink drops. The hub keeps logging locally until midnight, and the tablet's device record ends here. | Task 3 |
 | 2026-10-31T22:21:15-04:00 | Marcus's phone opens the server room again (and at 22:47:36 and 23:26:09). | Task 3 |
+| 2026-10-31T22:26:17-04:00 | `c.ward`, on `BH-WS-0418`, replaces the will in the archive. The genuine file is renamed `Vale_Will_superseded.pdf`, the manifest check fails at 22:26:18, and the archive seals a replacement record. | Task 5 |
+| 2026-10-31T22:31:40-04:00 | `c.ward` reads the replacement will in the archive from `BH-WS-0418`. | Task 5 |
 | 2026-11-01T00:00:00-04:00 | Celeste's trustee authority was due to be revoked. | Design doc (Flag 8) |
 | 2026-11-01T00:42:00-04:00 | Investigators scan the invitation found in the library. | Task 1 |
 | 2026-11-01T00:55:00-04:00 | Investigators pull the portrait file from the east hall frame. | Task 2 |
 | 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | Task 3 |
 | 2026-11-01T01:25:00-04:00 | Investigators snapshot the house server `blackthorn-srv`. | Task 4 |
+| 2026-11-01T01:40:00-04:00 | Investigators export estate archive entry `EA-0042`. | Task 5 |
 
 ## Task 1 facts
 
@@ -62,7 +70,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Catalogue number: `BH-1959-AV` (Adrian is 67, born 1959). Flavour only.
 - The note is written by Adrian on 27 October 2026, the night before he added Celeste to the guest list. It says "Tomorrow I change the guest list."
 - The note's rule: "Trust the signed hash, not the filename."
-- The note commits Task 5 to this: Adrian filed a checksum of the genuine will in the estate archive on the day he signed it. The signing date is not stated yet.
+- The note commits Task 5 to this: Adrian filed a checksum of the genuine will in the estate archive on the day he signed it. Task 5 sets the signing date to 1 October 2026.
 - The note names no suspect and does not say a counterfeit will already exists.
 - Flag: `THM{TRUST_THE_HASH}`
 
@@ -104,3 +112,25 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - The snapshot also holds scenery system files (settings, scripts, short logs). The hub config there lists the same nine doors as Task 3 and a 30-second autolock. `var/log/syslog` repeats the 22:19:03 lockdown and 22:19:41 network loss.
 - `auth.log` entries before Halloween other than the `hvac-sync` and account-creation lines are generated filler.
 - Flag: `THM{RED_HERRING_ROOT}`
+
+## Task 5 facts
+
+- Artifacts: `Vale_Will_superseded.pdf` (genuine), `Vale_Will_FINAL_signed.pdf` (replacement), `archive-entry.txt` (stage 1, with Adrian's receipt), and `replacement-record.zip` (stage 2, holding `replacement-record.log`). The zip password is the replacement will's SHA-256, all 64 characters in lowercase.
+- Hashes (SHA-256). Flag 8 reuses these, so they must be updated here whenever the wills are rebuilt with different wording:
+
+| File | SHA-256 |
+| :---- | :---- |
+| `Vale_Will_superseded.pdf` (genuine) | `93526f56d98475324b148a942241c74eac5e20a7ad8c4d88266957cd07b62914` |
+| `Vale_Will_FINAL_signed.pdf` (replacement) | `18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6` |
+
+- The estate archive: "Blackthorn Estate Archive 2.4", the house's document vault. It is not on `blackthorn-srv` and is not in the Task 4 snapshot. It is reachable on the house's local network, which kept working after the uplink dropped at 22:19:41. Adrian's will is entry `EA-0042`.
+- Archive rules: family counsel may replace a file in an entry. A filing receipt can never be edited. Each entry has a manifest signed by the person who filed it, listing the file's SHA-256, and every read or replacement is checked against it.
+- The genuine will was called `Vale_Will.pdf` until the replacement. The archive renamed it to `Vale_Will_superseded.pdf`.
+- New device: `BH-WS-0418`, the Legal Office workstation, registered to `c.ward`. The Legal Office is a room in Blackthorn House with no smart lock (it is not one of the nine hub doors). Flag 7's signing key must map to this workstation. Its network address is not decided yet.
+- Celeste drafted both wills on `BH-WS-0418` as family counsel, so the workstation alone does not distinguish them. The genuine one was signed by Adrian on 1 October. The replacement was created on 29 October (the day after Adrian added her to the guest list) and never signed by him.
+- The wills are identical except for Article 4 and the signing date. Genuine Article 4: the Trustee keeps records, has no vote in Blackthorn Security, and has no authority over the heirs. Replacement Article 4: if any heir is judged unfit, the Trustee holds and votes that heir's shares until she decides otherwise, and she alone judges fitness.
+- Other terms, the same in both wills: the house goes to the Vale Family Trust, the voting shares go to Evelyn and Marcus in equal parts, Nina gets Adrian's books, Theo gets the wine cellar. Celeste Ward is named as Trustee and as the counsel who prepared the document.
+- The genuine will does not mention revoking Celeste as Trustee. That is Adrian's midnight plan and belongs to Flag 8.
+- The replacement is filed under Celeste's own account. Her cover story is that Adrian signed an updated will on 29 October and she filed it as counsel. The failed manifest is what disproves it.
+- Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record, and how she signed in as `m.vale` (still open from Task 3).
+- Flag: `THM{THE_WILL_WAS_REPLACED}`

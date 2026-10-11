@@ -1,0 +1,29 @@
+# Blackthorn Estate Archive 2.4
+# entry:    EA-0042, Last Will and Testament of Adrian Vale
+# exported: 2026-11-01T01:40:00-04:00 for the investigation
+#
+# This entry is supposed to hold one will. Tonight it holds two.
+
+FILES IN THIS ENTRY
+  Vale_Will_FINAL_signed.pdf
+  Vale_Will_superseded.pdf
+
+FILING RECEIPT
+  Written once, on the day the will was signed. A receipt cannot be edited afterwards,
+  not by counsel, not by family, and not by A. Vale, who tested this personally.
+
+  document=Last Will and Testament of Adrian Vale
+  signed=2026-10-01T15:20:00-04:00
+  filed=2026-10-01T15:42:10-04:00
+  filed_by=a.vale
+  algorithm=SHA-256
+  sha256=93526f56d98475324b148a942241c74eac5e20a7ad8c4d88266957cd07b62914
+  note_from_a.vale="This number is my will. Anything that does not hash to it is somebody else's."
+
+INTEGRITY CHECK
+  result=ONE FILE IN THIS ENTRY DOES NOT MATCH THE RECEIPT
+  The archive will not say which one. Per A. Vale: "Make them do the arithmetic."
+
+  A replacement record was sealed in replacement-record.zip.
+  It opens with the SHA-256 of the file that does NOT match the receipt:
+  all 64 characters, in lowercase, exactly as sha256sum prints them.

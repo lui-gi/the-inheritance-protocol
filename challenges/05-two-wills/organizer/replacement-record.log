@@ -1,0 +1,22 @@
+# Blackthorn Estate Archive replacement record
+# entry:       EA-0042, Last Will and Testament of Adrian Vale
+# sealed:      2026-10-31T22:26:18-04:00 (a file was replaced, and the new file fails the signed manifest)
+# workstation: BH-WS-0418 is the Legal Office workstation
+# registered:  c.ward (Celeste Ward, family counsel)
+#
+# Everything that has happened to this entry (all times local, UTC-04:00).
+2026-10-01T13:05:27-04:00 file    CREATED name=Vale_Will.pdf account=c.ward workstation_ID=BH-WS-0418
+2026-10-01T15:20:00-04:00 file    SIGNED name=Vale_Will.pdf account=a.vale
+2026-10-01T15:42:10-04:00 archive FILED name=Vale_Will.pdf account=a.vale sha256=93526f56d98475324b148a942241c74eac5e20a7ad8c4d88266957cd07b62914
+2026-10-01T15:42:10-04:00 archive MANIFEST signed_by=a.vale signed_sha256=93526f56d98475324b148a942241c74eac5e20a7ad8c4d88266957cd07b62914 manifest_signature=VALID
+2026-10-01T15:42:11-04:00 archive RECEIPT written for a.vale. Receipts cannot be edited
+2026-10-27T20:52:16-04:00 archive READ name=Vale_Will.pdf account=a.vale manifest_signature=VALID
+2026-10-29T18:47:33-04:00 file    CREATED name=Vale_Will_FINAL_signed.pdf account=c.ward workstation_ID=BH-WS-0418
+2026-10-31T22:26:17-04:00 archive REPLACE-REQUEST old=Vale_Will.pdf new=Vale_Will_FINAL_signed.pdf account=c.ward workstation_ID=BH-WS-0418 result=ACCEPTED (counsel may replace files)
+2026-10-31T22:26:17-04:00 archive RENAME old=Vale_Will.pdf new=Vale_Will_superseded.pdf
+2026-10-31T22:26:17-04:00 archive FILED name=Vale_Will_FINAL_signed.pdf account=c.ward sha256=18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6
+2026-10-31T22:26:18-04:00 archive MANIFEST signed_by=a.vale signed_sha256=93526f56d98475324b148a942241c74eac5e20a7ad8c4d88266957cd07b62914 manifest_signature=MISMATCH
+2026-10-31T22:26:18-04:00 archive WARN the file now called FINAL was never signed by a.vale. House rule, per A. Vale: trust the signed hash, not the filename. THM{THE_WILL_WAS_REPLACED}
+2026-10-31T22:26:18-04:00 archive NOTICE this record is now sealed with the SHA-256 of the file that failed the manifest
+2026-10-31T22:31:40-04:00 archive READ name=Vale_Will_FINAL_signed.pdf account=c.ward workstation_ID=BH-WS-0418 manifest_signature=MISMATCH
+2026-11-01T01:40:00-04:00 archive EXPORT entry=EA-0042 for the investigation
