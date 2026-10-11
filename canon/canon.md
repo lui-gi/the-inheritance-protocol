@@ -25,6 +25,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-27T21:15:44-04:00 | Adrian writes a note into his hall portrait's metadata (the portrait file's last-modified time). | Task 2 |
 | 2026-10-28T23:41:07-04:00 | Guest list revision 2 saved by `a.vale`: Celeste Ward added. Invitations are not reprinted. | Task 1 |
 | 2026-10-29T18:47:33-04:00 | Celeste creates the replacement will, `Vale_Will_FINAL_signed.pdf`, on `BH-WS-0418`. It claims to be signed that day. | Task 5 |
+| 2026-10-29T19:26:41-04:00 | Commit `4fc4f25` ("Tidy label formatting", author `unknown <>`) relabels `BH-TAB-0417` from `LEGAL-TABLET` to `MARCUS-ADMIN` in the dashboard. Signed by the key on `BH-WS-0418`. The hub deploys it at 19:26:44 and seals a signing record. | Task 7 |
 | 2026-10-29T23:12:40-04:00 | `hvac-sync` logs in for the last time (session ends 23:30:53). | Task 4 |
 | 2026-10-30T21:40:00-04:00 | Adrian seals his findings about `hvac-sync` in `findings.zip`. | Task 4 |
 | 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy players receive. | Task 1 |
@@ -38,6 +39,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T22:03:38-04:00 | The tablet signs out of `c.ward`, then signs in as `m.vale` at 22:03:52. | Task 3 |
 | 2026-10-31T22:03:31-04:00 | Marcus logs in at the server room console as `m.vale` (until 22:15:48). | Task 4 |
 | 2026-10-31T22:04:11-04:00 | The tablet, signed in as `m.vale`, unlocks the library. The hub flags the unfamiliar device. | Task 3 |
+| 2026-10-31T22:04:11-04:00 | The hall dashboard shows the library unlock as `MARCUS-ADMIN`. | Task 7 |
 | 2026-10-31T22:09:44-04:00 | Hub warns that the library door was held open and did not relock. | Task 3 |
 | 2026-10-31T22:09:58-04:00 | The tablet signs out of `m.vale`, then back in as `c.ward` at 22:10:06. | Task 3 |
 | 2026-10-31T22:17:00-04:00 | Adrian Vale is found dead in the library. | Design doc |
@@ -52,6 +54,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | Task 3 |
 | 2026-11-01T01:25:00-04:00 | Investigators snapshot the house server `blackthorn-srv`. | Task 4 |
 | 2026-11-01T01:40:00-04:00 | Investigators export estate archive entry `EA-0042`. | Task 5 |
+| 2026-11-01T01:55:00-04:00 | Investigators export the dashboard repository and the hub's signing record. | Task 7 |
 
 ## Task 1 facts
 
@@ -134,3 +137,25 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - The replacement is filed under Celeste's own account. Her cover story is that Adrian signed an updated will on 29 October and she filed it as counsel. The failed manifest is what disproves it.
 - Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record, and how she signed in as `m.vale` (still open from Task 3).
 - Flag: `THM{THE_WILL_WAS_REPLACED}`
+
+## Task 7 facts
+
+- Artifacts: `blackthorn-dashboard/` (stage 1, a Git repository), `README.txt`, and `signing-record.zip` (stage 2, holding `signing-record.log`). The zip password is the relabelling commit's short hash, `4fc4f25`.
+- The relabelling commit: `4fc4f250b5a56ee45b5bb78425938f2d860556e1`, 2026-10-29T19:26:41-04:00, author and committer `unknown <>`, message "Tidy label formatting". Flag 8 reuses this hash, so update it here whenever the repository is rebuilt with different contents.
+- The dashboard is the wall display in the front hall. It shows labels from `dashboard/labels.py` instead of device IDs. The hub's raw log (Task 3) is unaffected and always records the real device ID.
+- Dashboard labels: `ADRIAN-PHONE`, `MARCUS-PHONE`, `EVELYN-PHONE`, `NINA-PHONE` for `BH-PH-0101` to `0104`, `THEO-BADGE`, `KITCHEN-BADGE`, `GROUNDS-BADGE` for the three badges, and `LEGAL-TABLET` for `BH-TAB-0417` until the relabelling.
+- House rule: every commit must be signed by a registered workstation key, the hub refuses to deploy anything else, and a key cannot be copied off its workstation. This is why Celeste could scrub the author but not the signature.
+- Signing keys (Ed25519, real, generated for the room):
+
+| Key | Workstation | Owner | Registered | Fingerprint |
+| :---- | :---- | :---- | :---- | :---- |
+| `hub-key-1` | `BH-WS-0401` | `a.vale` | 2025-03-10T09:02:48-04:00 | `SHA256:Un7FyfuK9ATGRziBtVHgxYnq4yDeWKJ7U8K28vmCekU` |
+| `hub-key-2` | `BH-WS-0402` | `m.vale` | 2025-03-10T09:05:30-04:00 | `SHA256:5VzICtwEjaJTrTbwc8MF1+k0lTXyhzsTDXyEQEgY1ME` |
+| `hub-key-3` | `BH-WS-0418` | `c.ward` | 2025-06-02T10:25:13-04:00 | `SHA256:WWa9zXsseSgn/FtOPchlRXPwssNTquse+dAF2gMr4mw` |
+| `hub-key-4` | `BH-WS-0403` | `t.grant` | 2025-09-18T14:10:02-04:00 | `SHA256:cuELgekckCSHa92+Ol9S1SV/y58jwYEXwX18DCWkDXg` |
+
+- New devices: `BH-WS-0401` (Adrian's workstation, `10.13.0.10` in Task 4), `BH-WS-0402` (Marcus's, `10.13.0.22`), `BH-WS-0403` (Theo's, `10.13.0.31`).
+- The repository names no one from the Legal Office. The mapping from `hub-key-3` to `BH-WS-0418` and `c.ward` exists only in the sealed record.
+- Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). Who they were is not decided.
+- Not decided here: how the tablet signed in as `m.vale` (still open from Task 3).
+- Flag: `THM{FOLLOW_THE_COMMIT}`

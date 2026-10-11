@@ -1,0 +1,31 @@
+# Blackthorn Hub signing record
+# repository: blackthorn-dashboard (the wall display in the front hall)
+# commit:     4fc4f250b5a56ee45b5bb78425938f2d860556e1
+# sealed:     2026-10-29T19:26:44-04:00 (a commit with no author was deployed)
+#
+# The hub checks the signature on every commit before it deploys it. A signing key
+# lives on one workstation and cannot be copied off it.
+#
+# Every key the hub knows, and every commit it has deployed (all times local, UTC-04:00).
+2025-03-10T09:02:48-04:00 key     REGISTERED signing_key=hub-key-1 workstation_ID=BH-WS-0401 owner=a.vale fingerprint=SHA256:Un7FyfuK9ATGRziBtVHgxYnq4yDeWKJ7U8K28vmCekU
+2025-03-10T09:05:30-04:00 key     REGISTERED signing_key=hub-key-2 workstation_ID=BH-WS-0402 owner=m.vale fingerprint=SHA256:5VzICtwEjaJTrTbwc8MF1+k0lTXyhzsTDXyEQEgY1ME
+2025-03-10T09:14:25-04:00 deploy  commit=04bf5e7 author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2025-03-14T16:40:08-04:00 deploy  commit=299a326 author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2025-04-02T23:51:41-04:00 deploy  commit=0d9bc2d author="Marcus Vale" signature=GOOD signing_key=hub-key-2 workstation_ID=BH-WS-0402
+2025-04-03T07:02:14-04:00 deploy  commit=f6817c8 author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2025-06-02T10:25:13-04:00 key     REGISTERED signing_key=hub-key-3 workstation_ID=BH-WS-0418 owner=c.ward fingerprint=SHA256:WWa9zXsseSgn/FtOPchlRXPwssNTquse+dAF2gMr4mw
+2025-06-02T10:31:12-04:00 deploy  commit=ddded28 author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2025-09-18T14:10:02-04:00 key     REGISTERED signing_key=hub-key-4 workstation_ID=BH-WS-0403 owner=t.grant fingerprint=SHA256:cuELgekckCSHa92+Ol9S1SV/y58jwYEXwX18DCWkDXg
+2025-09-18T14:22:50-04:00 deploy  commit=71400f4 author="Theo Grant" signature=GOOD signing_key=hub-key-4 workstation_ID=BH-WS-0403
+2026-04-22T20:15:33-04:00 deploy  commit=0cdd05a author="Marcus Vale" signature=GOOD signing_key=hub-key-2 workstation_ID=BH-WS-0402
+2026-07-11T11:05:59-04:00 deploy  commit=127520c author="Theo Grant" signature=GOOD signing_key=hub-key-4 workstation_ID=BH-WS-0403
+2026-09-02T22:37:17-04:00 deploy  commit=605641f author="Marcus Vale" signature=GOOD signing_key=hub-key-2 workstation_ID=BH-WS-0402
+2026-10-16T14:31:23-04:00 deploy  commit=900ee5c author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2026-10-29T19:26:44-04:00 deploy  commit=4fc4f25 author="unknown" signature=GOOD signing_key=hub-key-3 workstation_ID=BH-WS-0418
+2026-10-29T19:26:44-04:00 hub     WARN commit 4fc4f25 has no author, but it is signed, and hub-key-3 lives on BH-WS-0418, registered to c.ward. House rule, per A. Vale: you can scrub a name, you cannot scrub a signature. THM{FOLLOW_THE_COMMIT}
+2026-10-29T19:26:44-04:00 hub     NOTICE this record is now sealed with the short hash of that commit
+2026-10-29T19:26:44-04:00 feed    LABEL-CHANGE device_ID=BH-TAB-0417 old=LEGAL-TABLET new=MARCUS-ADMIN
+2026-10-30T09:15:06-04:00 deploy  commit=bf7618f author="Adrian Vale" signature=GOOD signing_key=hub-key-1 workstation_ID=BH-WS-0401
+2026-10-30T16:48:30-04:00 deploy  commit=6e7c666 author="Theo Grant" signature=GOOD signing_key=hub-key-4 workstation_ID=BH-WS-0403
+2026-10-31T22:04:11-04:00 feed    SHOWN door=LIBRARY result=GRANTED device_ID=BH-TAB-0417 shown_as=MARCUS-ADMIN
+2026-11-01T01:55:00-04:00 hub     EXPORT repository=blackthorn-dashboard for the investigation
