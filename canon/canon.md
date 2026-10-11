@@ -8,7 +8,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Timezone: America/New_York. Halloween 2026 falls on a Saturday and is still on daylight time, so every timestamp uses the offset `-04:00`.
 - Timestamp format in artifacts: ISO 8601 with offset, for example `2026-10-31T22:17:00-04:00`.
 - Account names: first initial, dot, surname (`a.vale`, `m.vale`, `e.vale`, `n.park`, `c.ward`, `t.grant`).
-- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. Players get a nightly portal snapshot as a folder named after the hostname.
+- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. Players get a nightly portal snapshot as a folder named after the hostname, and serve it locally with the bundled `serve.py` (default `http://localhost:8000/`).
 
 ## Timeline
 
@@ -27,7 +27,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## Task 1 facts
 
-- Event page path: `/rsvp/hallows-eve-1031/` (in the download: `portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`)
+- Event page path: `/rsvp/hallows-eve-1031/` (in `task1-portal.zip`: `blackthorn-portal/portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`, served locally at `http://localhost:8000/rsvp/hallows-eve-1031/`)
 - Decoy event pages with no clues: `founders-day-0606`, `midsummer-0620`, `board-retreat-0912`.
 - QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
