@@ -17,6 +17,8 @@ The repo currently contains only the design document, `Halloween_Cybersecurity_M
 
 The entire CTF lives on the TryHackMe platform in a custom challenge room. Each of the eight flags is its own separate task, with its own task text, artifacts, and answer field. The room has no VM: every challenge artifact ships as a downloadable task file, so nothing may depend on a machine IP, a running service, or external hosting such as GitHub Pages. Flags are submitted as room task answers.
 
+Task 6 (Family Secrets) is the one exception to the no-hosting rule: it is a deliberately vulnerable web app (SQL injection in the Legal Office case portal's search box) that will likely be hosted on Vercel. It is not hosted yet, so it must also run locally, and it must work on Vercel's serverless Python runtime (no writable disk, no state kept between requests).
+
 ## Source of truth
 
 The design document defines the suspects, the organizer-only solution, the eight challenges, and the exact flag strings. Read it before creating or changing any challenge. Flags use the format `THM{UPPER_SNAKE_CASE}` and must match the document exactly.
