@@ -24,7 +24,7 @@ INK = (28, 22, 30)
 EMBER = (150, 62, 20)
 MUTED = (110, 98, 88)
 
-DEFAULT_OUT = Path(__file__).resolve().parent.parent / "player" / "invitation.png"
+DEFAULT_OUT = Path(__file__).resolve().parent.parent / "invitation.png"
 
 
 def font(path, size):

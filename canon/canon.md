@@ -14,7 +14,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 | When | What | Introduced by |
 | :---- | :---- | :---- |
-| 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. | Task 1 |
+| 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | Task 1 |
 | 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026". | Task 1 |
 | 2026-10-28T23:41:07-04:00 | Guest list revision 2 saved by `a.vale`: Celeste Ward added. Invitations are not reprinted. | Task 1 |
 | 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy players receive. | Task 1 |
@@ -28,9 +28,9 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 ## Task 1 facts
 
 - Event page path: `/rsvp/hallows-eve-1031/` (in `task1-portal.zip`: `blackthorn-portal/portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`, served locally at `http://localhost:8000/rsvp/hallows-eve-1031/`)
-- Decoy event pages with no clues: `founders-day-0606`, `midsummer-0620`, `board-retreat-0912`.
+- The snapshot holds only the portal front page and the event page. There are no decoy pages and no `guests.json`.
 - QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
 - Live guest list (five): the four above plus Celeste Ward.
-- Why Celeste was added (organizer reasoning): Adrian wanted her in the room when he revoked her authority. The player-facing note only says counsel must be present for the paperwork.
+- Why Celeste was added (organizer reasoning): Adrian wanted her in the room when he revoked her authority. Nothing player-facing in Task 1 explains why she was added.
 - Flag: `THM{THE_GUEST_LIST_CHANGED}`
