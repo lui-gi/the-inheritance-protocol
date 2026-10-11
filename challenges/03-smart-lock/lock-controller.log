@@ -1,0 +1,179 @@
+# Blackthorn Hub lock controller log
+# day: 2026-10-31 (all times local, UTC-04:00)
+# exported: 2026-11-01T01:10:00-04:00 for the investigation
+#
+# One line per event. "lock" lines are doors, "hub" lines are the hub talking to itself.
+# Doors relock on their own when they close, so only unlock attempts are recorded.
+#   account   = who the hub believes is asking
+#   device_ID = the phone, badge, or tablet that actually asked
+2026-10-31T00:00:00-04:00 hub  INFO log rotated. Blackthorn Hub 4.1.2, 9 doors online
+2026-10-31T03:00:00-04:00 hub  INFO nightly portal snapshot complete
+2026-10-31T06:46:12-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T06:47:55-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T07:04:48-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T07:10:00-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T07:15:22-04:00 hub  NOTICE door=WINE-CELLAR battery at 18 percent. It has been at 18 percent since August
+2026-10-31T07:50:14-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T08:14:30-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T08:16:29-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T08:24:45-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T08:51:51-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T08:55:35-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T09:10:57-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:11:06-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:26:58-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T09:27:45-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T09:29:28-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:32:30-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T09:32:32-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:36:38-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:42:20-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T09:44:17-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T09:50:50-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T10:00:24-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T10:07:28-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T10:19:39-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T10:23:06-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T10:25:30-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T10:29:34-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T10:36:40-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T10:41:32-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T10:47:28-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T10:54:49-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T11:13:07-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T11:15:37-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T11:31:13-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T11:32:08-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T11:32:49-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T11:40:06-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T11:45:04-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T11:50:33-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T11:55:45-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T11:58:07-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T12:04:28-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T12:15:39-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T12:26:47-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T12:28:40-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T12:57:27-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T12:57:51-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T13:08:35-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T13:11:37-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T13:14:37-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T13:17:46-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T13:20:25-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T13:41:05-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T13:49:08-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T13:53:46-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T13:56:38-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T14:01:38-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T14:02:48-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T14:16:37-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T14:18:47-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T14:20:40-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T14:27:14-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T14:37:03-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T14:37:13-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T14:37:34-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T14:38:56-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T14:43:59-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T14:44:02-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T14:45:01-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T14:54:11-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T14:59:55-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T15:12:42-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T15:23:35-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T15:25:20-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T15:27:21-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T15:47:18-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T15:50:18-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T16:00:13-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T16:04:12-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T16:08:45-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T16:10:24-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T16:33:05-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T16:34:57-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T16:39:47-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T16:40:03-04:00 hub  INFO porch sensor: 14 pumpkins detected, 0 threats
+2026-10-31T16:41:21-04:00 lock door=GATEHOUSE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T16:44:31-04:00 lock door=GARAGE event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T16:48:34-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T16:51:12-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T17:17:14-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T17:26:30-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T17:36:43-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T17:45:22-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T17:56:57-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T18:11:25-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T18:44:38-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T18:55:30-04:00 hub  INFO guest mode enabled by t.grant
+2026-10-31T18:58:40-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T19:01:12-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T19:03:05-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T19:06:48-04:00 lock door=FRONT-DOOR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T19:12:25-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T19:14:09-04:00 lock door=SERVER-ROOM event=UNLOCK result=DENIED account=n.park device_ID=BH-PH-0104
+2026-10-31T19:14:09-04:00 hub  NOTICE n.park is not on the SERVER-ROOM list. Nice try
+2026-10-31T19:14:31-04:00 lock door=SERVER-ROOM event=UNLOCK result=DENIED account=n.park device_ID=BH-PH-0104
+2026-10-31T19:14:31-04:00 hub  NOTICE n.park is still not on the SERVER-ROOM list
+2026-10-31T19:22:15-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=e.vale device_ID=BH-PH-0103
+2026-10-31T19:24:32-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T19:30:00-04:00 hub  INFO dinner scene active: dining room lights 40 percent, organ music on
+2026-10-31T19:42:24-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T19:53:25-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T20:08:27-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T20:22:51-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T20:25:49-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T20:40:00-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T20:52:01-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T21:09:52-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T21:38:19-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T21:42:31-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T21:44:31-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T21:48:18-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T21:51:26-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=a.vale device_ID=BH-PH-0101
+2026-10-31T21:51:47-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T21:57:06-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:02:47-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T22:04:11-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=m.vale device_ID=BH-TAB-0417
+2026-10-31T22:04:11-04:00 hub  NOTICE unfamiliar device on account m.vale. Device record sealed. It opens with the device ID
+2026-10-31T22:09:44-04:00 hub  WARN door=LIBRARY held open 30 seconds, autolock skipped
+2026-10-31T22:09:49-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:12:40-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:19:03-04:00 hub  ALERT lockdown engaged. Exterior doors sealed
+2026-10-31T22:19:41-04:00 hub  ERROR network uplink lost. Logging locally until the uplink returns
+2026-10-31T22:21:15-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T22:24:40-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T22:24:50-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:24:50-04:00 hub  NOTICE door=SERVICE-ENTRANCE is sealed by lockdown. The hub does not make exceptions for catering
+2026-10-31T22:30:04-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T22:34:04-04:00 lock door=GARAGE event=UNLOCK result=DENIED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T22:38:25-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:38:26-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:44:42-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T22:47:36-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T22:48:41-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T22:50:38-04:00 lock door=GARAGE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T22:52:51-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T22:57:12-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:00:00-04:00 hub  INFO dinner scene ended. Organ music off. Nobody had been listening since 22:17
+2026-10-31T23:02:11-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:03:16-04:00 lock door=STUDY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:07:03-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:10:49-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T23:16:50-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T23:20:49-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T23:21:52-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:26:09-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
+2026-10-31T23:28:01-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:30:00-04:00 hub  NOTICE uplink still down, 142 retries. Lockdown still engaged
+2026-10-31T23:36:53-04:00 lock door=GARAGE event=UNLOCK result=DENIED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T23:40:46-04:00 lock door=GARAGE event=UNLOCK result=DENIED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T23:43:24-04:00 lock door=GARAGE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T23:44:22-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:46:03-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=staff.grounds device_ID=BH-BDG-0209
+2026-10-31T23:47:57-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:50:45-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:51:45-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=DENIED account=staff.kitchen device_ID=BH-BDG-0207
+2026-10-31T23:56:36-04:00 lock door=WINE-CELLAR event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:56:58-04:00 lock door=CONSERVATORY event=UNLOCK result=GRANTED account=t.grant device_ID=BH-BDG-0201
+2026-10-31T23:57:13-04:00 lock door=GATEHOUSE event=UNLOCK result=DENIED account=t.grant device_ID=BH-BDG-0201

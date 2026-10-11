@@ -1,0 +1,26 @@
+# Blackthorn Hub device record
+# device:           BH-TAB-0417
+# type:             tablet
+# assigned to:      Legal Office
+# registered owner: c.ward (Celeste Ward, family counsel)
+# registered:       2025-06-02T10:12:45-04:00
+# flagged:          2026-10-31T22:04:11-04:00 (unfamiliar device on account m.vale)
+#
+# Everything this device did on the house network on 2026-10-31 (all times local, UTC-04:00).
+2026-10-31T19:03:20-04:00 net     JOIN ssid=BLACKTHORN-GUEST
+2026-10-31T19:03:41-04:00 session SIGN-IN account=c.ward result=OK
+2026-10-31T19:26:02-04:00 screen  LOCK
+2026-10-31T20:41:17-04:00 screen  UNLOCK account=c.ward
+2026-10-31T20:43:50-04:00 screen  LOCK
+2026-10-31T21:36:08-04:00 screen  UNLOCK account=c.ward
+2026-10-31T21:44:29-04:00 screen  LOCK
+2026-10-31T21:58:33-04:00 screen  UNLOCK account=c.ward
+2026-10-31T22:03:38-04:00 session SIGN-OUT account=c.ward
+2026-10-31T22:03:52-04:00 session SIGN-IN account=m.vale result=OK
+2026-10-31T22:03:52-04:00 hub     WARN account switch on this device: c.ward -> m.vale. House rule, per A. Vale: an account is not a person. THM{ACCOUNT_IS_NOT_IDENTITY}
+2026-10-31T22:04:11-04:00 lock    UNLOCK-REQUEST door=LIBRARY account=m.vale result=GRANTED
+2026-10-31T22:04:11-04:00 hub     NOTICE unfamiliar device on account m.vale. This record is now sealed with the device ID
+2026-10-31T22:09:58-04:00 session SIGN-OUT account=m.vale
+2026-10-31T22:10:06-04:00 session SIGN-IN account=c.ward result=OK
+2026-10-31T22:10:15-04:00 screen  LOCK
+2026-10-31T22:19:41-04:00 net     LOST uplink down

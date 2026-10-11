@@ -23,10 +23,22 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T19:00:00-04:00 | Guests arrive, cocktails in the hall. | Task 1 |
 | 2026-10-31T19:30:00-04:00 | Dinner is served. | Task 1 |
 | 2026-10-31T21:30:00-04:00 | Dessert. Adrian says: "By midnight, none of you will own what you think you own." | Design doc |
+| 2026-10-31T19:03:41-04:00 | The Legal Office tablet `BH-TAB-0417` signs in to the house network as `c.ward`. | Task 3 |
+| 2026-10-31T21:38:19-04:00 | Theo's badge opens the wine cellar. | Task 3 |
+| 2026-10-31T21:51:26-04:00 | Adrian's phone opens the library. | Task 3 |
+| 2026-10-31T22:02:47-04:00 | Marcus's phone opens the server room. | Task 3 |
+| 2026-10-31T22:03:38-04:00 | The tablet signs out of `c.ward`, then signs in as `m.vale` at 22:03:52. | Task 3 |
+| 2026-10-31T22:04:11-04:00 | The tablet, signed in as `m.vale`, unlocks the library. The hub flags the unfamiliar device. | Task 3 |
+| 2026-10-31T22:09:44-04:00 | Hub warns that the library door was held open and did not relock. | Task 3 |
+| 2026-10-31T22:09:58-04:00 | The tablet signs out of `m.vale`, then back in as `c.ward` at 22:10:06. | Task 3 |
 | 2026-10-31T22:17:00-04:00 | Adrian Vale is found dead in the library. | Design doc |
+| 2026-10-31T22:19:03-04:00 | Lockdown engages and the exterior doors seal. | Task 3 |
+| 2026-10-31T22:19:41-04:00 | The house network uplink drops. The hub keeps logging locally until midnight, and the tablet's device record ends here. | Task 3 |
+| 2026-10-31T22:21:15-04:00 | Marcus's phone opens the server room again (and at 22:47:36 and 23:26:09). | Task 3 |
 | 2026-11-01T00:00:00-04:00 | Celeste's trustee authority was due to be revoked. | Design doc (Flag 8) |
 | 2026-11-01T00:42:00-04:00 | Investigators scan the invitation found in the library. | Task 1 |
 | 2026-11-01T00:55:00-04:00 | Investigators pull the portrait file from the east hall frame. | Task 2 |
+| 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | Task 3 |
 
 ## Task 1 facts
 
@@ -48,3 +60,28 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - The note commits Task 5 to this: Adrian filed a checksum of the genuine will in the estate archive on the day he signed it. The signing date is not stated yet.
 - The note names no suspect and does not say a counterfeit will already exists.
 - Flag: `THM{TRUST_THE_HASH}`
+
+## Task 3 facts
+
+- Artifacts: `lock-controller.log` (stage 1) and `device-record.zip` (stage 2, holding `device-activity.log`). The zip password is `BH-TAB-0417`.
+- Devices and their accounts:
+
+| Device | Account | What it is |
+| :---- | :---- | :---- |
+| `BH-PH-0101` | `a.vale` | Adrian's phone |
+| `BH-PH-0102` | `m.vale` | Marcus's phone |
+| `BH-PH-0103` | `e.vale` | Evelyn's phone |
+| `BH-PH-0104` | `n.park` | Nina's phone |
+| `BH-BDG-0201` | `t.grant` | Theo's staff badge |
+| `BH-BDG-0207` | `staff.kitchen` | Shared kitchen badge |
+| `BH-BDG-0209` | `staff.grounds` | Shared grounds badge |
+| `BH-TAB-0417` | `c.ward` | Tablet assigned to the Legal Office, registered to Celeste on 2025-06-02T10:12:45-04:00 |
+
+- Doors on the hub (nine): `FRONT-DOOR`, `SERVICE-ENTRANCE`, `GARAGE`, `GATEHOUSE`, `WINE-CELLAR`, `SERVER-ROOM`, `STUDY`, `LIBRARY`, `CONSERVATORY`.
+- Hub software: Blackthorn Hub 4.1.2. The hub records the true device ID on every lock line. Flag 7's relabelling to `MARCUS-ADMIN` happens in the dashboard, not in these raw logs.
+- `c.ward` never appears in the lock log: Theo's badge let the guests in at the front door (18:58:40 to 19:06:48), and Celeste opened no door under her own account.
+- The tablet appears in the lock log exactly once, at 22:04:11. Every other `m.vale` unlock that day comes from `BH-PH-0102`.
+- Before dinner, Nina's phone was denied at the server room twice (19:14:09 and 19:14:31) and Evelyn's phone opened the study (19:22:15). Flavour, outside the murder window.
+- All other lock-log entries are generated filler. From 21:30 onward the filler uses only Theo's badge and the shared staff badges: kitchen staff at the service entrance until lockdown, then denied attempts on exterior doors and Theo's badge on interior doors (wine cellar, study, conservatory) until midnight. Later tasks may ignore the filler but must not contradict the entries listed in the timeline.
+- Not decided here: how Celeste was able to sign in as `m.vale`, and who found Adrian (the library door was left unlatched at 22:09, so no unlock is logged at 22:17).
+- Flag: `THM{ACCOUNT_IS_NOT_IDENTITY}`
