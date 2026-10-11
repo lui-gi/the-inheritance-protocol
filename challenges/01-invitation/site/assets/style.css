@@ -1,0 +1,66 @@
+:root {
+  --ink: #e9e1cf;
+  --muted: #a89f8a;
+  --night: #120f14;
+  --panel: #1c1820;
+  --ember: #c8642a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background: var(--night);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.card {
+  width: 100%;
+  max-width: 38rem;
+  align-self: flex-start;
+  padding: 2.5rem;
+  background: var(--panel);
+  border: 1px solid #3a3140;
+  border-top: 4px solid var(--ember);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--ember);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+h1 { margin: 0.25rem 0 1rem; font-size: 2.2rem; font-weight: normal; }
+
+h2 {
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #3a3140;
+  color: var(--ember);
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.lede { font-style: italic; color: var(--muted); }
+
+.status { color: var(--ember); letter-spacing: 0.2em; font-family: monospace; }
+
+ul { padding-left: 1.2rem; }
+
+.schedule, .guests { list-style: none; padding: 0; }
+
+.schedule span { display: inline-block; width: 6rem; color: var(--muted); }
+
+.guests li { padding: 0.2rem 0; }
+
+.fine { margin: 2.5rem 0 0; color: var(--muted); font-size: 0.8rem; font-family: monospace; }

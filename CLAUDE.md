@@ -13,6 +13,10 @@ This repo will hold the challenge artifacts for "The Inheritance Protocol", a 75
 
 The repo currently contains only the design document, `Halloween_Cybersecurity_Murder_Mystery_Master_3_Storylines.docx.md`. There is no build, lint, or test tooling yet. Only Storyline 02 (The Inheritance Protocol) is in scope here; the document also mentions Storyline 03 (Code Blue) in its summary table but does not detail it.
 
+## Platform
+
+The entire CTF lives on the TryHackMe platform in a custom challenge room. Each of the eight flags is its own separate task, with its own task text, artifacts, and answer field. The room has no VM: every challenge artifact ships as a downloadable task file, so nothing may depend on a machine IP, a running service, or external hosting such as GitHub Pages. Flags are submitted as room task answers.
+
 ## Source of truth
 
 The design document defines the suspects, the organizer-only solution, the eight challenges, and the exact flag strings. Read it before creating or changing any challenge. Flags use the format `THM{UPPER_SNAKE_CASE}` and must match the document exactly.
