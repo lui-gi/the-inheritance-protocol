@@ -1,0 +1,14 @@
+root:x:0:
+daemon:x:1:
+adm:x:4:syslog,a.vale
+sudo:x:27:a.vale,m.vale
+www-data:x:33:
+backup:x:34:
+ssh:x:110:
+mosquitto:x:111:
+blackthorn-hub:x:998:
+svc-backup:x:997:
+a.vale:x:1001:
+m.vale:x:1002:
+t.grant:x:1003:
+nogroup:x:65534:

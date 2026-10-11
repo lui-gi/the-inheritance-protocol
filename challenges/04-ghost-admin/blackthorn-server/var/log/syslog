@@ -1,0 +1,7 @@
+2026-10-31T19:30:00-04:00 blackthorn-srv blackthorn-hub[812]: scene "dinner" active
+2026-10-31T22:19:03-04:00 blackthorn-srv blackthorn-hub[812]: scene "lockdown" active
+2026-10-31T22:19:41-04:00 blackthorn-srv systemd-networkd[604]: eth0: Lost carrier
+2026-10-31T22:35:01-04:00 blackthorn-srv systemd[1]: Restarting systemd-networkd.service
+2026-10-31T22:35:02-04:00 blackthorn-srv systemd-networkd[19410]: eth0: Link DOWN
+2026-10-31T23:39:57-04:00 blackthorn-srv systemd[1]: Restarting systemd-networkd.service
+2026-10-31T23:39:58-04:00 blackthorn-srv systemd-networkd[19688]: eth0: Link DOWN

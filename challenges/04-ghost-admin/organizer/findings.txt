@@ -1,0 +1,23 @@
+FINDINGS
+Sealed 30 October 2026
+
+If this opened, you know when hvac-sync was last used. Good. Hold on to that
+date, because somebody will try to talk you out of it.
+
+Here is what is true. The account is real. Marcus built it in secret, it can
+do anything on this server, and it breaks every rule I ever wrote for this
+family. He is guilty of exactly that, and he will be hearing about it.
+
+Here is what is also true. An account does nothing while nobody is using it.
+A login leaves a line in the log, and no line means no login. If something
+has happened in this house, look at that night before you look at my son.
+If hvac-sync is not there, it did not do it.
+
+A secret is not the same thing as a crime. Whoever points you at this
+account is either a poor reader of logs or is hoping that you are.
+
+THM{RED_HERRING_ROOT}
+
+A.V.
+
+P.S. Marcus, if it is you reading this: we need to talk. Bring the thermostat.

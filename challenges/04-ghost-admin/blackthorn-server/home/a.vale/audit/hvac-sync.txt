@@ -1,0 +1,24 @@
+AUDIT NOTE
+30 October 2026
+Subject: the account called hvac-sync
+
+This house has no HVAC sync service. I designed the heating myself. It syncs
+with nothing, and it resents being asked.
+
+hvac-sync is a second root account wearing a boiler suit. Look at its user ID
+in /etc/passwd. My son made it, and auth.log will tell you the night he did.
+
+I have known since June. I left it alone because I wanted to see what he
+would do with it. So far he restarts things, and reads logs he was allowed
+to read anyway.
+
+I check on it every day. Tonight I wrote down what I think it means and
+sealed it in findings.zip, beside this note.
+
+The password is the date hvac-sync was last used, written the way the log
+writes it: YYYY-MM-DD.
+
+If you are reading this and I am not available to gloat, do one thing before
+you open it. Check that the date is still the last one.
+
+A.V.

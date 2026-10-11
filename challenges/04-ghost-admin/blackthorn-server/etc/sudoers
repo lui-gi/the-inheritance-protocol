@@ -1,0 +1,7 @@
+# This file MUST be edited with the 'visudo' command as root.
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        logfile=/var/log/auth.log
+
+root    ALL=(ALL:ALL) ALL
+%sudo   ALL=(ALL:ALL) ALL

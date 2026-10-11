@@ -1,0 +1,4 @@
+2026-10-31T16:40:03-04:00 house/porch/objects: pumpkin x14
+2026-10-31T17:41:30-04:00 mosquitto version 2.0.18 starting
+2026-10-31T17:41:31-04:00 Opening ipv4 listen socket on port 1883.
+2026-10-31T22:19:41-04:00 Socket error on client porch-sensor, disconnecting.

@@ -1,0 +1,11 @@
+[Unit]
+Description=Blackthorn Hub (doors, lights, sensors)
+After=network-online.target mosquitto.service
+
+[Service]
+User=blackthorn-hub
+ExecStart=/opt/blackthorn-hub/bin/hub --config /opt/blackthorn-hub/config.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+# Nightly backup of the hub configuration and logs
+30 2 * * * svc-backup /usr/local/bin/backup.sh

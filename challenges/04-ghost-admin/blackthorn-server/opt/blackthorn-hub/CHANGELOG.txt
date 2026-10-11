@@ -1,0 +1,4 @@
+4.1.2  Porch sensor no longer reports the postman as "recurring intruder".
+4.1.1  Wine cellar battery reading fixed. (It was not fixed.)
+4.1.0  Lockdown scene added at the owner's request.
+4.0.0  Rewrite. Doors now relock themselves.

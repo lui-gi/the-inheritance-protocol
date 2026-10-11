@@ -1,0 +1,26 @@
+# Blackthorn Hub configuration
+house: Blackthorn House
+timezone: America/New_York
+
+doors:
+  - FRONT-DOOR
+  - SERVICE-ENTRANCE
+  - GARAGE
+  - GATEHOUSE
+  - WINE-CELLAR
+  - SERVER-ROOM
+  - STUDY
+  - LIBRARY
+  - CONSERVATORY
+
+autolock_seconds: 30
+log_rotation: daily
+
+scenes:
+  dinner:
+    dining_room_lights: 40
+    music: organ
+  lockdown:
+    seal_exterior_doors: true
+
+# Paired devices are kept in the hub database, which is not part of this snapshot.

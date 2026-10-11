@@ -1,0 +1,7 @@
+TODO (Marcus)
+
+- Porch sensor is counting pumpkins again. Teach it what a pumpkin is.
+- Wine cellar lock battery. Still 18 percent. Somehow.
+- Renew the hub certificate before it expires and Dad notices.
+- Remove hvac-sync before Dad's next audit. He will never find it, but still.
+- Tell nobody about hvac-sync.
