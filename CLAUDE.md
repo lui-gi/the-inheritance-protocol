@@ -1,0 +1,33 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Rules
+
+- Never use em-dashes in anything you write (code, comments, docs, challenge text, commit messages). Use commas, colons, parentheses, or separate sentences instead.
+- Never add a `Co-Authored-By: Claude` trailer (or any other Claude/AI attribution) to commits or pull requests.
+
+## Project
+
+This repo will hold the challenge artifacts for "The Inheritance Protocol", a 75-minute Halloween murder-mystery CTF for GWC x Cybersecurity Club x TryHackMe. Players act as outside digital investigators at Blackthorn House and collect eight flags to identify who killed Adrian Vale.
+
+The repo currently contains only the design document, `Halloween_Cybersecurity_Murder_Mystery_Master_3_Storylines.docx.md`. There is no build, lint, or test tooling yet. Only Storyline 02 (The Inheritance Protocol) is in scope here; the document also mentions Storyline 03 (Code Blue) in its summary table but does not detail it.
+
+## Source of truth
+
+The design document defines the suspects, the organizer-only solution, the eight challenges, and the exact flag strings. Read it before creating or changing any challenge. Flags use the format `THM{UPPER_SNAKE_CASE}` and must match the document exactly.
+
+## Story constraints that every artifact must respect
+
+The challenges are not independent: each one plants evidence that later challenges rely on, so artifacts must stay mutually consistent (names, timestamps, device IDs, hashes, keys).
+
+- Adrian Vale is found dead at 10:17 PM on Halloween in the library. Timestamps in logs, metadata, and commits must fit around this.
+- The killer is Celeste Ward (family attorney). She replaced the signed will and altered smart-home evidence to frame Marcus Vale.
+- Marcus is the intended false lead: his account appears in the library smart-lock log, but the device identifier belongs to a legal-office tablet registered to Celeste (Flag 3). His hidden admin account is real misconduct but was not used during the murder window (Flag 4).
+- The genuine will matches Adrian's archived checksum; the "new" will has a later creation chain and a mismatched signature manifest (Flags 2 and 5).
+- The smart-home dashboard Git repo contains a commit that relabels a legal-office device as `MARCUS-ADMIN`; the author is scrubbed but the signing key maps to Celeste's workstation (Flag 7).
+- Every suspect lied about something, but only Celeste's lie intersects with the library timeline (Flag 6).
+- Flag 8 is unlocked by combining the hashes, access logs, device ID, and commit history, and reveals that Adrian was revoking Celeste's trustee authority at midnight.
+- The murder method stays deliberately non-technical and non-instructional. The cyber content is about cover-up, forged evidence, and timeline reconstruction only.
+- Player-facing material must never reveal the "Organizer-Only Truth" section. Keep organizer notes and solutions separate from anything distributed to players.
+- Tone: theatrical ensemble whodunit, funny in places, with original characters and plot.
