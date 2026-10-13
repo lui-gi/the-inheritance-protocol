@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repo will hold the challenge artifacts for "The Inheritance Protocol", a 75-minute Halloween murder-mystery CTF for GWC x Cybersecurity Club x TryHackMe. Players act as outside digital investigators at Blackthorn House and collect eight flags to identify who killed Adrian Vale.
 
-The repo currently contains only the design document, `Halloween_Cybersecurity_Murder_Mystery_Master_3_Storylines.docx.md`. There is no build, lint, or test tooling yet. Only Storyline 02 (The Inheritance Protocol) is in scope here; the document also mentions Storyline 03 (Code Blue) in its summary table but does not detail it.
+All eight tasks are built. The repo holds the design document (`Halloween_Cybersecurity_Murder_Mystery_Master_3_Storylines.docx.md`), the shared facts in `canon/canon.md`, and one folder per task under `challenges/`, each with its player-facing `task.md`, a `build/` script that regenerates its artifacts, and an `organizer/` solution. `README.md` covers building and publishing. There is no lint or test tooling: each build script checks its own output. Only Storyline 02 (The Inheritance Protocol) is in scope here; the document also mentions Storyline 03 (Code Blue) in its summary table but does not detail it.
 
 ## Platform
 

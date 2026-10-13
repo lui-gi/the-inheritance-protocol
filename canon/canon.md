@@ -107,7 +107,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - The tablet appears in the lock log exactly once, at 22:04:11. Every other `m.vale` unlock that day comes from `BH-PH-0102`.
 - Before dinner, Nina's phone was denied at the server room twice (19:14:09 and 19:14:31) and Evelyn's phone opened the study (19:22:15). Flavour, outside the murder window.
 - All other lock-log entries are generated filler. From 21:30 onward the filler uses only Theo's badge and the shared staff badges: kitchen staff at the service entrance until lockdown, then denied attempts on exterior doors and Theo's badge on interior doors (wine cellar, study, conservatory) until midnight. Later tasks may ignore the filler but must not contradict the entries listed in the timeline.
-- Not decided here: how Celeste was able to sign in as `m.vale`, and who found Adrian (the library door was left unlatched at 22:09, so no unlock is logged at 22:17).
+- How Celeste was able to sign in as `m.vale` is answered in Task 8 (the recovery envelope). Not decided anywhere: who found Adrian (the library door was left unlatched at 22:09, so no unlock is logged at 22:17).
 - Flag: `THM{ACCOUNT_IS_NOT_IDENTITY}`
 
 ## Task 4 facts
@@ -143,7 +143,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Other terms, the same in both wills: the house goes to the Vale Family Trust, the voting shares go to Evelyn and Marcus in equal parts, Nina gets Adrian's books, Theo gets the wine cellar. Celeste Ward is named as Trustee and as the counsel who prepared the document.
 - The genuine will does not mention revoking Celeste as Trustee. That is Adrian's midnight plan and belongs to Flag 8.
 - The replacement is filed under Celeste's own account. Her cover story is that Adrian signed an updated will on 29 October and she filed it as counsel. The failed manifest is what disproves it.
-- Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record, and how she signed in as `m.vale` (still open from Task 3).
+- Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record. How she signed in as `m.vale` is answered in Task 8.
 - Flag: `THM{THE_WILL_WAS_REPLACED}`
 
 ## Task 6 facts
@@ -187,7 +187,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - New devices: `BH-WS-0401` (Adrian's workstation, `10.13.0.10` in Task 4), `BH-WS-0402` (Marcus's, `10.13.0.22`), `BH-WS-0403` (Theo's, `10.13.0.31`).
 - The repository names no one from the Legal Office. The mapping from `hub-key-3` to `BH-WS-0418` and `c.ward` exists only in the sealed record.
 - Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). Task 6 names them: Evelyn, Nina, and Theo.
-- Not decided here: how the tablet signed in as `m.vale` (still open from Task 3).
+- How the tablet signed in as `m.vale` is answered in Task 8 (the recovery envelope).
 - Flag: `THM{FOLLOW_THE_COMMIT}`
 
 ## Task 8 facts

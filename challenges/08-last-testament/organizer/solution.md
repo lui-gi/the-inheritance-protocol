@@ -8,7 +8,7 @@ Target solve time: about 10 minutes. Skills: pulling four findings together from
 
 ## The story beat
 
-This is the finale. The board makes the player lay the four pieces of evidence onto the timeline, and each one answers part of the final accusation. Then the estate archive's midnight release supplies the motive: Adrian recorded a message on 30 October revoking Celeste's authority as Trustee at 00:00 on 1 November. The message was to be released to the Trustee only, so the player has to become the Trustee, by changing a cookie the release page trusts. Celeste's whole scheme was an abuse of the Trustee's authority, and the last step of the room is the player borrowing it.
+This is the finale. The board makes the player lay the four pieces of evidence onto the timeline, and each one answers part of the final accusation. Then the estate archive's midnight release supplies the motive: Adrian recorded a message on 30 October telling Celeste he would sign the papers revoking her authority as Trustee at 00:00 on 1 November. The message was to be released to the Trustee only, so the player has to become the Trustee, by changing a cookie the release page trusts. Celeste's whole scheme was an abuse of the Trustee's authority, and the last step of the room is the player borrowing it.
 
 The message also closes the thread left open since Task 3: Celeste could sign in as `m.vale` because the Legal Office kept a sealed recovery envelope, with the password, for every family account, and she opened Marcus's on 26 October.
 
