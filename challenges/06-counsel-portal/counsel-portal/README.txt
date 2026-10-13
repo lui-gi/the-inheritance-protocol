@@ -1,7 +1,8 @@
 BLACKTHORN LEGAL OFFICE: COUNSEL PORTAL
 =======================================
 
-The Legal Office kept the first-interview statements in a small web portal.
+While the house waited for investigators, family counsel took everyone's first
+statement and filed it in the Legal Office's small web portal.
 You have been given a read-only guest login. This is the recovered app, plus
 a script that runs it on your own computer. Nothing here touches the internet.
 
@@ -54,7 +55,8 @@ WHAT YOU ARE LOOKING AT
 
 The portal has one search box. As a guest you can read the five filed
 statements, one from each person who was in the house. Counsel's own working
-notes are sealed, and the guest view will not show them to you.
+notes are sealed, and so is the portal's record of any statement that was
+edited after filing. The guest view will not show you either.
 
 The portal was built in a hurry. It is not careful about what you type into
 that search box. If a search makes it unhappy, it will tell you exactly what

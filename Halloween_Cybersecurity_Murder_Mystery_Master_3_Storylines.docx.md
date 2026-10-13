@@ -7,7 +7,7 @@ Two completely different tones: a wealthy-family mansion whodunit, and a modern 
 
 | Story | Tone | Cyber Focus |
 | :---- | :---- | :---- |
-| 02 — The Inheritance Protocol | Mansion / family / betrayal | Smart-home forensics, stego, Git, access logs |
+| 02 — The Inheritance Protocol | Mansion / family / betrayal | Smart-home forensics, stego, Git, access logs, web exploitation (SQL injection) |
 | 03 — Code Blue | High-stakes incident response | Credentials, MFA, lateral movement, exfiltration, ransomware |
 
 # **STORYLINE 02 — THE INHERITANCE PROTOCOL**
@@ -40,11 +40,11 @@ Adrian Vale, 67 — founder of Blackthorn Security, famous for building high-sec
 | Marcus Vale — Son / CTO | Built the mansion’s smart-home system. Secretly kept an unauthorized administrator account. | Technical access; his credentials appear in house logs. |
 | Nina Park — Niece / Red-Team Lead | Adrian’s favorite protégé. Secretly copied an unreleased product prototype to prove it was vulnerable. | Possessed exploit code and knew how to bypass several sensors. |
 | Celeste Ward — Family Attorney | Prepared the new will and serves as trustee for the Vale family holdings. Secretly drafted two conflicting versions. | Would gain temporary control over the trust if the heirs were disqualified. |
-| Theo Grant — Estate Manager | Controls staff badges, cameras, and physical keys. Secretly disabled one hallway camera to hide an unrelated meeting. | Had physical access to every room and initially lies about the camera outage. |
+| Theo Grant — Estate Manager | Controls staff badges, cameras, and physical keys. Secretly disabled one camera on the cellar stairs to hide an unrelated meeting. | Had physical access to every room and initially lies about the camera outage. |
 
 # **Organizer-Only Truth**
 
-The killer is CELESTE WARD, the family attorney. Adrian discovered that Celeste had quietly rewritten trust language so that she would temporarily control Blackthorn Security if the heirs were judged incapable of serving. He planned to revoke her authority that night. Celeste killed Adrian during a short gap in the house timeline, then used access she already had as legal counsel to replace the signed will and manipulate smart-home evidence so the investigation would point toward Marcus.
+The killer is CELESTE WARD, the family attorney. Adrian discovered that Celeste had quietly rewritten trust language so that she would temporarily control Blackthorn Security if the heirs were judged incapable of serving. He planned to revoke her authority that night, by signing the papers in front of the family at midnight. Celeste had already begun preparing a forged will and a frame around Marcus’s account; the midnight deadline turned a forgery that could wait into a murder that could not. Celeste killed Adrian during a short gap in the house timeline, then used access she already had as legal counsel to replace the signed will and manipulate smart-home evidence so the investigation would point toward Marcus.
 
 The murder method itself should stay deliberately non-technical and non-instructional in the game. The cyber component is about covering tracks, forging digital evidence, and proving the timeline — not about teaching a physical method of harm.
 
@@ -57,9 +57,9 @@ The murder method itself should stay deliberately non-technical and non-instruct
 | FLAG 3 — The Smart Lock | Log analysis | Teams compare smart-lock entries. Marcus’s account appears to open the library, but the device identifier belongs to a legal-office tablet registered to Celeste. | THM{ACCOUNT\_IS\_NOT\_IDENTITY} |
 | FLAG 4 — Ghost Admin | Linux / grep | A small VM or log bundle contains a hidden admin account Marcus created months earlier. It is real misconduct — but timestamps prove it was not used during the murder window. | THM{RED\_HERRING\_ROOT} |
 | FLAG 5 — The Two Wills | Hashing / integrity | Teams hash two PDF or text artifacts. The “new” will has a later creation chain and a mismatched signature manifest. The older copy matches Adrian’s archived checksum. | THM{THE\_WILL\_WAS\_REPLACED} |
-| FLAG 6 — Family Secrets | Web exploitation / SQL injection | The Legal Office case portal shows guests the five first-interview statements. A SQL injection in its search box exposes the sealed counsel's notes, which reveal each suspect lied about something. Only Celeste’s lie intersects with the library timeline. | THM{SECRETS\_ARE\_NOT\_MURDER} |
+| FLAG 6 — Family Secrets | Web exploitation / SQL injection | While the house waits for investigators, Celeste takes everyone’s first statement and files all five in the Legal Office case portal. A SQL injection in its search box exposes the sealed records: her private notes on the other four suspects’ secrets, which she is keeping as grounds to judge the heirs unfit, and the portal’s own revision record showing she rewrote her statement. Every suspect lied about something. Only Celeste’s lie intersects with the library timeline. | THM{SECRETS\_ARE\_NOT\_MURDER} |
 | FLAG 7 — Commit History | Git forensics | A local Git repository for the smart-home dashboard shows someone changed event-label code so a legal-office device would display as “MARCUS-ADMIN.” The commit author was scrubbed, but the signing key maps to Celeste’s workstation. | THM{FOLLOW\_THE\_COMMIT} |
-| FLAG 8 — The Last Testament | Multi-clue final | Combining the hashes, access logs, device ID, and commit history unlocks Adrian’s final recorded message: he was revoking Celeste’s trustee authority at midnight. | THM{CELESTE\_WARD} |
+| FLAG 8 — The Last Testament | Multi-clue final | Combining the hashes, access logs, device ID, and commit history unlocks Adrian’s final recorded message: he was going to sign away Celeste’s trustee authority at midnight. | THM{CELESTE\_WARD} |
 
 # **Final Accusation Requirements**
 

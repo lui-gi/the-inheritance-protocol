@@ -106,10 +106,12 @@ So I did what I do. I reread my will, and it still matches the receipt I
 filed. I left a note where a sensible person would look. And I put you on the
 guest list, because I would rather do this with you in the room.
 
-As of this moment, midnight on the first of November, your authority as
-Trustee of the Vale Family Trust is revoked. The papers are signed and filed.
-An independent trustee takes over in the morning. You keep your fee and your
-parking space, and nothing else.
+The papers that end your authority as Trustee of the Vale Family Trust are
+drawn up and waiting on my desk in the library. They need one signature, and
+it is mine. At midnight on the first of November I sign them in front of the
+family, and this recording reaches you at the same moment. An independent
+trustee takes over in the morning. You keep your fee and your parking space,
+and nothing else.
 
 To the rest of the family, when this is read to you: nobody owns less than
 they did yesterday, whatever I said over dessert. Marcus, I know about the
@@ -126,13 +128,20 @@ END OF TRANSCRIPT
 INVESTIGATORS' NOTE
 
 This message was never released. At midnight its only permitted listener was
-the Trustee, and the Trustee had spent the evening making sure there would be
-nothing left to revoke.
+the Trustee, and by midnight there was nobody left to sign the papers it
+describes. Unsigned, they end nothing.
 
-She had Marcus's password from the envelope. She had already taught the
-dashboard to blame him. At 22:04 her tablet opened the library under his
-name. At 22:26 her workstation filed a will that made her authority permanent.
-She was ninety-four minutes ahead of this recording.
+She had been preparing before Adrian ever suspected her. On 26 October she
+took Marcus's password from the envelope: the first step of a forgery she
+meant to take her time over, with his account ready to carry the blame. Then
+her name appeared on the guest list, on a page that promised paperwork at
+midnight. The next evening she drafted her own will for Adrian and taught the
+dashboard to blame Marcus. Over dessert Adrian confirmed the deadline out
+loud. A forgery that could wait became a murder that could not.
+
+At 22:04 her tablet opened the library under Marcus's name. At 22:26 her
+workstation filed a will that made her authority permanent. She was
+ninety-four minutes ahead of this recording.
 
 Everyone in the house lied. One person needed the logs to lie as well.
 

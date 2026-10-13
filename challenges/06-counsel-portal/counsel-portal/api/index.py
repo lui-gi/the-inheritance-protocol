@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Blackthorn Legal Office: Counsel Portal (WSGI app).
 
-The Legal Office kept the first-interview statements in a small case portal.
+While the house waited for the investigators, family counsel took everyone's
+first statement and filed it in the Legal Office's small case portal.
 Investigators are given a read-only guest view. This is the recovered app.
 
 The same `app` object serves two ways with no changes:
@@ -22,27 +23,36 @@ from urllib.parse import parse_qs
 
 # Packed records, built by build/make_portal.py. Do not hand-edit.
 _PACKED = (
-    "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"
+    "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"
+    "dHH59Wg+/QpR+Hr2Yf5mOv/R+/Llx3+ZpPkR"
 )
 
 
@@ -113,8 +123,9 @@ PAGE = """<!doctype html>
 <body>
   <h1>Blackthorn Legal Office</h1>
   <p class="sub">Counsel Portal &mdash; case file VALE-1031 &mdash; guest (read only)</p>
-  <p>Search the first-interview statements on file. Guests see filed
-     statements only; counsel's working notes are sealed.</p>
+  <p>Search the first-interview statements on file, taken by counsel on the
+     night. Guests see filed statements only; counsel's working notes and the
+     portal's revision records are sealed.</p>
   <form method="get" action="/">
     <input type="text" name="q" value="{query_value}" placeholder="search statements, e.g. library">
     <button type="submit">Search</button>
@@ -150,7 +161,8 @@ def _render_results(con, q):
         return '<p><em>No statements match that search.</em></p>'
     cards = []
     for suspect, role, kind, time, body in rows:
-        label = '' if kind == 'statement' else ' [SEALED COUNSEL NOTE]'
+        label = {'statement': '', 'note': ' [SEALED COUNSEL NOTE]'}.get(
+            kind, ' [SEALED REVISION RECORD]')
         cards.append(
             '<div class="card"><div class="who">'
             + html.escape(suspect)

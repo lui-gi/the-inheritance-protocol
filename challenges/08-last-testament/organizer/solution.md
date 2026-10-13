@@ -86,11 +86,11 @@ Entry `EA-0043`, "For the Trustee, at midnight". Recorded 2026-10-30T22:10:00-04
 
 - The Legal Office kept a sealed recovery envelope, with the password, for every family account. On 26 October the archive told Adrian that counsel had opened the one for Marcus's account, with no request and no note.
 - That is why he reread his will on 27 October, left the note in his portrait, and added Celeste to the guest list on 28 October.
-- At midnight on 1 November her authority as Trustee is revoked, and an independent trustee takes over in the morning.
+- The papers revoking her authority as Trustee are drawn up and waiting on his desk in the library, unsigned. He means to sign them in front of the family at midnight on 1 November, and an independent trustee takes over in the morning. This is why his death before midnight matters: unsigned, the papers end nothing.
 - He knew about Marcus's hidden account and considered it embarrassing, not dangerous.
 - He did not know a replacement will existed, and the message says nothing about how he died.
 
-An investigators' note follows the transcript and states the case in five sentences before the flag.
+An investigators' note follows the transcript and states the case before the flag. It also orders the motive: Celeste opened Marcus's envelope on 26 October as the first step of a forgery she meant to take her time over, before Adrian suspected anything. Opening it is what alerted him. Her name on the guest list (28 October), on a page promising paperwork at midnight, told her she was found out, so the next evening she drafted the replacement will and relabelled the dashboard. Dessert confirmed the deadline, and the forgery became a murder.
 
 ## How this maps to the final accusation
 

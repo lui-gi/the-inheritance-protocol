@@ -21,6 +21,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | Task 1 |
 | 2024-04-13T11:20:00-04:00 | Adrian's portrait digitised for the east hall frame. | Task 2 |
 | 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026". | Task 1 |
+| 2026-10-24 | Nina copies the unreleased Project Lantern lock firmware to a personal drive. Time of day not decided. | Task 6 |
 | 2026-10-26 | Counsel opens the Legal Office's sealed recovery envelope for the `m.vale` account. The estate archive tells Adrian. Time of day not decided. | Task 8 |
 | 2026-10-27T20:52:16-04:00 | Adrian rereads his will in the archive. It still verifies. | Task 5 |
 | 2026-10-27T21:15:44-04:00 | Adrian writes a note into his hall portrait's metadata (the portrait file's last-modified time). | Task 2 |
@@ -35,13 +36,15 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T19:30:00-04:00 | Dinner is served. | Task 1 |
 | 2026-10-31T21:30:00-04:00 | Dessert. Adrian says: "By midnight, none of you will own what you think you own." | Design doc |
 | 2026-10-31T19:03:41-04:00 | The Legal Office tablet `BH-TAB-0417` signs in to the house network as `c.ward`. | Task 3 |
+| 2026-10-31T19:24:00-04:00 | Evelyn, in the study, wires 4.2 million from the company reserve. | Task 6 |
+| 2026-10-31T21:35:00-04:00 | Theo switches off camera 07 (cellar stairs) until 21:50. | Task 6 |
 | 2026-10-31T21:38:19-04:00 | Theo's badge opens the wine cellar. | Task 3 |
 | 2026-10-31T21:51:26-04:00 | Adrian's phone opens the library. | Task 3 |
 | 2026-10-31T22:02:47-04:00 | Marcus's phone opens the server room. | Task 3 |
 | 2026-10-31T22:03:38-04:00 | The tablet signs out of `c.ward`, then signs in as `m.vale` at 22:03:52. | Task 3 |
 | 2026-10-31T22:03:31-04:00 | Marcus logs in at the server room console as `m.vale` (until 22:15:48). | Task 4 |
 | 2026-10-31T22:04:11-04:00 | The tablet, signed in as `m.vale`, unlocks the library. The hub flags the unfamiliar device. | Task 3 |
-| 2026-10-31T22:04:11-04:00 | The hall dashboard shows the library unlock as `MARCUS-ADMIN`. | Task 7 |
+| 2026-10-31T22:04:11-04:00 | The hall dashboard shows the library unlock as `MARCUS-ADMIN`. Evelyn, Nina, and Theo are in the hall and see it. | Task 7, Task 6 |
 | 2026-10-31T22:09:44-04:00 | Hub warns that the library door was held open and did not relock. | Task 3 |
 | 2026-10-31T22:09:58-04:00 | The tablet signs out of `m.vale`, then back in as `c.ward` at 22:10:06. | Task 3 |
 | 2026-10-31T22:17:00-04:00 | Adrian Vale is found dead in the library. | Design doc |
@@ -50,7 +53,10 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T22:21:15-04:00 | Marcus's phone opens the server room again (and at 22:47:36 and 23:26:09). | Task 3 |
 | 2026-10-31T22:26:17-04:00 | `c.ward`, on `BH-WS-0418`, replaces the will in the archive. The genuine file is renamed `Vale_Will_superseded.pdf`, the manifest check fails at 22:26:18, and the archive seals a replacement record. | Task 5 |
 | 2026-10-31T22:31:40-04:00 | `c.ward` reads the replacement will in the archive from `BH-WS-0418`. | Task 5 |
-| 2026-11-01T00:00:00-04:00 | Celeste's trustee authority was due to be revoked, and `EA-0043` was due to be released to the Trustee. It was never released. | Design doc, Task 8 |
+| 2026-10-31T23:40:00-04:00 | Celeste, as family counsel, takes the five first statements and files them in the Legal Office case portal (23:40 to 23:56, hers at 23:52). | Task 6 |
+| 2026-11-01T00:00:00-04:00 | Adrian was due to sign the papers revoking Celeste's trustee authority, in front of the family, and `EA-0043` was due to be released to the Trustee. The papers stayed unsigned and the message was never released. | Design doc, Task 8 |
+| 2026-11-01T00:11:00-04:00 | Celeste writes four sealed counsel's notes on the others (00:11 to 00:14). | Task 6 |
+| 2026-11-01T00:33:00-04:00 | Celeste replaces her own statement. The portal seals a revision record holding both versions. | Task 6 |
 | 2026-11-01T00:42:00-04:00 | Investigators scan the invitation found in the library. | Task 1 |
 | 2026-11-01T00:55:00-04:00 | Investigators pull the portrait file from the east hall frame. | Task 2 |
 | 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | Task 3 |
@@ -65,7 +71,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
 - Live guest list (five): the four above plus Celeste Ward.
-- Why Celeste was added (organizer reasoning): Adrian wanted her in the room when he revoked her authority. Nothing player-facing in Task 1 explains why she was added.
+- Why Celeste was added (organizer reasoning): Adrian wanted her in the room when he signed the papers revoking her authority. Nothing player-facing in Task 1 explains why she was added.
 - Flag: `THM{THE_GUEST_LIST_CHANGED}`
 
 ## Task 2 facts
@@ -140,6 +146,28 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record, and how she signed in as `m.vale` (still open from Task 3).
 - Flag: `THM{THE_WILL_WAS_REPLACED}`
 
+## Task 6 facts
+
+- Artifact: `counsel-portal/`, a WSGI app (local `serve.py`, or Vercel). The Legal Office case portal, case file `VALE-1031`. SQL injection in the search box.
+- Celeste took all five first statements herself, as family counsel, while the house waited for the investigators. This is why the interviews are in her portal.
+- Ten records: five guest-visible statements, four sealed counsel's notes (Celeste's private file on the others), and one sealed revision record (written by the portal) for Celeste's own statement. The checkpoint answer is `5` sealed records.
+- The lies and the secrets:
+
+| Suspect | Lie in the statement | Truth in the sealed record |
+| :---- | :---- | :---- |
+| Evelyn | Went to the study only for her glasses, the books are in order. | Wired 4.2 million from the company reserve at 19:24, from the study, to cover the collapsed Northgate acquisition. |
+| Marcus | Has one account on the house system. | The hidden administrator account from Task 4. The note does not name `hvac-sync`. |
+| Nina | No product code in months, nowhere near the server room. | Copied the Project Lantern lock firmware on 24 October and tried it on the server room door at 19:14 (the two denials in Task 3). |
+| Theo | Every camera ran all night. | Switched off camera 07, on the cellar stairs, from 21:35 to 21:50, for a job interview by video call in the wine cellar. He means to resign. |
+| Celeste | In the conservatory on a client call from 22:00 to 22:15. | Her first version (23:52) said she was in the hall and saw the dashboard name Marcus. She withdrew it at 00:33. |
+
+- Evelyn, Nina, and Theo were in the hall at 22:04 and saw the dashboard say `MARCUS-ADMIN`. They are the "three people" in Task 7's text. Each of their statements names the other two and not Celeste.
+- Marcus's statement puts him at the server room console from ten to a quarter past, matching Task 4.
+- No camera covers the library: Adrian would not have cameras on his private rooms. Camera 07 covers the cellar stairs.
+- The counsel's notes are in Celeste's voice and serve the replacement will's Article 4: they rate each person's secret as grounds for "unfitness". Her note on Marcus says to point the investigators at his hidden account first, as Adrian's Task 4 findings predicted.
+- The revision record is in the portal's voice. Rule: counsel can edit a filed statement but cannot erase one.
+- Flag: `THM{SECRETS_ARE_NOT_MURDER}`
+
 ## Task 7 facts
 
 - Artifacts: `blackthorn-dashboard/` (stage 1, a Git repository), `README.txt`, and `signing-record.zip` (stage 2, holding `signing-record.log`). The zip password is the relabelling commit's short hash, `4fc4f25`.
@@ -158,7 +186,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 - New devices: `BH-WS-0401` (Adrian's workstation, `10.13.0.10` in Task 4), `BH-WS-0402` (Marcus's, `10.13.0.22`), `BH-WS-0403` (Theo's, `10.13.0.31`).
 - The repository names no one from the Legal Office. The mapping from `hub-key-3` to `BH-WS-0418` and `c.ward` exists only in the sealed record.
-- Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). Who they were is not decided.
+- Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). Task 6 names them: Evelyn, Nina, and Theo.
 - Not decided here: how the tablet signed in as `m.vale` (still open from Task 3).
 - Flag: `THM{FOLLOW_THE_COMMIT}`
 
@@ -167,8 +195,9 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Artifact: `case-board/`, a WSGI app (local `serve.py`, or Vercel). A timeline with four locked rows, then the estate archive's release page for Adrian's message.
 - The four answers, in row order: `4fc4f25` (Task 7), `hvac-sync` (Task 4), `BH-TAB-0417` (Task 3), and the replacement will's SHA-256 (Task 5). If any of these change upstream, `build/make_board.py` must be updated and rerun.
 - The release page trusts a `role` cookie, set to `guest` on the first visit. Changing it to `trustee` releases the message once the board is complete.
-- Adrian's message: archive entry `EA-0043`, "For the Trustee, at midnight", recorded 2026-10-30T22:10:00-04:00, release time 2026-11-01T00:00:00-04:00, addressed to Celeste. It revokes her authority as Trustee at midnight and says an independent trustee takes over in the morning.
+- Adrian's message: archive entry `EA-0043`, "For the Trustee, at midnight", recorded 2026-10-30T22:10:00-04:00, release time 2026-11-01T00:00:00-04:00, addressed to Celeste. It says the papers revoking her authority as Trustee are drawn up on his desk in the library, that he will sign them in front of the family at midnight, and that an independent trustee takes over in the morning. Unsigned, they end nothing, which is why his death before midnight matters.
 - How Celeste signed in as `m.vale` (open since Task 3): the Legal Office kept a sealed recovery envelope, with the password, for every family account. Counsel opened the one for Marcus's account on 26 October, with no request from Marcus and no note in the file. The archive told Adrian, which is what set off his actions on 27 and 28 October.
+- Order of the motive (investigators' note): Celeste opened the envelope on 26 October as the first step of a forgery she meant to take her time over, before Adrian suspected her. Her name on the guest list on 28 October told her she was found out, so on 29 October she drafted the replacement will and relabelled the dashboard. Dessert confirmed the midnight deadline, and the forgery became a murder.
 - Adrian knew about `hvac-sync` and considered it embarrassing, not dangerous. He did not know a replacement will existed. Nothing in this task describes how he died.
 - The solved rows name Celeste and `BH-WS-0418`. Nothing readable in the shipped `api/index.py` does: notes and message are sealed with the answers.
 - Flag: `THM{CELESTE_WARD}`

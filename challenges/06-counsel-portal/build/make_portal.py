@@ -21,65 +21,98 @@ from pathlib import Path
 
 FLAG = "THM{SECRETS_ARE_NOT_MURDER}"
 
-# Each suspect has one guest-visible statement (which contains a lie) and one
-# sealed counsel's note (which records the real secret behind the lie). Only
-# Celeste's secret touches the library timeline fixed by Tasks 3 to 5: her
-# tablet opened the library at 22:04 and Adrian was found at 22:17.
+# Celeste Ward, as family counsel, took all five statements herself while the
+# house waited for the investigators, her own included. Each suspect has one
+# guest-visible statement (which contains a lie). The four sealed counsel's
+# notes are her private file on the others: the real secret behind each lie,
+# and what use it is to a Trustee who (under the replacement will's Article 4)
+# alone judges whether an heir is fit. The fifth sealed row is not hers: it is
+# the portal's own revision record, kept because she edited her statement.
+#
+# Only Celeste's lie touches the library timeline fixed by Tasks 3 to 5: her
+# tablet opened the library at 22:04 and Adrian was found at 22:17. The other
+# secrets are pinned to lock-log lines from Task 3 (Evelyn's study unlock at
+# 19:22:15, Nina's server room denials at 19:14, Theo's wine cellar unlock at
+# 21:38:19) and stay clear of dinner (19:30) and of the library.
 #
 # kind="statement" -> shown in the guest view.
-# kind="note"      -> sealed; only reachable by breaking the search.
+# kind="note"      -> sealed counsel's note; only reachable by breaking the search.
+# kind="revision"  -> sealed revision record; same.
 RECORDS = [
     # id, suspect, role, kind, time (as filed), body
     (1, "Evelyn Vale", "Daughter, CFO", "statement",
      "2026-10-31T23:40",
-     "I was in the study with the quarterly figures the whole evening. "
-     "Blackthorn Security has never been in better shape. Ask the auditors."),
+     "I went to the study before dinner to fetch my reading glasses, and for "
+     "no other reason. The company's books are in perfect order. At ten I was "
+     "in the hall with Nina and Theo when the dashboard said Marcus had "
+     "opened the library."),
     (2, "Marcus Vale", "Son, CTO", "statement",
      "2026-10-31T23:44",
-     "I was in the server room all night keeping the house online. I have "
-     "one account on that system, the same single login as everyone else."),
+     "After dessert I went to the server room, and I was at the console there "
+     "from ten until a quarter past. I did not open the library, whatever the "
+     "wall says. I have one account on that system, the same single login as "
+     "everyone else."),
     (3, "Nina Park", "Niece, Red Team Lead", "statement",
      "2026-10-31T23:48",
-     "I spent the evening out in the garden. I have not touched a line of "
-     "Blackthorn product code in months. You can check the repositories."),
+     "I have not touched a line of Blackthorn product code in months, and I "
+     "went nowhere near the server room tonight. At ten I was in the hall "
+     "with Evelyn and Theo. We all saw the dashboard name Marcus."),
     (4, "Celeste Ward", "Family Attorney", "statement",
-     "2026-10-31T23:52",
+     "2026-10-31T23:52 (edited 2026-11-01T00:33)",
      "From ten o'clock to a quarter past I was in the conservatory, on a "
      "call with a client. I was nowhere near the library at any point."),
     (5, "Theo Grant", "Estate Manager", "statement",
      "2026-10-31T23:56",
-     "Every camera ran normally all night. I walked the feeds myself at ten "
-     "and the whole house was quiet. Nothing was switched off."),
+     "Every camera ran normally all night. Nothing was switched off. There "
+     "is none near the library in any case: Mr Vale would not have cameras "
+     "on his private rooms. At ten I was in the hall with Evelyn and Nina, "
+     "and the dashboard said what it said."),
 
     (6, "Evelyn Vale", "Daughter, CFO", "note",
      "2026-11-01T00:11",
-     "COUNSEL'S NOTE, PRIVILEGED. Evelyn moved 4.2 million from the reserve "
-     "to cover the collapsed Northgate acquisition. The wire cleared at "
-     "19:50, hours before the library. Embarrassing, not murder."),
+     "COUNSEL'S NOTE, PRIVILEGED. It was not her glasses. At 19:24, six "
+     "minutes before dinner, she sat in the study and wired 4.2 million from "
+     "the company reserve to cover the collapsed Northgate acquisition. Her "
+     "father never knew. No bearing on the library. Every bearing on whether "
+     "she is fit to hold voting shares. Keep for the fitness review."),
     (7, "Marcus Vale", "Son, CTO", "note",
      "2026-11-01T00:12",
-     "COUNSEL'S NOTE, PRIVILEGED. Marcus kept a second administrator account "
-     "on the house system, created months ago and never disclosed. Real "
-     "misconduct. It was idle during the murder window. Not murder."),
+     "COUNSEL'S NOTE, PRIVILEGED. He has two accounts, not one. The second is "
+     "a hidden administrator account on the house server, made in May and "
+     "never disclosed. The library opened on his account at 22:04, and the "
+     "whole hall watched the dashboard say so. See that the investigators "
+     "hear about the hidden account first. Unfit, at the very least."),
     (8, "Nina Park", "Niece, Red Team Lead", "note",
      "2026-11-01T00:13",
-     "COUNSEL'S NOTE, PRIVILEGED. Nina copied the unreleased Project Lantern "
-     "prototype to a personal drive at 20:31 to prove it was exploitable. "
-     "A breach of contract, not the library. Not murder."),
+     "COUNSEL'S NOTE, PRIVILEGED. She has touched product code. On 24 October "
+     "she copied the unreleased Project Lantern lock firmware to a personal "
+     "drive to prove it could be broken, and at 19:14 tonight she tried it on "
+     "the server room door. It failed twice. A breach of contract, and "
+     "nowhere near the library. She inherits books, not shares, so of "
+     "limited use."),
     (9, "Theo Grant", "Estate Manager", "note",
      "2026-11-01T00:14",
-     "COUNSEL'S NOTE, PRIVILEGED. Theo cut hallway camera 07 from 21:20 to "
-     "21:50 to hide a private meeting with a staffing agency. The feed was "
-     "back long before the library. Not murder."),
-    # Celeste's own note is an amendment she filed to her own statement. The
-    # original line put her in the library just after ten; she replaced it.
-    (10, "Celeste Ward", "Family Attorney", "note",
+     "COUNSEL'S NOTE, PRIVILEGED. The cameras did not all run. He switched "
+     "off camera 07, on the cellar stairs, from 21:35 to 21:50, and took a "
+     "job interview by video call in the wine cellar. He means to resign. "
+     "The camera was back on well before ten, and it has never covered the "
+     "library. Of no use to me, but he will not want it known."),
+    # The portal's own record, not Celeste's. Her first version put her in the
+    # hall, as one more witness to the dashboard blaming Marcus. The three
+    # people who really were in the hall (Evelyn, Nina, Theo) each named the
+    # other two and not her, so she swapped it for an alibi nobody can check.
+    (10, "Celeste Ward", "Family Attorney", "revision",
      "2026-11-01T00:33",
-     "COUNSEL'S NOTE, PRIVILEGED. AMENDED STATEMENT, filed by counsel "
-     "(c.ward) at 00:33. Original line, now withdrawn: \"I stepped into the "
-     "library just after ten to leave the papers for Adrian.\" Replaced with "
-     "the conservatory account above. Her secret is the only one that lands "
-     "in the library on the night Adrian died. " + FLAG),
+     "PORTAL REVISION RECORD. Counsel can edit a filed statement. Counsel "
+     "cannot erase one. The statement of Celeste Ward was edited by c.ward "
+     "at 00:33. Version 1, filed 23:52, now withdrawn: \"From ten o'clock to "
+     "a quarter past I was in the hall with the others. I saw the dashboard "
+     "say that Marcus had opened the library.\" Version 2 is the conservatory "
+     "account shown to guests. Three people on file were in the hall at ten, "
+     "and none of them names her. Four people in this file hid a secret. One "
+     "changed where she was standing while the library was open. House rule, "
+     "per A. Vale: a secret is not a crime, but a story that moves is "
+     "evidence. " + FLAG),
 ]
 
 COLUMNS = ["id", "suspect", "role", "kind", "time", "body"]
@@ -95,7 +128,8 @@ APP_TEMPLATE = '''\
 #!/usr/bin/env python3
 """Blackthorn Legal Office: Counsel Portal (WSGI app).
 
-The Legal Office kept the first-interview statements in a small case portal.
+While the house waited for the investigators, family counsel took everyone's
+first statement and filed it in the Legal Office's small case portal.
 Investigators are given a read-only guest view. This is the recovered app.
 
 The same `app` object serves two ways with no changes:
@@ -187,8 +221,9 @@ PAGE = """<!doctype html>
 <body>
   <h1>Blackthorn Legal Office</h1>
   <p class="sub">Counsel Portal &mdash; case file VALE-1031 &mdash; guest (read only)</p>
-  <p>Search the first-interview statements on file. Guests see filed
-     statements only; counsel's working notes are sealed.</p>
+  <p>Search the first-interview statements on file, taken by counsel on the
+     night. Guests see filed statements only; counsel's working notes and the
+     portal's revision records are sealed.</p>
   <form method="get" action="/">
     <input type="text" name="q" value="{query_value}" placeholder="search statements, e.g. library">
     <button type="submit">Search</button>
@@ -224,7 +259,8 @@ def _render_results(con, q):
         return '<p><em>No statements match that search.</em></p>'
     cards = []
     for suspect, role, kind, time, body in rows:
-        label = '' if kind == 'statement' else ' [SEALED COUNSEL NOTE]'
+        label = {'statement': '', 'note': ' [SEALED COUNSEL NOTE]'}.get(
+            kind, ' [SEALED REVISION RECORD]')
         cards.append(
             '<div class="card"><div class="who">'
             + html.escape(suspect)
