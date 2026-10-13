@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Inheritance Protocol (room preview)</title>
+<style>
+  :root {
+    --bg: #151c2b;
+    --panel: #1c2538;
+    --panel-2: #212c42;
+    --line: #2e3b55;
+    --text: #e6ebf5;
+    --muted: #9aa7bd;
+    --green: #88cc14;
+    --green-dark: #5d8f0a;
+    --red: #e5484d;
+    --code-bg: #0f1522;
+    --code: #f5a3b5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 "Source Sans Pro", "Segoe UI", Ubuntu, Roboto, Helvetica, Arial, sans-serif;
+  }
+  button { font: inherit; cursor: pointer; }
+
+  .preview-bar {
+    background: #3a2a05;
+    color: #ffd27a;
+    font-size: 13px;
+    text-align: center;
+    padding: 6px 16px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1c2538 0%, #2a1730 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner, main { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  .hero-inner { padding-top: 36px; padding-bottom: 28px; }
+  .hero h1 { margin: 0 0 6px; font-size: 34px; line-height: 1.2; }
+  .hero p { margin: 0; color: var(--muted); max-width: 720px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chip {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .chip.easy { border-color: var(--green-dark); color: var(--green); }
+
+  .progress-row { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+  .progress-track {
+    flex: 1;
+    height: 10px;
+    background: var(--code-bg);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill { height: 100%; width: 0; background: var(--green); transition: width .3s; }
+  .progress-label { font-size: 14px; color: var(--muted); white-space: nowrap; }
+
+  main { padding-top: 22px; padding-bottom: 80px; }
+  .toolbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 14px; }
+  .link-btn {
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+  .link-btn:hover { color: var(--text); border-color: var(--muted); }
+
+  .task {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .task-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--panel-2);
+    border: 0;
+    color: var(--text);
+    text-align: left;
+  }
+  .task-head:hover { background: #263350; }
+  .task-num { color: var(--muted); font-size: 14px; min-width: 52px; }
+  .task-status {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+  }
+  .task.done .task-status {
+    border-color: var(--green);
+    background: var(--green) center / 12px no-repeat
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.7 2.7L10 3.5' fill='none' stroke='%23151c2b' stroke-width='2'/%3E%3C/svg%3E");
+  }
+  .task-title { flex: 1; font-size: 18px; font-weight: 600; }
+  .chevron { color: var(--muted); transition: transform .2s; }
+  .task.open .chevron { transform: rotate(180deg); }
+  .task-body { display: none; padding: 20px 22px 24px; }
+  .task.open .task-body { display: block; }
+
+  .files {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .download-btn {
+    background: var(--green);
+    color: #10200a;
+    border: 0;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .download-btn:hover { background: #9be01c; }
+  .file-chip {
+    font: 13px/1.4 "Ubuntu Mono", Consolas, Menlo, monospace;
+    color: var(--muted);
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+  .files-note { font-size: 13px; color: var(--muted); width: 100%; display: none; }
+  .files.clicked .files-note { display: block; }
+
+  .prose h2 { font-size: 21px; margin: 26px 0 8px; }
+  .prose h3 { font-size: 18px; margin: 22px 0 6px; }
+  .prose p { margin: 0 0 14px; }
+  .prose ul, .prose ol { margin: 0 0 14px; padding-left: 26px; }
+  .prose li { margin-bottom: 6px; }
+  .prose a { color: var(--green); }
+  code {
+    font: 14px/1.4 "Ubuntu Mono", Consolas, Menlo, monospace;
+    background: var(--code-bg);
+    color: var(--code);
+    border-radius: 3px;
+    padding: 2px 6px;
+    overflow-wrap: anywhere;
+  }
+  pre {
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 12px 14px;
+    overflow-x: auto;
+    margin: 0 0 14px;
+  }
+  pre code { background: none; color: var(--text); padding: 0; overflow-wrap: normal; }
+
+  .hints { margin-top: 6px; }
+  .hint {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, .02);
+  }
+  .hint summary {
+    cursor: pointer;
+    padding: 8px 14px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    user-select: none;
+  }
+  .hint summary:hover, .hint[open] summary { color: var(--text); }
+  .hint div { padding: 0 14px 12px; }
+
+  .questions { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .questions h3 { margin: 0 0 12px; font-size: 15px; color: var(--muted); font-weight: 600; }
+  .question { margin-bottom: 18px; }
+  .question:last-child { margin-bottom: 0; }
+  .q-text { margin-bottom: 8px; }
+  .q-row { display: flex; gap: 8px; }
+  .q-row input {
+    flex: 1;
+    min-width: 0;
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--text);
+    padding: 9px 12px;
+    font: 15px/1.4 "Ubuntu Mono", Consolas, Menlo, monospace;
+  }
+  .q-row input:focus { outline: none; border-color: var(--green); }
+  .q-row input::placeholder { color: #6c7a93; }
+  .q-row button {
+    border: 0;
+    border-radius: 4px;
+    padding: 0 18px;
+    font-weight: 600;
+    font-size: 14px;
+    background: var(--green);
+    color: #10200a;
+    min-width: 112px;
+  }
+  .q-row button:hover { background: #9be01c; }
+  .question.correct input { border-color: var(--green-dark); color: var(--green); }
+  .question.correct button {
+    background: transparent;
+    color: var(--green);
+    border: 1px solid var(--green-dark);
+    cursor: default;
+  }
+  .question.wrong input { border-color: var(--red); animation: shake .3s; }
+  .q-msg { font-size: 13px; color: var(--red); min-height: 20px; margin-top: 4px; }
+  @keyframes shake {
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+
+  .error {
+    background: #3a1418;
+    border: 1px solid var(--red);
+    border-radius: 6px;
+    padding: 16px 20px;
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; }
+    .task-body { padding: 16px; }
+    .q-row { flex-direction: column; }
+    .q-row button { padding: 9px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">Local preview of the TryHackMe room. Organizer only. Task text is read live from each <code>task.md</code>: edit, then refresh.</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>The Inheritance Protocol</h1>
+    <p>Adrian Vale is dead in his library, the will has been tampered with, and everyone at Blackthorn House is lying about something. Collect eight flags and name the killer.</p>
+    <div class="chips">
+      <span class="chip easy">Easy</span>
+      <span class="chip">75 min</span>
+      <span class="chip">No VM</span>
+      <span class="chip">Forensics</span>
+      <span class="chip">Web</span>
+      <span class="chip">Halloween</span>
+    </div>
+    <div class="progress-row">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0%</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button class="link-btn" id="toggle-all">Expand all</button>
+    <button class="link-btn" id="reset">Reset progress</button>
+  </div>
+  <div id="tasks"></div>
+</main>
+
+<script>
+// ---------------------------------------------------------------------------
+// Markdown: just the subset the task.md files use.
+// ---------------------------------------------------------------------------
+
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function inline(text) {
+  // Code spans are split out first so that "*" inside them is left alone.
+  return text.split(/(`[^`]+`)/).map(function (part) {
+    if (part.length > 2 && part[0] === "`" && part[part.length - 1] === "`") {
+      return "<code>" + escapeHtml(part.slice(1, -1)) + "</code>";
+    }
+    return escapeHtml(part)
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }).join("");
+}
+
+// Splits markdown into blocks separated by blank lines, keeping fenced code whole.
+function toBlocks(markdown) {
+  var blocks = [], current = [], fenced = false;
+  markdown.replace(/\r/g, "").split("\n").forEach(function (line) {
+    if (/^\s*```/.test(line)) {
+      current.push(line);
+      if (fenced) { blocks.push(current.join("\n")); current = []; }
+      fenced = !fenced;
+    } else if (!fenced && line.trim() === "") {
+      if (current.length) { blocks.push(current.join("\n")); current = []; }
+    } else {
+      current.push(line);
+    }
+  });
+  if (current.length) blocks.push(current.join("\n"));
+  return blocks;
+}
+
+function listItems(block, marker) {
+  var items = [];
+  block.split("\n").forEach(function (line) {
+    if (marker.test(line)) items.push(line.replace(marker, ""));
+    else if (items.length) items[items.length - 1] += " " + line.trim();
+  });
+  return items;
+}
+
+var BULLET = /^\s*[-*]\s+/, NUMBER = /^\s*\d+\.\s+/;
+
+function renderBlock(block) {
+  var heading = block.match(/^(#{1,4})\s+(.*)$/);
+  if (heading) {
+    var level = Math.max(2, heading[1].length);
+    return "<h" + level + ">" + inline(heading[2]) + "</h" + level + ">";
+  }
+  if (/^\s*```/.test(block)) {
+    var code = block.split("\n").slice(1, -1).join("\n");
+    return "<pre><code>" + escapeHtml(code) + "</code></pre>";
+  }
+  if (BULLET.test(block)) {
+    return "<ul>" + listItems(block, BULLET).map(function (i) { return "<li>" + inline(i) + "</li>"; }).join("") + "</ul>";
+  }
+  if (NUMBER.test(block)) {
+    return "<ol>" + listItems(block, NUMBER).map(function (i) { return "<li>" + inline(i) + "</li>"; }).join("") + "</ol>";
+  }
+  return "<p>" + inline(block.split("\n").join(" ")) + "</p>";
+}
+
+// ---------------------------------------------------------------------------
+// task.md -> { label, title, body blocks, hints, questions }
+// ---------------------------------------------------------------------------
+
+function parseTask(markdown) {
+  var blocks = toBlocks(markdown);
+  var task = { label: "", title: "", body: [], hints: [], questions: [] };
+
+  var heading = blocks.length && blocks[0].match(/^#\s+(.*)$/);
+  if (heading) {
+    blocks.shift();
+    var split = heading[1].match(/^([^:]+):\s*(.*)$/);
+    task.label = split ? split[1] : "";
+    task.title = split ? split[2] : heading[1];
+  }
+
+  // Everything from the first "## ... question(s)" heading on is questions.
+  var cut = blocks.findIndex(function (b) { return /^##\s+.*questions?\s*$/i.test(b); });
+  var questionBlocks = cut === -1 ? [] : blocks.slice(cut);
+  var bodyBlocks = cut === -1 ? blocks : blocks.slice(0, cut);
+
+  // "A few pointers:" followed by a list becomes the hints.
+  for (var i = 0; i < bodyBlocks.length; i++) {
+    var next = bodyBlocks[i + 1];
+    if (/^a few pointers:?$/i.test(bodyBlocks[i].trim()) && next && BULLET.test(next)) {
+      task.hints = task.hints.concat(listItems(next, BULLET));
+      i++;
+    } else {
+      task.body.push(bodyBlocks[i]);
+    }
+  }
+
+  var numbered = questionBlocks.some(function (b) { return NUMBER.test(b); });
+  questionBlocks.forEach(function (raw) {
+    if (/^##\s/.test(raw)) return;
+    var block = raw.split("\n").map(function (l) { return l.trim(); }).join(" ");
+    var last = task.questions[task.questions.length - 1];
+    var format = block.match(/^Answer format:\s*(.*)$/i);
+    if (format && last) {
+      last.format = format[1];
+    } else if (numbered ? NUMBER.test(block) : true) {
+      task.questions.push({ text: block.replace(NUMBER, ""), format: "" });
+    } else if (last) {
+      last.text += " " + block;
+    }
+  });
+  return task;
+}
+</script>
+
+<script>
+// ---------------------------------------------------------------------------
+// Page
+// ---------------------------------------------------------------------------
+
+var STORE_KEY = "inheritance-protocol-preview";
+var solved = {};
+try { solved = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) {}
+
+function save() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(solved)); } catch (e) {}
+}
+
+function el(tag, className, html) {
+  var node = document.createElement(tag);
+  if (className) node.className = className;
+  if (html !== undefined) node.innerHTML = html;
+  return node;
+}
+
+function plain(markdownText) {
+  return markdownText.replace(/`/g, "");
+}
+
+var totalQuestions = 0;
+
+function updateProgress() {
+  var done = 0;
+  document.querySelectorAll(".task").forEach(function (taskNode) {
+    var questions = taskNode.querySelectorAll(".question");
+    var correct = taskNode.querySelectorAll(".question.correct");
+    done += correct.length;
+    taskNode.classList.toggle("done", questions.length > 0 && questions.length === correct.length);
+  });
+  var percent = totalQuestions ? Math.round(100 * done / totalQuestions) : 0;
+  document.getElementById("progress-fill").style.width = percent + "%";
+  document.getElementById("progress-label").textContent =
+    percent + "% (" + done + " of " + totalQuestions + " questions)";
+}
+
+function buildQuestion(entry, question, index) {
+  var key = entry.id + ":" + index;
+  var needsAnswer = index < entry.answers;
+  var node = el("div", "question");
+  node.appendChild(el("div", "q-text", inline(question.text)));
+
+  var row = el("div", "q-row");
+  var input = el("input");
+  input.type = "text";
+  input.autocomplete = "off";
+  input.spellcheck = false;
+  input.placeholder = needsAnswer
+    ? (question.format ? "Answer format: " + plain(question.format) : "Answer")
+    : "No answer needed";
+  input.readOnly = !needsAnswer;
+  var button = el("button", "", needsAnswer ? "Submit" : "Complete");
+  var message = el("div", "q-msg");
+  row.appendChild(input);
+  row.appendChild(button);
+  node.appendChild(row);
+  node.appendChild(message);
+
+  function markCorrect(answer) {
+    node.classList.remove("wrong");
+    node.classList.add("correct");
+    if (needsAnswer) input.value = answer;
+    input.readOnly = true;
+    button.textContent = needsAnswer ? "Correct Answer" : "Completed";
+    button.disabled = true;
+    message.textContent = "";
+  }
+
+  function submit() {
+    if (node.classList.contains("correct")) return;
+    if (!needsAnswer) {
+      solved[key] = true;
+      save();
+      markCorrect("");
+      updateProgress();
+      return;
+    }
+    var answer = input.value.trim();
+    if (!answer) return;
+    fetch("/api/check", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ task: entry.id, question: index, answer: answer })
+    }).then(function (r) { return r.json(); }).then(function (result) {
+      if (result.correct) {
+        solved[key] = answer;
+        save();
+        markCorrect(answer);
+        updateProgress();
+      } else {
+        node.classList.remove("wrong");
+        void node.offsetWidth;
+        node.classList.add("wrong");
+        message.textContent = "Incorrect answer. Try again.";
+      }
+    }).catch(function () {
+      message.textContent = "Could not reach run.py. Is it still running?";
+    });
+  }
+
+  button.addEventListener("click", submit);
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+  input.addEventListener("input", function () {
+    node.classList.remove("wrong");
+    message.textContent = "";
+  });
+
+  if (key in solved) markCorrect(solved[key] === true ? "" : solved[key]);
+  return node;
+}
+
+function buildTask(entry) {
+  var task = parseTask(entry.markdown);
+  var node = el("section", "task");
+  node.id = entry.id;
+
+  var head = el("button", "task-head");
+  head.appendChild(el("span", "task-status"));
+  head.appendChild(el("span", "task-num", escapeHtml(task.label)));
+  head.appendChild(el("span", "task-title", inline(task.title)));
+  head.appendChild(el("span", "chevron", "&#9662;"));
+  head.addEventListener("click", function () { node.classList.toggle("open"); });
+  node.appendChild(head);
+
+  var body = el("div", "task-body");
+
+  if (entry.files.length) {
+    var files = el("div", "files");
+    var download = el("button", "download-btn", "Download Task Files");
+    download.addEventListener("click", function () { files.classList.add("clicked"); });
+    files.appendChild(download);
+    entry.files.forEach(function (name) { files.appendChild(el("span", "file-chip", escapeHtml(name))); });
+    files.appendChild(el("div", "files-note",
+      "Placeholder: nothing downloads in the preview. On TryHackMe this button serves the zip you upload for the task."));
+    body.appendChild(files);
+  }
+
+  body.appendChild(el("div", "prose", task.body.map(renderBlock).join("")));
+
+  if (task.hints.length) {
+    var hints = el("div", "hints");
+    task.hints.forEach(function (hint, i) {
+      var details = el("details", "hint");
+      details.appendChild(el("summary", "", "Hint " + (i + 1)));
+      details.appendChild(el("div", "", inline(hint)));
+      hints.appendChild(details);
+    });
+    body.appendChild(hints);
+  }
+
+  if (task.questions.length) {
+    var questions = el("div", "questions");
+    questions.appendChild(el("h3", "", "Answer the questions below"));
+    task.questions.forEach(function (question, i) {
+      questions.appendChild(buildQuestion(entry, question, i));
+    });
+    body.appendChild(questions);
+    totalQuestions += task.questions.length;
+  }
+
+  node.appendChild(body);
+  return node;
+}
+
+function start() {
+  var container = document.getElementById("tasks");
+  fetch("/api/room").then(function (r) { return r.json(); }).then(function (entries) {
+    entries.forEach(function (entry) { container.appendChild(buildTask(entry)); });
+    updateProgress();
+    var target = (location.hash && document.getElementById(location.hash.slice(1)))
+      || container.querySelector(".task:not(.done)") || container.querySelector(".task");
+    if (target) target.classList.add("open");
+  }).catch(function () {
+    container.appendChild(el("div", "error",
+      "Could not load the room. Open this page through the server, not as a file: run " +
+      "<code>python3 run.py</code> and visit <code>http://localhost:9000/</code>."));
+  });
+
+  var toggle = document.getElementById("toggle-all");
+  toggle.addEventListener("click", function () {
+    var open = toggle.textContent === "Expand all";
+    document.querySelectorAll(".task").forEach(function (t) { t.classList.toggle("open", open); });
+    toggle.textContent = open ? "Collapse all" : "Expand all";
+  });
+
+  document.getElementById("reset").addEventListener("click", function () {
+    if (!confirm("Clear every answer you have submitted in this preview?")) return;
+    solved = {};
+    save();
+    location.reload();
+  });
+}
+
+if (typeof document !== "undefined") start();
+</script>
+</body>
+</html>
