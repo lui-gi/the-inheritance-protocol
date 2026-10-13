@@ -13,8 +13,8 @@ It opens as a perfectly ordinary picture. Adrian did not do ordinary.
 A few pointers:
 
 - A picture file carries more than pixels. Read what the file says about itself before you study the brushwork. `exiftool` or any EXIF viewer will do.
-- Most of what it says is plain English. One part is not. Adrian wrote it that way on purpose.
-- Text that looks like alphabet soup is often just wearing a costume. Work out which one, and take it off.
+- Almost all of it is plain English, including a note from Adrian himself. Read the note to the end.
+- One short piece of the note is alphabet soup. Adrian says why, and he is not subtle about what to do with it.
 
 ## Question
 

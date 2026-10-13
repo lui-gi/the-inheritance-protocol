@@ -3,8 +3,9 @@
 
 Usage: make_portrait.py [output.jpg]
 
-The result is an ordinary JPEG. Its EXIF UserComment holds Adrian's note, flag included,
-encoded as Base64, so the plain metadata fields read normally and the comment does not.
+The result is an ordinary JPEG. Its EXIF UserComment holds Adrian's note in plain English.
+Only the flag inside the note is encoded as Base64, and the note itself nudges the reader
+toward decoding it.
 
 Values below must stay in sync with canon/canon.md.
 """
@@ -24,7 +25,10 @@ DIGITISED = "2024:04:13 11:20:00"
 MODIFIED = "2026:10:27 21:15:44"  # Adrian writes the note into the file
 UTC_OFFSET = "-04:00"
 
-# Stored in the EXIF UserComment as Base64. Players decode it to read the note and the flag.
+FLAG = "THM{TRUST_THE_HASH}"
+
+# Stored in the EXIF UserComment as one line of plain English, paragraphs joined by spaces.
+# Only {flag} is Base64. The paragraph before it is the nudge toward decoding it.
 NOTE = """\
 If you are reading this, you looked behind the portrait. Nobody in this family ever has. They walk past me every day and not one of them has checked.
 
@@ -34,7 +38,9 @@ So here is the one rule I still believe. Trust the signed hash, not the filename
 
 Tomorrow I change the guest list. I want everyone in the room when I say this out loud.
 
-THM{TRUST_THE_HASH}
+The next thing I write is the part worth stealing, so I have put it in a costume. It is not locked. Its alphabet has sixty-four letters, and any decoder will take it off for you.
+
+{flag}
 
 A.V.
 """
@@ -125,6 +131,12 @@ def paint():
     return img
 
 
+def comment():
+    encoded = base64.b64encode(FLAG.encode("ascii")).decode("ascii")
+    paragraphs = NOTE.format(flag=encoded).strip().split("\n\n")
+    return " ".join(paragraphs)
+
+
 def exif_block(img):
     exif = img.getexif()
     exif[0x010E] = DESCRIPTION
@@ -136,7 +148,7 @@ def exif_block(img):
     sub[0x9003] = DIGITISED
     sub[0x9010] = UTC_OFFSET  # OffsetTime, applies to MODIFIED
     sub[0x9011] = UTC_OFFSET  # OffsetTimeOriginal
-    sub[0x9286] = b"ASCII\x00\x00\x00" + base64.b64encode(NOTE.encode("ascii"))
+    sub[0x9286] = b"ASCII\x00\x00\x00" + comment().encode("ascii")
     return exif
 
 

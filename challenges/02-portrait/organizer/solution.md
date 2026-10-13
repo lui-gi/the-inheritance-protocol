@@ -2,11 +2,11 @@
 
 Flag: `THM{TRUST_THE_HASH}`
 
-Target solve time: about 4 minutes. Skills: reading image metadata, recognising and decoding Base64. No VM is involved: everything is in the task download.
+Target solve time: about 4 minutes. Skills: reading image metadata, decoding a short Base64 string. No VM is involved: everything is in the task download.
 
 ## How the artifact is built
 
-`portrait.jpg` is an ordinary JPEG. Nothing is hidden in the pixels and nothing is appended to the file. Adrian's note, flag included, sits in the EXIF UserComment as one Base64 string.
+`portrait.jpg` is an ordinary JPEG. Nothing is hidden in the pixels and nothing is appended to the file. Adrian's note sits in the EXIF UserComment in plain English, as one line. Only the flag inside the note is Base64, and the sentence just before it tells the reader it is encoded and hints at the encoding ("Its alphabet has sixty-four letters").
 
 | EXIF field | Value |
 | :---- | :---- |
@@ -16,7 +16,7 @@ Target solve time: about 4 minutes. Skills: reading image metadata, recognising 
 | Copyright | `Blackthorn Security. Do not hang crooked.` |
 | DateTime (modified) | `2026:10:27 21:15:44`, offset `-04:00` |
 | DateTimeOriginal | `2024:04:13 11:20:00` |
-| UserComment | Base64, 988 characters, starting `SWYgeW91IGFyZSByZWFkaW5n` |
+| UserComment | Plain English, 922 characters, starting `If you are reading this`. Holds the Base64 string `VEhNe1RSVVNUX1RIRV9IQVNIfQ==` |
 
 The catalogue number is flavour only. It is not a password for anything.
 
@@ -24,13 +24,15 @@ The catalogue number is flavour only. It is not a password for anything.
 
 1. Download and unzip the task file.
 2. Read the metadata: `exiftool portrait.jpg`. Without exiftool, `strings -n 8 portrait.jpg | head` shows the same fields, and so does any online EXIF viewer.
-3. Notice that every field is readable except the User Comment, which is a long run of letters and digits.
-4. Recognise it as Base64 and decode it. Either of these works:
-   - `exiftool -b -UserComment portrait.jpg | base64 -d`
-   - Paste the comment into CyberChef and apply "From Base64".
-5. Read the note. The flag is near the end.
+3. Read the User Comment. It is Adrian's note, and all of it is readable except one short string near the end: `VEhNe1RSVVNUX1RIRV9IQVNIfQ==`.
+4. Take the nudge in the sentence before it ("put it in a costume", "Its alphabet has sixty-four letters", "any decoder will take it off") and decode the string as Base64. Either of these works:
+   - `echo 'VEhNe1RSVVNUX1RIRV9IQVNIfQ==' | base64 -d`
+   - Paste the string into CyberChef and apply "From Base64".
+5. The output is the flag.
 
-## The decoded note
+## The note as stored
+
+The comment is a single line: the paragraphs below are joined by spaces in the file.
 
 ```
 If you are reading this, you looked behind the portrait. Nobody in this family ever has. They walk past me every day and not one of them has checked.
@@ -41,16 +43,18 @@ So here is the one rule I still believe. Trust the signed hash, not the filename
 
 Tomorrow I change the guest list. I want everyone in the room when I say this out loud.
 
-THM{TRUST_THE_HASH}
+The next thing I write is the part worth stealing, so I have put it in a costume. It is not locked. Its alphabet has sixty-four letters, and any decoder will take it off for you.
+
+VEhNe1RSVVNUX1RIRV9IQVNIfQ==
 
 A.V.
 ```
 
 ## Shortcuts
 
-`grep "THM{"` and `strings | grep THM` find nothing, because the flag only exists in encoded form. Players have to decode the comment.
+`grep "THM{"` and `strings | grep THM` find nothing, because the flag only exists in encoded form. Players have to decode the string.
 
-`strings portrait.jpg | head` does expose the Base64 without an EXIF tool. That is fine: it still leads to the decode step.
+`strings portrait.jpg | head` does expose the note without an EXIF tool. That is fine: it still leads to the decode step.
 
 ## What players should take away
 
@@ -63,8 +67,8 @@ The note does not name anyone, and it does not say a counterfeit will already ex
 ## Hints, in order of generosity
 
 1. "Pictures carry labels the eye cannot see. `exiftool`, or any online EXIF viewer, will read them to you."
-2. "One field is not written in English. Letters, digits, and nothing else, in one long block: that shape has a name."
-3. "The User Comment is Base64. Decode it with `base64 -d` or CyberChef's From Base64."
+2. "Read Adrian's note in the User Comment to the end. One piece is not English, and he tells you how many letters its alphabet has."
+3. "The string ending in `==` is Base64. Decode it with `base64 -d` or CyberChef's From Base64."
 
 ## Publishing to the room
 

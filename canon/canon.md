@@ -76,7 +76,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## Task 2 facts
 
-- Artifact: `portrait.jpg`, an ordinary JPEG. Adrian's note is stored in the EXIF UserComment as Base64. Nothing is appended to the file and there is no password.
+- Artifact: `portrait.jpg`, an ordinary JPEG. Adrian's note is stored in the EXIF UserComment in plain English. Only the flag inside the note is Base64, and the sentence before it nudges the reader to decode it. Nothing is appended to the file and there is no password.
 - Location in the story: a digital frame in the east hall.
 - Catalogue number: `BH-1959-AV` (Adrian is 67, born 1959). Flavour only.
 - The note is written by Adrian on 27 October 2026, the night before he added Celeste to the guest list. It says "Tomorrow I change the guest list."
