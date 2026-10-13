@@ -10,12 +10,13 @@ This task has one download:
 
 Unzip it, open a terminal in the `counsel-portal` folder, and run `python3 serve.py`. The portal will come up at `http://localhost:8000/`. The README covers Windows and troubleshooting.
 
-As a guest you can read the five filed statements. The sealed counsel's notes are where the secrets actually live, and the guest view will not hand those over. The portal was thrown together quickly, though, and it is not careful about what you type into its one search box.
+As a guest you can read the five filed statements. The sealed counsel's notes are where the secrets actually live, and the guest view will not hand those over. The portal was thrown together quickly, though, and it does not keep your words separate from its own: whatever you type in the search box is dropped straight into the question it asks its database.
 
 A few pointers:
 
 - Read all five statements first. Each one contains a lie. Four of those lies are about something other than the library.
-- Try a search that the portal was not expecting. If it breaks, read what it tells you: it will show you the query it was trying to run.
+- The box expects a word to look for. Give it something that is not just a word. A lone apostrophe is a good first thing to try: it is the character the portal uses to mark where your text starts and stops, so feeding it one too many confuses the portal about which part is yours and which part is its own.
+- When it breaks, read the error carefully. It prints the whole query it tried to run, with your text already wedged inside it. Once you can see the shape of that query, you can see how to finish it so that it stops filtering and hands back everything, sealed notes included. The guest view is only a condition in that query, and a condition can be made always true.
 - Once you can see the sealed notes, the question is which secret puts someone in the library on the night Adrian died.
 
 ## Checkpoint question

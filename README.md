@@ -14,6 +14,12 @@ Tasks 6 and 8 are small web apps. They are meant to be hosted on Vercel, and eac
 
 Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
+## A note on AI (room rule)
+
+Players may use an AI assistant to learn a tool or explain a concept, the way they would use any tutorial. They must not hand our challenge files to an AI and ask it to solve them. Every question is solvable with the toolset introduced at the start of the room, and the point is to do the forensics yourself. Use AI as a guide, not as the investigator.
+
+Include this as a rule in the room's introduction task so players see it before Task 1.
+
 ## Tasks
 
 | # | Task | Folder | What the player downloads |
