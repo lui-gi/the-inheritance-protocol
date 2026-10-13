@@ -27,6 +27,19 @@ Nothing here needs a paid tool or anything exotic. Before you begin, check that 
 - A SHA-256 tool: `sha256sum`, `shasum -a 256`, or `certutil` on Windows
 - Git (`git --version`)
 
+## Prefer not to install anything? Use the AttackBox
+
+If setting up tools on your own computer sounds like more trouble than the murder, you do not have to. TryHackMe provides the AttackBox: a ready-made Linux machine that runs in the cloud and appears inside your browser, next to the room. It is a full desktop with a terminal, a web browser, and the usual security tools already installed, so everything in the toolkit above should be there waiting for you.
+
+To use it:
+
+- Click the blue **Start AttackBox** button at the top of the room. It takes a minute or two to boot, then opens in a split view beside the tasks.
+- Open this room in the browser inside the AttackBox and download each task file there, so the files land on the machine where the tools are.
+- Open a terminal on the AttackBox desktop and work exactly as the tasks describe. The Linux commands in each task are the ones to use.
+- For the QR code in Task 1, your phone's camera pointed at the screen works fine.
+
+Two things to know. Free accounts get a limited amount of AttackBox time per day, so start it when you are ready to work, not before. And if a tool ever turns out to be missing, tell an organizer: every task can also be done on your own computer.
+
 ## House rule: AI is a guide, not the investigator
 
 You may use an AI assistant to learn a tool or explain a concept, the way you would use any tutorial. You must not hand the challenge files to an AI and ask it to solve them. Every question in this room can be answered with the toolkit above, and the point is to do the forensics yourself.
