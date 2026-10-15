@@ -78,7 +78,7 @@ The note does not name anyone, and it does not say a counterfeit will already ex
 
 ## Rebuilding
 
-Run this after changing the note, the metadata, or the painting. The build is reproducible: the same sources and Pillow version give a byte-identical file. Keep `canon/canon.md` in sync.
+The painting is a hand-made image kept at `build/portrait-source.png`. The script takes only its pixels, writes them out as a JPEG, and stamps the EXIF above. Run it after changing the note, the metadata, or the source image. The build is reproducible: the same sources and Pillow version give a byte-identical file. Keep `canon/canon.md` in sync.
 
 ```
 python3 -m venv .venv
