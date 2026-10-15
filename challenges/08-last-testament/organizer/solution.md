@@ -114,7 +114,7 @@ Teams who skipped a task cannot finish this one. That is intended: this task is 
 
 ## Common stumbles
 
-- Port 8000 still in use by the Family Secrets task portal. Stop it, or run `python3 serve.py 8080`. Cookies are shared between ports on `localhost` in most browsers, which is harmless here.
+- Port 8000 still in use by the Counsel Portal task. Stop it, or run `python3 serve.py 8080`. Cookies are shared between ports on `localhost` in most browsers, which is harmless here.
 - Editing the cookie and not reloading the page.
 - Adding a second cookie called `role` with a different path instead of editing the existing one. The "Clear the board" link resets everything.
 - Pasting the hash with a trailing newline is fine: answers are trimmed. Pasting the genuine will's hash instead of the replacement's is the usual wrong answer for row 4.
@@ -128,7 +128,7 @@ Teams who skipped a task cannot finish this one. That is intended: this task is 
 
 ## Hosting note
 
-The app is stdlib only, so no `requirements.txt` is needed. Deploying `case-board/` to Vercel serves the board from `api/index.py` with `vercel.json` routing every path to it. Not hosted yet, and not tested on Vercel. Unlike the Family Secrets task, this app uses three paths (`/submit`, `/testament`, `/reset`), redirects, and cookies, so check on the first deploy that the app sees the original path after the rewrite and that `Set-Cookie` headers on redirects come through. When it is hosted, swap `http://localhost:8000/` in the task text for the hosted URL. The local download can still ship as a fallback.
+The app is stdlib only, so no `requirements.txt` is needed. Deploying `case-board/` to Vercel serves the board from `api/index.py` with `vercel.json` routing every path to it. Not hosted yet, and not tested on Vercel. Unlike the Counsel Portal task, this app uses three paths (`/submit`, `/testament`, `/reset`), redirects, and cookies, so check on the first deploy that the app sees the original path after the rewrite and that `Set-Cookie` headers on redirects come through. When it is hosted, swap `http://localhost:8000/` in the task text for the hosted URL. The local download can still ship as a fallback.
 
 ## Publishing to the room
 

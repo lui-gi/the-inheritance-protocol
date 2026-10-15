@@ -1,4 +1,4 @@
-# Family Secrets (ORGANIZER ONLY)
+# Counsel Portal (ORGANIZER ONLY)
 
 Flag: `THM{SECRETS_ARE_NOT_MURDER}`
 

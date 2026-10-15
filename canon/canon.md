@@ -21,7 +21,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | The Invitation |
 | 2024-04-13T11:20:00-04:00 | Adrian's portrait digitised for the east hall frame. | Portrait in the Hall |
 | 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026" and asks guests to reply by 24 October. | The Invitation |
-| 2026-10-24 | Nina copies the unreleased Project Lantern lock firmware to a personal drive. Time of day not decided. | Family Secrets |
+| 2026-10-24 | Nina copies the unreleased Project Lantern lock firmware to a personal drive. Time of day not decided. | Counsel Portal |
 | 2026-10-26 | Counsel opens the Legal Office's sealed recovery envelope for the `m.vale` account. The estate archive tells Adrian. Time of day not decided. | The Last Testament |
 | 2026-10-27T20:52:16-04:00 | Adrian rereads his will in the archive. It still verifies. | The Two Wills |
 | 2026-10-27T21:15:44-04:00 | Adrian writes a note into his hall portrait's metadata (the portrait file's last-modified time). | Portrait in the Hall |
@@ -36,15 +36,15 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T19:30:00-04:00 | Dinner is served. | The Invitation |
 | 2026-10-31T21:30:00-04:00 | Dessert. Adrian says: "By midnight, none of you will own what you think you own." | Design doc |
 | 2026-10-31T19:03:41-04:00 | The Legal Office tablet `BH-TAB-0417` signs in to the house network as `c.ward`. | The Smart Lock |
-| 2026-10-31T19:24:00-04:00 | Evelyn, in the study, wires 4.2 million from the company reserve. | Family Secrets |
-| 2026-10-31T21:35:00-04:00 | Theo switches off camera 07 (cellar stairs) until 21:50. | Family Secrets |
+| 2026-10-31T19:24:00-04:00 | Evelyn, in the study, wires 4.2 million from the company reserve. | Counsel Portal |
+| 2026-10-31T21:35:00-04:00 | Theo switches off camera 07 (cellar stairs) until 21:50. | Counsel Portal |
 | 2026-10-31T21:38:19-04:00 | Theo's badge opens the wine cellar. | The Smart Lock |
 | 2026-10-31T21:51:26-04:00 | Adrian's phone opens the library. | The Smart Lock |
 | 2026-10-31T22:02:47-04:00 | Marcus's phone opens the server room. | The Smart Lock |
 | 2026-10-31T22:03:38-04:00 | The tablet signs out of `c.ward`, then signs in as `m.vale` at 22:03:52. | The Smart Lock |
 | 2026-10-31T22:03:31-04:00 | Marcus logs in at the server room console as `m.vale` (until 22:15:48). | Ghost Admin |
 | 2026-10-31T22:04:11-04:00 | The tablet, signed in as `m.vale`, unlocks the library. The hub flags the unfamiliar device. | The Smart Lock |
-| 2026-10-31T22:04:11-04:00 | The hall dashboard shows the library unlock as `MARCUS-ADMIN`. Evelyn, Nina, and Theo are in the hall and see it. | The Commit History task, the Family Secrets task |
+| 2026-10-31T22:04:11-04:00 | The hall dashboard shows the library unlock as `MARCUS-ADMIN`. Evelyn, Nina, and Theo are in the hall and see it. | The Commit History task, the Counsel Portal task |
 | 2026-10-31T22:09:44-04:00 | Hub warns that the library door was held open and did not relock. | The Smart Lock |
 | 2026-10-31T22:09:58-04:00 | The tablet signs out of `m.vale`, then back in as `c.ward` at 22:10:06. | The Smart Lock |
 | 2026-10-31T22:17:00-04:00 | Adrian Vale is found dead in the library. | Design doc |
@@ -53,10 +53,10 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-31T22:21:15-04:00 | Marcus's phone opens the server room again (and at 22:47:36 and 23:26:09). | The Smart Lock |
 | 2026-10-31T22:26:17-04:00 | `c.ward`, on `BH-WS-0418`, replaces the will in the archive. The genuine file is renamed `Vale_Will_superseded.pdf`, the manifest check fails at 22:26:18, and the archive seals a replacement record. | The Two Wills |
 | 2026-10-31T22:31:40-04:00 | `c.ward` reads the replacement will in the archive from `BH-WS-0418`. | The Two Wills |
-| 2026-10-31T23:40:00-04:00 | Celeste, as family counsel, takes the five first statements and files them in the Legal Office case portal (23:40 to 23:56, hers at 23:52). | Family Secrets |
+| 2026-10-31T23:40:00-04:00 | Celeste, as family counsel, takes the five first statements and files them in the Legal Office case portal (23:40 to 23:56, hers at 23:52). | Counsel Portal |
 | 2026-11-01T00:00:00-04:00 | Adrian was due to sign the papers revoking Celeste's trustee authority, in front of the family, and `EA-0043` was due to be released to the Trustee. The papers stayed unsigned and the message was never released. | Design doc, the Last Testament task |
-| 2026-11-01T00:11:00-04:00 | Celeste writes four sealed counsel's notes on the others (00:11 to 00:14). | Family Secrets |
-| 2026-11-01T00:33:00-04:00 | Celeste replaces her own statement. The portal seals a revision record holding both versions. | Family Secrets |
+| 2026-11-01T00:11:00-04:00 | Celeste writes four sealed counsel's notes on the others (00:11 to 00:14). | Counsel Portal |
+| 2026-11-01T00:33:00-04:00 | Celeste replaces her own statement. The portal seals a revision record holding both versions. | Counsel Portal |
 | 2026-11-01T00:42:00-04:00 | Investigators scan the invitation found in the library. | The Invitation |
 | 2026-11-01T00:55:00-04:00 | Investigators pull the portrait file from the east hall frame. | Portrait in the Hall |
 | 2026-11-01T01:10:00-04:00 | Investigators export the hub's lock log and the sealed device record. | The Smart Lock |
@@ -147,7 +147,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Not decided here: where Celeste was between 22:10 and 22:26 beyond the tablet record. How she signed in as `m.vale` is answered in the Last Testament task.
 - Flag: `THM{THE_WILL_WAS_REPLACED}`
 
-## Family Secrets facts
+## Counsel Portal facts
 
 - Artifact: `counsel-portal/`, a WSGI app (local `serve.py`, or Vercel). The Legal Office case portal, case file `VALE-1031`. SQL injection in the search box.
 - Celeste took all five first statements herself, as family counsel, while the house waited for the investigators. This is why the interviews are in her portal.
@@ -187,7 +187,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 - New devices: `BH-WS-0401` (Adrian's workstation, `10.13.0.10` in the Ghost Admin task), `BH-WS-0402` (Marcus's, `10.13.0.22`), `BH-WS-0403` (Theo's, `10.13.0.31`).
 - The repository names no one from the Legal Office. The mapping from `hub-key-3` to `BH-WS-0418` and `c.ward` exists only in the sealed record.
-- Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). The Family Secrets task names them: Evelyn, Nina, and Theo.
+- Three people in the hall saw the dashboard say `MARCUS-ADMIN` at 22:04 (task text). The Counsel Portal task names them: Evelyn, Nina, and Theo.
 - How the tablet signed in as `m.vale` is answered in the Last Testament task (the recovery envelope).
 - Flag: `THM{FOLLOW_THE_COMMIT}`
 

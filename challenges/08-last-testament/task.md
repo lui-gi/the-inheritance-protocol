@@ -8,7 +8,7 @@ This task has one download:
 
 - `task8-case-board.zip`, the investigation's case board, with a script that serves it locally and a README that explains how.
 
-Unzip it, open a terminal in the `case-board` folder, and run `python3 serve.py`. The board will come up at `http://localhost:8000/`. The README covers Windows and troubleshooting. If the Family Secrets task portal is still running, stop it first: they use the same address.
+Unzip it, open a terminal in the `case-board` folder, and run `python3 serve.py`. The board will come up at `http://localhost:8000/`. The README covers Windows and troubleshooting. If the Counsel Portal task is still running, stop it first: they use the same address.
 
 The board shows the night as a timeline. Four rows are locked. Each one asks for a single piece of evidence you already found, and tells you which task it came from. Pin all four and the last row opens: the message Adrian recorded the night before he died.
 

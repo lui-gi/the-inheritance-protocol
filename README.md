@@ -10,7 +10,7 @@ Adrian Vale, founder of Blackthorn Security, is found dead in his library at 10:
 
 The CTF runs as a custom TryHackMe room with no VM. Each flag is its own task with its own text, download, and answer field. Every artifact is a file the player downloads and examines on their own machine, so nothing depends on a machine IP or a running service.
 
-The Family Secrets and the Last Testament tasks are small web apps. They are meant to be hosted on Vercel, and each also runs locally with its bundled `serve.py`.
+The Counsel Portal and the Last Testament tasks are small web apps. They are meant to be hosted on Vercel, and each also runs locally with its bundled `serve.py`.
 
 Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
@@ -42,7 +42,7 @@ The team task assumes the room is team-based. Turn that on in the room's **Gener
 | 3 | The Smart Lock | `challenges/03-smart-lock/` | `lock-controller.log` and `device-record.zip` |
 | 4 | Ghost Admin | `challenges/04-ghost-admin/` | the `blackthorn-server/` snapshot |
 | 5 | The Two Wills | `challenges/05-two-wills/` | the two will PDFs, `archive-entry.txt`, and `replacement-record.zip` |
-| 6 | Family Secrets | `challenges/06-counsel-portal/` | the `counsel-portal/` web app |
+| 6 | Counsel Portal | `challenges/06-counsel-portal/` | the `counsel-portal/` web app |
 | 7 | Commit History | `challenges/07-commit-history/` | the `blackthorn-dashboard/` Git repository, `README.txt`, and `signing-record.zip` |
 | 8 | The Last Testament | `challenges/08-last-testament/` | the `case-board/` web app |
 
@@ -78,7 +78,7 @@ python3 challenges/08-last-testament/build/make_board.py
 
 Requirements:
 
-- The Smart Lock, the Ghost Admin, the Two Wills, the Family Secrets, and the Last Testament tasks need only Python 3 and its standard library.
+- The Smart Lock, the Ghost Admin, the Two Wills, the Counsel Portal, and the Last Testament tasks need only Python 3 and its standard library.
 - The Portrait in the Hall task needs the packages in its `build/requirements.txt`.
 - The Commit History task needs `git` and `ssh-keygen`.
 

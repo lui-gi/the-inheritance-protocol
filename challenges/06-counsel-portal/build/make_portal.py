@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Counsel Portal app module for the Family Secrets task.
+"""Build the Counsel Portal app module.
 
 This script holds the portal's records in plain, organizer-readable form, packs
 them into a base64 blob, and writes that blob into the shipped app module

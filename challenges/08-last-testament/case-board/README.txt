@@ -83,7 +83,7 @@ IF SOMETHING GOES WRONG
 -----------------------
 
 "Could not start on port 8000"
-  Something else is using that port (the Family Secrets task portal, perhaps). Stop it
+  Something else is using that port (the Counsel Portal task, perhaps). Stop it
   with Ctrl+C, or pick another port:
 
     python3 serve.py 8080
