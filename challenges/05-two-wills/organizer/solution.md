@@ -1,4 +1,4 @@
-# Task 5: The Two Wills (ORGANIZER ONLY)
+# The Two Wills (ORGANIZER ONLY)
 
 Flag: `THM{THE_WILL_WAS_REPLACED}`
 

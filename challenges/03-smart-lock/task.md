@@ -1,4 +1,4 @@
-# Task 3: The Smart Lock
+# The Smart Lock
 
 Every door in Blackthorn House keeps a diary. Adrian Vale insisted on it. He said a door that cannot remember who opened it is just a wall with ambitions.
 

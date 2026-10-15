@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the two wills, the archive entry, and the sealed zip handed to players in Task 5.
+"""Generate the two wills, the archive entry, and the sealed zip handed to players in the Two Wills task.
 
 Usage: make_wills.py [output_dir]
 

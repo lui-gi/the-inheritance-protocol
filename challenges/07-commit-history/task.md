@@ -1,10 +1,10 @@
-# Task 7: Commit History
+# Commit History
 
 There is a display on the wall of the front hall at Blackthorn House. It shows a live feed of every door in the building: which one opened, when, and for whom. The family calls it "the dashboard". Theo calls it "the snitch".
 
 At 22:04 on Halloween, with thirteen minutes left on Adrian Vale's clock, the snitch told the whole hall that the library had been opened by a device called `MARCUS-ADMIN`. Three people saw it. All three have since mentioned it to us, unprompted, at length.
 
-You already know from Task 3 that the device at the library door was the Legal Office tablet, `BH-TAB-0417`. The hub's own log said so. So why did the dashboard call it `MARCUS-ADMIN`?
+You already know from the Smart Lock task that the device at the library door was the Legal Office tablet, `BH-TAB-0417`. The hub's own log said so. So why did the dashboard call it `MARCUS-ADMIN`?
 
 Because somebody taught it to. The dashboard gets its device names from its own code, and that code lives in a Git repository, which remembers every change anyone has ever made to it.
 

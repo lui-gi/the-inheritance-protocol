@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the printed dinner invitation (with QR code) handed to players in Task 1.
+"""Generate the printed dinner invitation (with QR code) handed to players in the Invitation task.
 
 Usage: make_invitation.py [output.png]
 

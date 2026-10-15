@@ -45,7 +45,7 @@ _DATA = json.loads(r"""
    "number": 1,
    "when": "29 Oct, 19:26",
    "text": "Somebody teaches the hall dashboard to call one device MARCUS-ADMIN.",
-   "question": "Task 7: what is the short hash of the commit that did it?",
+   "question": "Commit History: what is the short hash of the commit that did it?",
    "style": "lower",
    "check": "4a94a26d11cadfa55ddb49a0ad74f8f8e8b8ff6c45dbe2f02af2b5a1a0d9133e",
    "sealed_note": "Q6GB+p/Px9GQ9GAe7AuuMzYcLhurjY7jzM3FHsNxXDiuDT829wYqJfrBLzI692fZfwEcZrzFlKSCkb8Vn/P8XdeaT0rf6HwIBduizSQCFYX5EX3STDb/EEz3+IrcE2RO63v6MtX5CkgWSTgJUzwZyIZxgMYIfKOgbrXx5QFd4f2SVDQbAlDR/hPcVeHzUHQ41uOJTlcYtVu+iuj5vQEwHaa3J2HkzIZdBOZIbScSUYol2vY5C29BW9GW"
@@ -55,7 +55,7 @@ _DATA = json.loads(r"""
    "number": 2,
    "when": "29 Oct, 23:12",
    "text": "A hidden root account on the house server logs in for the last time.",
-   "question": "Task 4: what is the name of that account?",
+   "question": "Ghost Admin: what is the name of that account?",
    "style": "lower",
    "check": "4e72bf99df06be6a58b01b7a9f87c1920a394143f55cfce7f32ab46e29a6dd69",
    "sealed_note": "Z8O2HC2WZFMn9IVgoJOBt4ALJr/VKLYQCwG/mnhUmE+4LKFhm8/N2Fe8cdQYsL0VMSLgIKhtTS5kxl+8XwC3+OStj+PhFg6igjz9AKcRsEKNLOhhVOjUQri1WvGDf4IYOgYz7jOayaA0mwU8KgcnNxO8tXAmX1tpOKI2WNxNXDiTZbnBt5jcUgig2NugFnN/ltqvuL5ekvrE+O/TZD9TgLhINKZcFpIesxM="
@@ -70,7 +70,7 @@ _DATA = json.loads(r"""
    "number": 3,
    "when": "31 Oct, 22:04",
    "text": "The library door unlocks on Marcus Vale's account.",
-   "question": "Task 3: what is the ID of the device that opened it?",
+   "question": "The Smart Lock: what is the ID of the device that opened it?",
    "style": "upper",
    "check": "4b32da62622df5fef1e5aa5eadf7d0d35ff5ee621de918655860fb295429bdab",
    "sealed_note": "/tZYPiKqTvItr4YD/VJNCJbX5ywbBskEscCy9VLFHDChUfmIf2sZnzG3qDoRiUZNnsPmo5emtAp1CZdf2EhRHy1J4wnQemu3wG2iMyUlsmgyw3kB6qV5aOKcnG/1oX9xPCp1JZumN30FFrtZ50YX3ZXWt0/rP+VZKaNFcOBVwwiclBdhYaWgqUoYQzmdYwj+bgUh1jV/ndw2LY4nvd/qoskR2sKJWUKl76gTupMvvjPoD8NQa01YeToCVTcF"
@@ -90,7 +90,7 @@ _DATA = json.loads(r"""
    "number": 4,
    "when": "31 Oct, 22:26",
    "text": "A second will appears in Adrian's entry in the estate archive.",
-   "question": "Task 5: what is the SHA-256 of the will Adrian did NOT sign?",
+   "question": "The Two Wills: what is the SHA-256 of the will Adrian did NOT sign?",
    "style": "lower",
    "check": "f05dfef789c0dee78bf31baf0e57f678b6976d148941e4373bcdec804440af1d",
    "sealed_note": "rfGPaiDvOQhYVqOufyIKHTmdDXknB3jAIJQMDKGW4BEkvb4ZlwPQmXHEyojw+b+1zLeAxNF+A8h8n4KbAcUYyr3ETDjN2gLwdHJ/idQVNNF0RZPY05xpQChZqp0xds10gDT64VD34q8GtYpYK8o8CMw88APDQK3YRWSW9iwvjcwhx0s4o/B8/y3iyivO1oS368LI6hBM9O5SLUxdgUN1/rxOqS3BABzvaw=="

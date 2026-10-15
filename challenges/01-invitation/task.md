@@ -1,4 +1,4 @@
-# Task 1: The Invitation
+# The Invitation
 
 Welcome to Blackthorn House, investigator. Mind the cobwebs. Some of them are decorative.
 

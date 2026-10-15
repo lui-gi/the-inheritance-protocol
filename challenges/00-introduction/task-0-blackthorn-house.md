@@ -4,7 +4,7 @@ It is Halloween at Blackthorn House, and the host has made the evening awkward b
 
 Adrian Vale, founder of Blackthorn Security, was found dead in his library at 10:17 PM. The house went into lockdown, the guests went into the drawing room, and every one of them has since explained, in detail, why it could not have been them.
 
-You are an outside digital investigator. Nobody here can charm you, because you are only going to talk to their devices. The house logs everything: its doors, its server, its archive, even the portrait in the hall. Work through eight tasks, collect eight flags, and name the person who killed Adrian Vale.
+You are an outside digital investigator. Nobody here can charm you, because you are only going to talk to their devices. The house logs everything: its doors, its server, its archive, even the portrait in the hall. Work through eight investigation tasks, collect eight flags, and name the person who killed Adrian Vale.
 
 ## How this room works
 
@@ -36,16 +36,10 @@ To use it:
 - Click the blue **Start AttackBox** button at the top of the room. It takes a minute or two to boot, then opens in a split view beside the tasks.
 - Open this room in the browser inside the AttackBox and download each task file there, so the files land on the machine where the tools are.
 - Open a terminal on the AttackBox desktop and work exactly as the tasks describe. The Linux commands in each task are the ones to use.
-- For the QR code in Task 1, your phone's camera pointed at the screen works fine.
+- For the QR code in The Invitation, your phone's camera pointed at the screen works fine.
 
 Two things to know. Free accounts get a limited amount of AttackBox time per day, so start it when you are ready to work, not before. And if a tool ever turns out to be missing, tell an organizer: every task can also be done on your own computer.
-
-## House rule: AI is a guide, not the investigator
-
-You may use an AI assistant to learn a tool or explain a concept, the way you would use any tutorial. You must not hand the challenge files to an AI and ask it to solve them. Every question in this room can be answered with the toolkit above, and the point is to do the forensics yourself.
 
 ## Questions
 
 1. I have my toolkit ready.
-
-2. I have read the house rule on AI, and I will do my own investigating.

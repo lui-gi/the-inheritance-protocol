@@ -1,4 +1,4 @@
-# Task 3: The Smart Lock (ORGANIZER ONLY)
+# The Smart Lock (ORGANIZER ONLY)
 
 Flag: `THM{ACCOUNT_IS_NOT_IDENTITY}`
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Counsel Portal app module for Task 6.
+"""Build the Counsel Portal app module for the Family Secrets task.
 
 This script holds the portal's records in plain, organizer-readable form, packs
 them into a base64 blob, and writes that blob into the shipped app module
@@ -29,9 +29,9 @@ FLAG = "THM{SECRETS_ARE_NOT_MURDER}"
 # alone judges whether an heir is fit. The fifth sealed row is not hers: it is
 # the portal's own revision record, kept because she edited her statement.
 #
-# Only Celeste's lie touches the library timeline fixed by Tasks 3 to 5: her
+# Only Celeste's lie touches the library timeline fixed by the Smart Lock, the Ghost Admin, and the Two Wills tasks: her
 # tablet opened the library at 22:04 and Adrian was found at 22:17. The other
-# secrets are pinned to lock-log lines from Task 3 (Evelyn's study unlock at
+# secrets are pinned to lock-log lines from the Smart Lock task (Evelyn's study unlock at
 # 19:22:15, Nina's server room denials at 19:14, Theo's wine cellar unlock at
 # 21:38:19) and stay clear of dinner (19:30) and of the library.
 #

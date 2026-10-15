@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the hall portrait handed to players in Task 2.
+"""Generate the hall portrait handed to players in the Portrait in the Hall task.
 
 Usage: make_portrait.py [output.jpg]
 

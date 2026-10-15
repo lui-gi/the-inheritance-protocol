@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the house server snapshot handed to players in Task 4.
+"""Generate the house server snapshot handed to players in the Ghost Admin task.
 
 Usage: make_server.py [output_dir]
 
@@ -558,7 +558,7 @@ def build_auth_log():
     # The evening Adrian seals his findings.
     log.ssh(local("2026-10-30 21:27:44"), 16, "a.vale", IP_ADRIAN, commands=["/usr/bin/lastlog", "/usr/bin/less /var/log/auth.log"])
 
-    # Halloween. Marcus's console sessions follow his phone's server room unlocks in Task 3.
+    # Halloween. Marcus's console sessions follow his phone's server room unlocks in the Smart Lock task.
     log.cron(HALLOWEEN)
     log.ssh(local("2026-10-31 09:12:40"), 27, "m.vale", IP_MARCUS, commands=["/usr/bin/systemctl status blackthorn-hub"])
     log.ssh(local("2026-10-31 14:05:16"), 14, "a.vale", IP_ADRIAN, commands=["/usr/bin/less /var/log/auth.log"])

@@ -1,4 +1,4 @@
-# Task 4: Ghost Admin (ORGANIZER ONLY)
+# Ghost Admin (ORGANIZER ONLY)
 
 Flag: `THM{RED_HERRING_ROOT}`
 
@@ -122,7 +122,7 @@ Only Marcus's ordinary account, `m.vale`, and Adrian's. `hvac-sync` does not app
 | 22:03:31 to 22:15:48 | `m.vale` at the console, reading hub logs at 22:09:39. |
 | 22:22:04 to 23:52:40 | `m.vale` at the console three more times, trying to bring the network back. |
 
-The console sessions line up with Marcus's phone opening the server room door in Task 3 (19:53:25, 22:02:47, 22:21:15, 22:47:36, 23:26:09). At 22:04:11, when "his" account opened the library, he was sitting at the server under his own name.
+The console sessions line up with Marcus's phone opening the server room door in the Smart Lock task (19:53:25, 22:02:47, 22:21:15, 22:47:36, 23:26:09). At 22:04:11, when "his" account opened the library, he was sitting at the server under his own name.
 
 ## Shortcuts
 

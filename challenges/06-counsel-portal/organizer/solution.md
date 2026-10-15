@@ -1,4 +1,4 @@
-# Task 6: Family Secrets (ORGANIZER ONLY)
+# Family Secrets (ORGANIZER ONLY)
 
 Flag: `THM{SECRETS_ARE_NOT_MURDER}`
 
@@ -8,14 +8,14 @@ Target solve time: about 8 minutes. Skills: reading a web page, spotting that us
 
 ## The story beat
 
-Every suspect lied during their first interview, but only Celeste's lie touches the library timeline fixed by Tasks 3 to 5 (her tablet `BH-TAB-0417` opened the library at 22:04:11, Adrian was found at 22:17). The flag is the point of the task in words: secrets are not murder.
+Every suspect lied during their first interview, but only Celeste's lie touches the library timeline fixed by the Smart Lock, the Ghost Admin, and the Two Wills tasks (her tablet `BH-TAB-0417` opened the library at 22:04:11, Adrian was found at 22:17). The flag is the point of the task in words: secrets are not murder.
 
 The portal is the Legal Office case file. Celeste, as family counsel, took all five statements herself between 23:40 and 23:56, while the house waited for the investigators (whose first action is at 00:42). That is why the interviews sit in the prime suspect's own system. Guests see the filed statements. Two kinds of record are sealed:
 
-- Four counsel's notes, written by Celeste from 00:11 to 00:14. They are her private file on the other four: the real secret behind each lie, and what use it is to her. The replacement will's Article 4 (Task 5) lets the Trustee alone judge an heir "unfit", and these notes are her ammunition. Her note on Marcus says to steer the investigators to his hidden account first, which is exactly what Adrian's sealed findings in Task 4 predicted somebody would do.
-- One revision record, written by the portal and not by her. At 23:52 she filed a statement placing herself in the hall, as one more witness to the dashboard blaming Marcus. Evelyn, Nina, and Theo really were in the hall, and each of their statements names the other two and not her. At 00:33 she replaced her statement with an alibi nobody can check (alone in the conservatory, on a call). The portal kept both versions. The flag is on this record, in the same house-system voice as the hub and archive warnings in Tasks 3, 5, and 7.
+- Four counsel's notes, written by Celeste from 00:11 to 00:14. They are her private file on the other four: the real secret behind each lie, and what use it is to her. The replacement will's Article 4 (the Two Wills task) lets the Trustee alone judge an heir "unfit", and these notes are her ammunition. Her note on Marcus says to steer the investigators to his hidden account first, which is exactly what Adrian's sealed findings in the Ghost Admin task predicted somebody would do.
+- One revision record, written by the portal and not by her. At 23:52 she filed a statement placing herself in the hall, as one more witness to the dashboard blaming Marcus. Evelyn, Nina, and Theo really were in the hall, and each of their statements names the other two and not her. At 00:33 she replaced her statement with an alibi nobody can check (alone in the conservatory, on a call). The portal kept both versions. The flag is on this record, in the same house-system voice as the hub and archive warnings in the Smart Lock, the Two Wills, and the Commit History tasks.
 
-The three hall witnesses here are the "three people" Task 7's text mentions.
+The three hall witnesses here are the "three people" the Commit History task's text mentions.
 
 ## How the artifacts are built
 
@@ -51,17 +51,17 @@ Ten rows: five filed statements, four sealed counsel's notes, and one sealed rev
 
 | Suspect | Lie in the statement | Sealed record | Touches library? |
 | :---- | :---- | :---- | :---- |
-| Evelyn Vale | Went to the study only for her glasses, books in order | Note: wired 4.2M from the study at 19:24 to cover the Northgate acquisition (her phone opened the study at 19:22:15 in Task 3) | No |
+| Evelyn Vale | Went to the study only for her glasses, books in order | Note: wired 4.2M from the study at 19:24 to cover the Northgate acquisition (her phone opened the study at 19:22:15 in the Smart Lock task) | No |
 | Marcus Vale | Has one account | Note: hidden second admin account since May. Celeste wants the investigators pointed at it | No (this is Flag 4, and he was at the console from 22:03 to 22:15) |
-| Nina Park | No product code in months, nowhere near the server room | Note: copied the Project Lantern lock firmware on 24 October and tried it on the server room door at 19:14 (the two denials in Task 3) | No |
-| Theo Grant | Every camera ran all night | Note: cut camera 07 on the cellar stairs from 21:35 to 21:50 for a job interview by video call in the wine cellar (his badge opened it at 21:38:19 in Task 3) | No |
+| Nina Park | No product code in months, nowhere near the server room | Note: copied the Project Lantern lock firmware on 24 October and tried it on the server room door at 19:14 (the two denials in the Smart Lock task) | No |
+| Theo Grant | Every camera ran all night | Note: cut camera 07 on the cellar stairs from 21:35 to 21:50 for a job interview by video call in the wine cellar (his badge opened it at 21:38:19 in the Smart Lock task) | No |
 | Celeste Ward | In the conservatory on a call from 22:00 to 22:15 | Revision record: her first version said she was in the hall watching the dashboard. Withdrawn at 00:33 | Yes. Flag is here. |
 
-Every secret time sits outside dinner (19:30 to dessert at 21:30) or is pinned to a lock-log line players have already seen, and none is near the library. Those ties are flavour: nothing in the solve needs the Task 3 log open.
+Every secret time sits outside dinner (19:30 to dessert at 21:30) or is pinned to a lock-log line players have already seen, and none is near the library. Those ties are flavour: nothing in the solve needs the Smart Lock task log open.
 
 No camera covers the library. Theo's statement says so (Adrian would not have cameras on his private rooms) and Celeste's note on him agrees, which closes the question of why no footage shows who went in at 22:04.
 
-Celeste's account of 22:00 to 22:15 is the only one that changed, and both versions put her somewhere other than the library door, where Task 3 put her tablet.
+Celeste's account of 22:00 to 22:15 is the only one that changed, and both versions put her somewhere other than the library door, where the Smart Lock task put her tablet.
 
 ## Intended solution
 

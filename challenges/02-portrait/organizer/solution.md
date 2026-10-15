@@ -1,4 +1,4 @@
-# Task 2: Portrait in the Hall (ORGANIZER ONLY)
+# Portrait in the Hall (ORGANIZER ONLY)
 
 Flag: `THM{TRUST_THE_HASH}`
 
@@ -59,8 +59,8 @@ A.V.
 ## What players should take away
 
 - Adrian's rule: "Trust the signed hash, not the filename." One of the will files may be a counterfeit with a convincing name.
-- Adrian filed a checksum of the genuine will in the estate archive on the day he signed it. Task 5 relies on this.
-- The note is dated 27 October, and the file was last modified at 21:15:44 that evening. "Tomorrow I change the guest list" matches the 28 October edit from Task 1.
+- Adrian filed a checksum of the genuine will in the estate archive on the day he signed it. The Two Wills task relies on this.
+- The note is dated 27 October, and the file was last modified at 21:15:44 that evening. "Tomorrow I change the guest list" matches the 28 October edit from the Invitation task.
 
 The note does not name anyone, and it does not say a counterfeit will already exists. Do not tell players who Adrian suspected.
 

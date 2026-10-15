@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the dashboard Git repository, the README, and the sealed zip handed to players in Task 7.
+"""Generate the dashboard Git repository, the README, and the sealed zip handed to players in the Commit History task.
 
 Usage: make_repo.py [output_dir]
 
@@ -37,10 +37,10 @@ from pathlib import Path
 FLAG = "THM{FOLLOW_THE_COMMIT}"
 
 REPO_NAME = "blackthorn-dashboard"
-TABLET = "BH-TAB-0417"  # Legal Office tablet, from Task 3
+TABLET = "BH-TAB-0417"  # Legal Office tablet, from the Smart Lock task
 OLD_LABEL = "LEGAL-TABLET"
 NEW_LABEL = "MARCUS-ADMIN"
-WORKSTATION = "BH-WS-0418"  # Legal Office workstation, from Task 5
+WORKSTATION = "BH-WS-0418"  # Legal Office workstation, from the Two Wills task
 
 # The relabelling commit. The build fails if the hash it produces is not this one, so a
 # change to any commit at or before it must be followed by updating this value, the task

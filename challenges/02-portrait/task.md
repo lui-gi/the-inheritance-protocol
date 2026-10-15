@@ -1,4 +1,4 @@
-# Task 2: Portrait in the Hall
+# Portrait in the Hall
 
 Every great house has a portrait that watches you walk past. Blackthorn House has one that also runs firmware.
 

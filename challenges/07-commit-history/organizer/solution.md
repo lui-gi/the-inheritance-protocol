@@ -1,4 +1,4 @@
-# Task 7: Commit History (ORGANIZER ONLY)
+# Commit History (ORGANIZER ONLY)
 
 Flag: `THM{FOLLOW_THE_COMMIT}`
 
@@ -8,7 +8,7 @@ Target solve time: about 7 minutes. Skills: reading a Git history, searching it 
 
 ## The story beat
 
-Task 3 showed that the hub's raw log put the Legal Office tablet `BH-TAB-0417` at the library door at 22:04:11, under Marcus's account. But nobody in the house reads the raw log. They read the hall dashboard, and the dashboard called that device `MARCUS-ADMIN`. This task explains why: two days earlier, someone edited the dashboard's label table. The author was scrubbed, but Adrian's house rule is that every commit must be signed by a registered workstation key, and the key belongs to `BH-WS-0418`, the Legal Office workstation from Task 5.
+The Smart Lock task showed that the hub's raw log put the Legal Office tablet `BH-TAB-0417` at the library door at 22:04:11, under Marcus's account. But nobody in the house reads the raw log. They read the hall dashboard, and the dashboard called that device `MARCUS-ADMIN`. This task explains why: two days earlier, someone edited the dashboard's label table. The author was scrubbed, but Adrian's house rule is that every commit must be signed by a registered workstation key, and the key belongs to `BH-WS-0418`, the Legal Office workstation from the Two Wills task.
 
 ## How the artifacts are built
 
@@ -125,7 +125,7 @@ This is a bonus, not a step. It needs `ssh-keygen` on the player's machine (pres
 
 Trying all thirteen short hashes as the password works. That still means reading the log.
 
-Players who remember `BH-WS-0418` from Task 5 can guess question 2 before opening the zip. They still need the zip for the flag.
+Players who remember `BH-WS-0418` from the Two Wills task can guess question 2 before opening the zip. They still need the zip for the flag.
 
 ## Common stumbles
 
@@ -142,7 +142,7 @@ Players who remember `BH-WS-0418` from Task 5 can guess question 2 before openin
 - An author name in Git is typed in by whoever makes the commit. A signature is not.
 - This was planned before Halloween. The frame was built first.
 
-This ties the relabelling to Celeste's workstation and shows premeditation. It does not show who was holding the tablet at 22:04, or how the tablet was able to sign in as `m.vale` (still open from Task 3). Flag 8 puts the four pieces together. Do not tell players this alone proves murder.
+This ties the relabelling to Celeste's workstation and shows premeditation. It does not show who was holding the tablet at 22:04, or how the tablet was able to sign in as `m.vale` (still open from the Smart Lock task). Flag 8 puts the four pieces together. Do not tell players this alone proves murder.
 
 ## Hints, in order of generosity
 

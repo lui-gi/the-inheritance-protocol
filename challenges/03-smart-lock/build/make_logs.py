@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the two logs and the sealed zip handed to players in Task 3.
+"""Generate the two logs and the sealed zip handed to players in the Smart Lock task.
 
 Usage: make_logs.py [output_dir]
 

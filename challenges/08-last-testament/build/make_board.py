@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Case Board app module for Task 8.
+"""Build the Case Board app module for the Last Testament task.
 
 This script holds the timeline, the four evidence answers, and Adrian's last
 message in plain, organizer-readable form, and writes the shipped app module
@@ -12,7 +12,7 @@ Nothing that would spoil the ending is left readable in that module:
   - Adrian's message (and the flag) is sealed with all four answers together.
 
 So a player who opens the source instead of the page still has to bring the
-four answers from Tasks 3, 4, 5, and 7. The sealing is a keystream made from
+four answers from the Smart Lock, the Ghost Admin, the Two Wills, and the Commit History tasks. The sealing is a keystream made from
 SHA-256. It is there to stop `grep`, not a cryptographer.
 
 Run from anywhere:
@@ -44,14 +44,14 @@ TIMELINE = [
      "Adrian adds a fifth name to the Halloween guest list: Celeste Ward, family counsel."),
     ("slot", "29 Oct, 19:26",
      "Somebody teaches the hall dashboard to call one device MARCUS-ADMIN.",
-     "Task 7: what is the short hash of the commit that did it?", "lower",
+     "Commit History: what is the short hash of the commit that did it?", "lower",
      "4fc4f25",
      "Commit 4fc4f25, \"Tidy label formatting\". The author was scrubbed, but the commit is "
      "signed by the key on BH-WS-0418, the Legal Office workstation registered to Celeste "
      "Ward. It relabels the Legal Office tablet. The frame was built two days before the dinner."),
     ("slot", "29 Oct, 23:12",
      "A hidden root account on the house server logs in for the last time.",
-     "Task 4: what is the name of that account?", "lower",
+     "Ghost Admin: what is the name of that account?", "lower",
      "hvac-sync",
      "hvac-sync, created by Marcus in May. Real misconduct, and Adrian knew about it. It did "
      "not log in on 30 or 31 October, and Marcus was at the server room console under his own "
@@ -60,7 +60,7 @@ TIMELINE = [
      "Dessert. Adrian tells the table: \"By midnight, none of you will own what you think you own.\""),
     ("slot", "31 Oct, 22:04",
      "The library door unlocks on Marcus Vale's account.",
-     "Task 3: what is the ID of the device that opened it?", "upper",
+     "The Smart Lock: what is the ID of the device that opened it?", "upper",
      "BH-TAB-0417",
      "BH-TAB-0417, the Legal Office tablet, registered to Celeste Ward. It was signed in as "
      "her all evening, as m.vale for six minutes, then as her again. Marcus's own phone was "
@@ -71,7 +71,7 @@ TIMELINE = [
      "The house locks down and the network uplink drops."),
     ("slot", "31 Oct, 22:26",
      "A second will appears in Adrian's entry in the estate archive.",
-     "Task 5: what is the SHA-256 of the will Adrian did NOT sign?", "lower",
+     "The Two Wills: what is the SHA-256 of the will Adrian did NOT sign?", "lower",
      "18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6",
      "Vale_Will_FINAL_signed.pdf, filed by c.ward from BH-WS-0418 nine minutes after Adrian "
      "was found. It fails the manifest he signed. Its Article 4 lets the Trustee vote any "

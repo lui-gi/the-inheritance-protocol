@@ -1,8 +1,8 @@
-# Task 4: Ghost Admin
+# Ghost Admin
 
 Blackthorn House has one server, in one small room, behind one very expensive door. Marcus Vale built it, and talks about it the way other people talk about their children.
 
-The staff have a rumour. They say Marcus has more than one way into that server, and that the second one does not have his name on it. After Task 3, you can see why that would interest us.
+The staff have a rumour. They say Marcus has more than one way into that server, and that the second one does not have his name on it. After the Smart Lock task, you can see why that would interest us.
 
 We took a snapshot of the server after the lockdown. Download the task file and unzip it. You will find a folder called `blackthorn-server`, laid out like the real machine:
 

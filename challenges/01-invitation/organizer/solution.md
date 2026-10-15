@@ -1,4 +1,4 @@
-# Task 1: The Invitation (ORGANIZER ONLY)
+# The Invitation (ORGANIZER ONLY)
 
 Flag: `THM{THE_GUEST_LIST_CHANGED}`
 

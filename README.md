@@ -10,7 +10,7 @@ Adrian Vale, founder of Blackthorn Security, is found dead in his library at 10:
 
 The CTF runs as a custom TryHackMe room with no VM. Each flag is its own task with its own text, download, and answer field. Every artifact is a file the player downloads and examines on their own machine, so nothing depends on a machine IP or a running service.
 
-Tasks 6 and 8 are small web apps. They are meant to be hosted on Vercel, and each also runs locally with its bundled `serve.py`.
+The Family Secrets and the Last Testament tasks are small web apps. They are meant to be hosted on Vercel, and each also runs locally with its bundled `serve.py`.
 
 Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
@@ -18,7 +18,18 @@ Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
 Players may use an AI assistant to learn a tool or explain a concept, the way they would use any tutorial. They must not hand our challenge files to an AI and ask it to solve them. Every question is solvable with the toolset introduced at the start of the room, and the point is to do the forensics yourself. Use AI as a guide, not as the investigator.
 
-Include this as a rule in the room's introduction task so players see it before Task 1.
+This is its own room task (`challenges/00-introduction/task-3-ai-disclosure.md`): players must answer `I understand` to complete it, before the investigation starts.
+
+## Setup tasks
+
+Four short tasks open the room, all in `challenges/00-introduction/`. None has a download.
+
+| Room task | Task | File | Answer |
+| :-- | :-- | :-- | :-- |
+| 0 | Welcome to Blackthorn House | `task-0-blackthorn-house.md` | no answer needed |
+| 1 | New to This? TryHackMe and CTFs | `task-1-tryhackme-and-ctfs.md` | `THM{UPPER_SNAKE_CASE}` |
+| 2 | Assemble Your Investigators | `task-2-create-your-team.md` | no answer needed |
+| 3 | House Rule: AI Is a Guide | `task-3-ai-disclosure.md` | `I understand` |
 
 ## Tasks
 
@@ -33,7 +44,7 @@ Include this as a rule in the room's introduction task so players see it before 
 | 7 | Commit History | `challenges/07-commit-history/` | the `blackthorn-dashboard/` Git repository, `README.txt`, and `signing-record.zip` |
 | 8 | The Last Testament | `challenges/08-last-testament/` | the `case-board/` web app |
 
-The tasks build on each other: evidence found in earlier tasks is needed in later ones, and Task 8 asks for answers from Tasks 3, 4, 5, and 7.
+The tasks build on each other: evidence found in earlier tasks is needed in later ones, and the Last Testament task asks for answers from the Smart Lock, the Ghost Admin, the Two Wills, and the Commit History tasks.
 
 ## Repository layout
 
@@ -66,11 +77,11 @@ python3 challenges/08-last-testament/build/make_board.py
 
 Requirements:
 
-- Tasks 3, 4, 5, 6, and 8 need only Python 3 and its standard library.
-- Tasks 1 and 2 need the packages in their `build/requirements.txt` (`qrcode` and `pillow`). Task 1 also expects the Noto Serif fonts to be installed.
-- Task 7 needs `git` and `ssh-keygen`.
+- The Smart Lock, the Ghost Admin, the Two Wills, the Family Secrets, and the Last Testament tasks need only Python 3 and its standard library.
+- The Invitation and the Portrait in the Hall tasks need the packages in their `build/requirements.txt` (`qrcode` and `pillow`). The Invitation task also expects the Noto Serif fonts to be installed.
+- The Commit History task needs `git` and `ssh-keygen`.
 
-Task 7's `blackthorn-dashboard/` folder holds its own `.git`, so this repository ignores it. Run `make_repo.py` to recreate it after cloning and before publishing.
+The Commit History task's `blackthorn-dashboard/` folder holds its own `.git`, so this repository ignores it. Run `make_repo.py` to recreate it after cloning and before publishing.
 
 ## Running the web apps locally
 
@@ -95,5 +106,5 @@ Each needs Python 3.7 or newer and nothing else. The `README.txt` in each folder
 
 - Read the design document and `canon/canon.md` first. Names, timestamps, device IDs, hashes, and keys are shared between tasks.
 - Edit the build script, not the generated files, then rerun it.
-- Update `canon/canon.md` whenever a task adds or changes a shared fact. In Task 5, changing the wording of either will changes its hash, which also changes the zip password and the answer Task 8 expects.
+- Update `canon/canon.md` whenever a task adds or changes a shared fact. In the Two Wills task, changing the wording of either will changes its hash, which also changes the zip password and the answer the Last Testament task expects.
 - Keep organizer notes and solutions out of anything distributed to players.
