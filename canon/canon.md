@@ -20,7 +20,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-01T15:42:10-04:00 | Adrian files the will in the estate archive (entry `EA-0042`). The archive signs a manifest with its SHA-256 and writes his receipt. | The Two Wills |
 | 2026-10-16T14:05:32-04:00 | Guest list revision 1 saved by `a.vale`: Evelyn, Marcus, Nina, Theo. Organizer background: not shown to players. | The Invitation |
 | 2024-04-13T11:20:00-04:00 | Adrian's portrait digitised for the east hall frame. | Portrait in the Hall |
-| 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026". | The Invitation |
+| 2026-10-17 | Invitations printed. The card reads "Printed 17 October 2026" and asks guests to reply by 24 October. | The Invitation |
 | 2026-10-24 | Nina copies the unreleased Project Lantern lock firmware to a personal drive. Time of day not decided. | Family Secrets |
 | 2026-10-26 | Counsel opens the Legal Office's sealed recovery envelope for the `m.vale` account. The estate archive tells Adrian. Time of day not decided. | The Last Testament |
 | 2026-10-27T20:52:16-04:00 | Adrian rereads his will in the archive. It still verifies. | The Two Wills |
@@ -70,6 +70,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - The snapshot holds only the portal front page and the event page. There are no decoy pages and no `guests.json`.
 - QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
+- Printed reply date: "Kindly reply by 24 October" (card footer, above the print date).
 - Live guest list (five): the four above plus Celeste Ward.
 - Why Celeste was added (organizer reasoning): Adrian wanted her in the room when he signed the papers revoking her authority. Nothing player-facing in the Invitation task explains why she was added.
 - Flag: `THM{THE_GUEST_LIST_CHANGED}`

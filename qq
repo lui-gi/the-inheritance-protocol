@@ -1,0 +1,212 @@
+[33mcommit a819db4bee15928a8bb8c596a97912a90d6e8130[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Thu Oct 15 12:02:45 2026 -0400
+
+    Welcome task: introduce the cast
+    
+    Adds a short section on Adrian and the five suspects with roles and
+    public motives only, keeping every hidden secret and Celeste's late
+    addition to the guest list for the tasks that reveal them.
+
+[33mcommit 13addd1e8a0e3633b1881ec3c34ba3eaf7beedc1[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Thu Oct 15 11:49:15 2026 -0400
+
+    Team task: walk players through creating a TryHackMe team and explain team scoring
+    
+    Covers picking a captain, creating the team and sharing the invite link,
+    joining the team and the room, and how shared progress, the team
+    leaderboard, tie breaks, and resets work. README notes the room must be
+    set to team-based.
+
+[33mcommit 58f0eb233c2cf2576417853fd54a1ae318a22a2d[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Thu Oct 15 10:10:12 2026 -0400
+
+    Give each setup task its own folder so the room preview shows them
+    
+    run.py reads one task.md per challenge folder, so the four setup tasks
+    now live in 00a-welcome, 00b-tryhackme, 00c-team, and 00d-ai-disclosure,
+    with organizer answers for the two that take one. The preview numbers
+    tasks by position instead of reading a label from the heading.
+
+[33mcommit 088a61c8017363edfedc02a5d7128d5d9814d946[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Thu Oct 15 10:07:46 2026 -0400
+
+    Split intro into four setup tasks and refer to investigation tasks by name
+    
+    Task 0 keeps the Blackthorn House welcome. New tasks cover TryHackMe and
+    CTF basics, forming a team, and the AI disclosure (answer: I understand).
+    Investigation tasks now sit at room positions 4 to 11, so every cross
+    reference uses the task name instead of a number.
+
+[33mcommit 51e479f6ef259a4bebb8d48138bc3db0deaff731[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 21:29:53 2026 -0400
+
+    cleaned up repo and made public
+
+[33mcommit 8c4c0b1e02757abab3f03f8fbe989df31a2cf083[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 13:59:14 2026 -0400
+
+    challenge 02 revision, difficulty tweak (made it easier)
+
+[33mcommit e356ca2a957497341877a6fdf451d7504ae9d3b2[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 11:05:44 2026 -0400
+
+    intro task: add AttackBox section as a no-install option
+
+[33mcommit b64bf07713f87d83ab663ffeccf7bed7b668ba30[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 09:57:17 2026 -0400
+
+    docs: bring design doc, canon, and CLAUDE.md in line with the built room
+    
+    Design doc: Adrian learns of the opened recovery envelope, not the forged
+    will, and Flag 4 is a server file snapshot, not a VM. Canon: the m.vale
+    sign-in question is answered in Task 8. Task 8 solution: the papers are
+    signed at midnight. CLAUDE.md: the project section describes the built repo.
+
+[33mcommit aec5bafd09cf454b802adef4ec7da27aa484e540[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 09:49:21 2026 -0400
+
+    tighten narrative: task 6 counsel dossier and revision record, task 8 unsigned revocation
+    
+    Task 6: Celeste takes the five first statements herself. The four sealed
+    notes become her private file on the others, kept as grounds to judge the
+    heirs unfit, and the flag moves to a portal-written revision record showing
+    she rewrote her own statement. Secret times are moved off dinner and tied to
+    Task 3 log lines, and no camera covers the library.
+    
+    Task 8: the revocation papers are unsigned until midnight, so Adrian's death
+    is what stops them, and the investigators' note puts the motive in order.
+    
+    Updates the design doc, canon (new Task 6 facts), task text, and solutions
+    to match. No flag, password, or Task 8 answer changes.
+
+[33mcommit 48d965ff5a22ded14749b9230db3435e9d32d03f[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 09:26:11 2026 -0400
+
+    add local room preview: index.html, run.py, and a draft introduction task
+
+[33mcommit ecaf3ff5db4520f8a1ccdd966f9014b76f5dfae3[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Tue Oct 13 09:17:49 2026 -0400
+
+    soften task 6 SQLi hint and add no-direct-AI room rule
+    
+    Task 6: point players at the injection without naming it or giving a
+    payload (input lands in the DB query, try a lone apostrophe, a condition
+    can be made always true), bringing it closer to the rest of the room's
+    beginner difficulty.
+    
+    README: add a room rule that AI may guide but must not be handed the
+    challenge files to solve directly; every question is solvable with the
+    toolset the room introduces.
+
+[33mcommit 381efe47e0f80457c33a79e78c9284d180b67871[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sun Oct 11 02:40:53 2026 -0400
+
+    add README: room format, task table, build and publish steps
+
+[33mcommit 8c76bd4d7e916c659667f23b707c4ef47c13e919[m[33m ([m[1;32mchallenge-06-counsel-portal[m[33m)[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sun Oct 11 02:07:46 2026 -0400
+
+    challenge 08: case board timeline with trustee-only release of Adrian's last message
+
+[33mcommit b5e637f822d48e36137df04f491a70080e42b89a[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sun Oct 11 02:07:46 2026 -0400
+
+    challenge 07: signed dashboard repo with scrubbed-author relabel commit and sealed signing record
+
+[33mcommit 356e1fee4df7dd28146f8016b641c03be10d982b[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sun Oct 11 01:41:42 2026 -0400
+
+    challenge 06: SQL-injectable counsel portal replacing OSINT family-secrets task
+    
+    Flag 6 was an OSINT-correlation task, which does not fit a no-VM, downloadable
+    room. Replace it with a deliberately vulnerable web app: the Legal Office case
+    portal with a SQL injection in its search box. Guests see five filed statements
+    (each a lie); breaking the search exposes the five sealed counsel's notes, and
+    only Celeste's secret touches the library timeline.
+    
+    Same WSGI app runs locally via stdlib wsgiref (serve.py) and on Vercel
+    (api/index.py plus vercel.json), with a fresh in-memory SQLite per request.
+    Records are packed by build/make_portal.py so the flag is not grep-able from
+    source. Updates the design doc and CLAUDE.md to match.
+
+[33mcommit 00898bb0c4ae78e3b946a2bb56dc6c6da60a5af2[m[33m ([m[1;32mchallenge-01-invitation[m[33m)[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sun Oct 11 00:46:40 2026 -0400
+
+    challenge 05: two wills with archived checksum and sealed replacement record
+
+[33mcommit f3ed65e403895a34cda45693090254623fc5047d[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 23:49:34 2026 -0400
+
+    challenge 04: server snapshot with hidden root account and sealed findings
+
+[33mcommit 215b39b530abf6a8dae2d3bbf0a9a15b8a0df83a[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 23:36:57 2026 -0400
+
+    challenge 03: two-stage smart lock log with sealed device record
+
+[33mcommit a023a66a671bd8dfb5ea3c8e4802c92e464a676e[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 23:04:29 2026 -0400
+
+    challenge 02: portrait with Adrian's note in Base64 EXIF metadata
+    
+    Add the hall portrait task. portrait.jpg is an ordinary JPEG whose EXIF
+    UserComment holds Adrian's note and the flag as Base64. Includes the build
+    script, task text, organizer solution, and the Task 2 canon facts.
+
+[33mcommit b4d16d4ab1ba7f2f675acabdf3cd3ea3cf946857[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 22:42:11 2026 -0400
+
+    challenge 01: flatten task directory and drop decoy pages and guests.json
+    
+    Move invitation.png and blackthorn-portal/ to the task root and remove the
+    player/ folder. Remove the three decoy event pages and guests.json, along
+    with the references to them in the event page, solution notes, and canon.
+
+[33mcommit c60750701e9decb0a4f07b9d2c0cb7bbe7babd83[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 21:55:17 2026 -0400
+
+    challenge 01: ship invitation and locally hosted portal as two downloads
+    
+    Replace the single task zip with invitation.png plus a blackthorn-portal
+    directory holding the portal snapshot, a serve.py that hosts it on
+    localhost, and a player README. The directory is kept unzipped for now so
+    it can be tweaked, and is zipped by hand once final.
+
+[33mcommit cd0cc1883ae765e144c17494a4c791d42fc1cf35[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 20:56:02 2026 -0400
+
+    proposed idea
+
+[33mcommit 67dc00cabba0a024f1239e53f41ef33ff1281279[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 20:41:21 2026 -0400
+
+    challenge 01 test
+
+[33mcommit e0babc4cf0b96ebf2f5b29b75bcb2d7104c30dc5[m
+Author: Luigi F. <luigi.fern05@gmail.com>
+Date:   Sat Oct 10 20:18:49 2026 -0400
+
+    initial commit
