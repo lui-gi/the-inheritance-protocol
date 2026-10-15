@@ -25,6 +25,9 @@ DEFAULT_PORT = 9000
 # Entries in a task folder that players never receive.
 NOT_FOR_PLAYERS = {"task.md", "build", "organizer", "__pycache__"}
 
+# Web apps hosted on Vercel. Players open them by URL, so they are not task files.
+HOSTED = {"blackthorn-portal", "counsel-portal", "case-board"}
+
 
 def task_folders():
     return sorted(p for p in CHALLENGES.iterdir() if (p / "task.md").is_file())
@@ -49,7 +52,7 @@ def answers_for(folder):
 def player_files(folder):
     names = []
     for entry in sorted(folder.iterdir(), key=lambda p: p.name.lower()):
-        if entry.name in NOT_FOR_PLAYERS or entry.name.startswith("."):
+        if entry.name in NOT_FOR_PLAYERS or entry.name in HOSTED or entry.name.startswith("."):
             continue
         names.append(entry.name + "/" if entry.is_dir() else entry.name)
     return names
