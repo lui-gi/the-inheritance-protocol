@@ -6,6 +6,20 @@ Adrian Vale, founder of Blackthorn Security, was found dead in his library at 10
 
 You are an outside digital investigator. Nobody here can charm you, because you are only going to talk to their devices. The house logs everything: its doors, its server, its archive, even the portrait in the hall. Work through eight investigation tasks, collect eight flags, and name the person who killed Adrian Vale.
 
+## The cast
+
+**Adrian Vale**, 67. The victim. Founder of Blackthorn Security, builder of famously unbreakable systems, and a man who treated family arguments like penetration tests. He planned to step down as CEO after dinner. Over dessert he told the table: "By midnight, none of you will own what you think you own." Then he went to the library.
+
+**Evelyn Vale**, his daughter. Chief Financial Officer, expected to inherit control of the company, and the person who argued with Adrian loudest, longest, and in front of everyone.
+
+**Marcus Vale**, his son. Chief Technology Officer, who built the mansion's smart-home system himself and has strong opinions about the thermostat. His name turns up in the house logs more than he would like.
+
+**Nina Park**, his niece. Red-team lead and Adrian's favourite protégé. Breaking into things is her actual job, which makes her very good company and a very awkward suspect.
+
+**Celeste Ward**, the family attorney. She drafts the Vales' legal paperwork and serves as trustee of the family holdings. She was at the house that night, and she has been extremely helpful ever since.
+
+**Theo Grant**, the estate manager. He controls the staff badges, the cameras, and every physical key in the house, so if a door opened, Theo probably knows about it. Or says he does.
+
 ## How this room works
 
 - There is no machine to start. Every task comes with a download that you examine on your own computer or on the AttackBox.
