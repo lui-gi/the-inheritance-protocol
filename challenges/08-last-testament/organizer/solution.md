@@ -4,7 +4,7 @@ Flag: `THM{CELESTE_WARD}`
 
 Checkpoint answer (question 1): `trustee`
 
-Target solve time: about 10 minutes. Skills: pulling four findings together from earlier tasks, reading and editing a browser cookie (client-side trust). No VM is involved: the board runs on the player's machine, and the same app can also be hosted on Vercel.
+Target solve time: about 10 minutes. Skills: pulling four findings together from earlier tasks, reading and editing a browser cookie (client-side trust). No VM is involved: the board is hosted on Vercel, and players need only a browser.
 
 ## The story beat
 
@@ -14,7 +14,7 @@ The message also closes the thread left open since the Smart Lock task: Celeste 
 
 ## How the artifacts are built
 
-One download, `case-board/`, built by `build/make_board.py`. The timeline, the four answers, and Adrian's message live in that script in plain, readable form.
+No download: the board is hosted on Vercel. The app, `case-board/`, is built by `build/make_board.py`. The timeline, the four answers, and Adrian's message live in that script in plain, readable form.
 
 ```
 case-board/
@@ -55,7 +55,7 @@ There is no signature and no server-side session. The refusal page prints the re
 
 ## Intended solution
 
-1. Unzip, run `python3 serve.py`, open `http://localhost:8000/`.
+1. Open the hosted board (https://blackthorn-case-board.vercel.app/).
 2. Fill in the four locked rows with the answers above. Read the notes that appear.
 3. The last row now offers "Ask the archive to release it". Click it. The archive refuses:
 
@@ -71,13 +71,13 @@ There is no signature and no server-side session. The refusal page prints the re
    ```
 
 4. Answer question 1 with `trustee`.
-5. Open the browser's developer tools (F12), go to Application (Chrome, Edge) or Storage (Firefox), open Cookies for `localhost`, and change the value of `role` from `guest` to `trustee`. Reload the page.
+5. Open the browser's developer tools (F12), go to Application (Chrome, Edge) or Storage (Firefox), open Cookies for `blackthorn-case-board.vercel.app`, and change the value of `role` from `guest` to `trustee`. Reload the page.
 6. The archive releases the transcript. The flag is on its last line: `Name her: THM{CELESTE_WARD}`.
 
 With `curl`, once the four answers are known:
 
 ```
-curl -s -b "role=trustee; evidence1=4fc4f25; evidence2=hvac-sync; evidence3=BH-TAB-0417; evidence4=18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6" http://localhost:8000/testament
+curl -s -b "role=trustee; evidence1=4fc4f25; evidence2=hvac-sync; evidence3=BH-TAB-0417; evidence4=18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6" https://blackthorn-case-board.vercel.app/testament
 ```
 
 ## Adrian's message
@@ -114,7 +114,6 @@ Teams who skipped a task cannot finish this one. That is intended: this task is 
 
 ## Common stumbles
 
-- Port 8000 still in use by the Counsel Portal task. Stop it, or run `python3 serve.py 8080`. Cookies are shared between ports on `localhost` in most browsers, which is harmless here.
 - Editing the cookie and not reloading the page.
 - Adding a second cookie called `role` with a different path instead of editing the existing one. The "Clear the board" link resets everything.
 - Pasting the hash with a trailing newline is fine: answers are trimmed. Pasting the genuine will's hash instead of the replacement's is the usual wrong answer for row 4.
@@ -128,12 +127,11 @@ Teams who skipped a task cannot finish this one. That is intended: this task is 
 
 ## Hosting note
 
-The app is stdlib only, so no `requirements.txt` is needed. Deploying `case-board/` to Vercel serves the board from `api/index.py` with `vercel.json` routing every path to it. Not hosted yet, and not tested on Vercel. Unlike the Counsel Portal task, this app uses three paths (`/submit`, `/testament`, `/reset`), redirects, and cookies, so check on the first deploy that the app sees the original path after the rewrite and that `Set-Cookie` headers on redirects come through. When it is hosted, swap `http://localhost:8000/` in the task text for the hosted URL. The local download can still ship as a fallback.
+The app is stdlib only, so no `requirements.txt` is needed. Deploying `case-board/` to Vercel serves the board from `api/index.py` with `vercel.json` routing every path to it. Hosted at https://blackthorn-case-board.vercel.app/. If hosting fails on the night, zip `case-board/` and have players run `python3 serve.py`; its README covers that.
 
 ## Publishing to the room
 
-- Zip the `case-board` folder into `task8-case-board.zip` and upload it as the task file. This is done by hand once the task is final. Delete any `__pycache__` folder first.
-- Do not include the `organizer` or `build` folders.
+- No task file. The task text links the hosted board.
 - Paste `task.md` into the task body. Set the answers to `trustee` and the flag above.
 
 ## Rebuilding

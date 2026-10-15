@@ -4,11 +4,11 @@ Everyone in Blackthorn House lied during their first interview. That is not unus
 
 We were not the first to interview them. While the house waited for us to arrive, Celeste Ward, the family attorney, did what attorneys do: she sat everyone down, took their statements, and filed all five in the Legal Office's case portal. Her own is among them. She also keeps her private working notes in the same portal, sealed so that only counsel can read them, and the portal quietly keeps a sealed record of any statement that is edited after it is filed. You have been given a read-only guest login.
 
-This task has one download:
+This task has no download. The portal is online at:
 
-- `task6-counsel-portal.zip`, the recovered portal, with a script that serves it locally and a README that explains how.
+- https://blackthorn-counsel-portal.vercel.app/
 
-Unzip it, open a terminal in the `counsel-portal` folder, and run `python3 serve.py`. The portal will come up at `http://localhost:8000/`. The README covers Windows and troubleshooting.
+Open it in your browser. The first visit can take a second or two to wake the portal up.
 
 As a guest you can read the five filed statements. The sealed records are where the secrets actually live, and the guest view will not hand those over. The portal was thrown together quickly, though, and it does not keep your words separate from its own: whatever you type in the search box is dropped straight into the question it asks its database.
 

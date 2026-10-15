@@ -8,7 +8,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Timezone: America/New_York. Halloween 2026 falls on a Saturday and is still on daylight time, so every timestamp uses the offset `-04:00`.
 - Timestamp format in artifacts: ISO 8601 with offset, for example `2026-10-31T22:17:00-04:00`.
 - Account names: first initial, dot, surname (`a.vale`, `m.vale`, `e.vale`, `n.park`, `c.ward`, `t.grant`).
-- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. Players get a nightly portal snapshot as a folder named after the hostname, and serve it locally with the bundled `serve.py` (default `http://localhost:8000/`).
+- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. The investigators put the nightly portal snapshot back online at `https://blackthorn-portal.vercel.app/`; the source is the folder named after the hostname, with a local `serve.py` as a fallback.
 
 ## Timeline
 
@@ -31,7 +31,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 | 2026-10-29T23:12:40-04:00 | `hvac-sync` logs in for the last time (session ends 23:30:53). | Ghost Admin |
 | 2026-10-30T21:40:00-04:00 | Adrian seals his findings about `hvac-sync` in `findings.zip`. | Ghost Admin |
 | 2026-10-30T22:10:00-04:00 | Adrian records his message for the Trustee (archive entry `EA-0043`), set for release at midnight on 1 November. | The Last Testament |
-| 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy players receive. | The Invitation |
+| 2026-10-31T03:00:00-04:00 | Nightly portal snapshot taken. This is the copy the investigators put back online. | The Invitation |
 | 2026-10-31T19:00:00-04:00 | Guests arrive, cocktails in the hall. | The Invitation |
 | 2026-10-31T19:30:00-04:00 | Dinner is served. | The Invitation |
 | 2026-10-31T21:30:00-04:00 | Dessert. Adrian says: "By midnight, none of you will own what you think you own." | Design doc |
@@ -66,7 +66,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## The Invitation facts
 
-- Event page path: `/rsvp/hallows-eve-1031/` (in `task1-portal.zip`: `blackthorn-portal/portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`, served locally at `http://localhost:8000/rsvp/hallows-eve-1031/`)
+- Event page path: `/rsvp/hallows-eve-1031/` (source `blackthorn-portal/portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`, hosted at `https://blackthorn-portal.vercel.app/rsvp/hallows-eve-1031/`)
 - The snapshot holds only the portal front page and the event page. There are no decoy pages and no `guests.json`.
 - QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
@@ -149,7 +149,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## Counsel Portal facts
 
-- Artifact: `counsel-portal/`, a WSGI app (local `serve.py`, or Vercel). The Legal Office case portal, case file `VALE-1031`. SQL injection in the search box.
+- Artifact: `counsel-portal/`, a WSGI app hosted at `https://blackthorn-counsel-portal.vercel.app/` (local `serve.py` as a fallback). Players are never given its source. The Legal Office case portal, case file `VALE-1031`. SQL injection in the search box.
 - Celeste took all five first statements herself, as family counsel, while the house waited for the investigators. This is why the interviews are in her portal.
 - Ten records: five guest-visible statements, four sealed counsel's notes (Celeste's private file on the others), and one sealed revision record (written by the portal) for Celeste's own statement. The checkpoint answer is `5` sealed records.
 - The lies and the secrets:
@@ -193,7 +193,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## The Last Testament facts
 
-- Artifact: `case-board/`, a WSGI app (local `serve.py`, or Vercel). A timeline with four locked rows, then the estate archive's release page for Adrian's message.
+- Artifact: `case-board/`, a WSGI app hosted at `https://blackthorn-case-board.vercel.app/` (local `serve.py` as a fallback). A timeline with four locked rows, then the estate archive's release page for Adrian's message.
 - The four answers, in row order: `4fc4f25` (the Commit History task), `hvac-sync` (the Ghost Admin task), `BH-TAB-0417` (the Smart Lock task), and the replacement will's SHA-256 (the Two Wills task). If any of these change upstream, `build/make_board.py` must be updated and rerun.
 - The release page trusts a `role` cookie, set to `guest` on the first visit. Changing it to `trustee` releases the message once the board is complete.
 - Adrian's message: archive entry `EA-0043`, "For the Trustee, at midnight", recorded 2026-10-30T22:10:00-04:00, release time 2026-11-01T00:00:00-04:00, addressed to Celeste. It says the papers revoking her authority as Trustee are drawn up on his desk in the library, that he will sign them in front of the family at midnight, and that an independent trustee takes over in the morning. Unsigned, they end nothing, which is why his death before midnight matters.

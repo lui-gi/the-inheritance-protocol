@@ -4,7 +4,7 @@ Flag: `THM{SECRETS_ARE_NOT_MURDER}`
 
 Checkpoint answer (question 1): `5`
 
-Target solve time: about 8 minutes. Skills: reading a web page, spotting that user input reaches a SQL query, a single classic injection payload. No VM is involved: the portal runs on the player's machine, and the same app can also be hosted on Vercel.
+Target solve time: about 8 minutes. Skills: reading a web page, spotting that user input reaches a SQL query, a single classic injection payload. No VM is involved: the portal is hosted on Vercel, and players need only a browser.
 
 ## The story beat
 
@@ -19,7 +19,7 @@ The three hall witnesses here are the "three people" the Commit History task's t
 
 ## How the artifacts are built
 
-One download, `counsel-portal/`, built by `build/make_portal.py`. The records are the single source of truth and live in that script in plain, readable form. Running the script packs them into a base64 + zlib blob and writes `counsel-portal/api/index.py`. The packing is only so a player cannot `grep` the flag out of the source: it is not security, and it is not meant to be.
+No download: the portal is hosted on Vercel and players only see it in the browser. The app, `counsel-portal/`, is built by `build/make_portal.py`. The records are the single source of truth and live in that script in plain, readable form. Running the script packs them into a base64 + zlib blob and writes `counsel-portal/api/index.py`. The packing is only so a player cannot `grep` the flag out of the source: it is not security, and it is not meant to be.
 
 ```
 counsel-portal/
@@ -65,7 +65,7 @@ Celeste's account of 22:00 to 22:15 is the only one that changed, and both versi
 
 ## Intended solution
 
-1. Unzip, run `python3 serve.py`, open `http://localhost:8000/`.
+1. Open the hosted portal (https://blackthorn-counsel-portal.vercel.app/).
 2. Read the five statements. Each contains a lie; four are plainly not about the library. Celeste's is the only one marked as edited.
 3. Try to reach the sealed records. The guest view filters them out, so search normally fails.
 4. Put a single quote `'` in the search box. The portal shows a SQL error and the full query, revealing the concatenation.
@@ -77,7 +77,7 @@ Other payloads that work: `' OR kind<>'statement' -- `, `%' OR 1=1 -- `, `' UNIO
 
 ## Hosting note
 
-The app is stdlib only, so no `requirements.txt` is needed. Deploying `counsel-portal/` to Vercel serves the portal from `api/index.py` with `vercel.json` routing every path to it. Not hosted yet. When it is, the task text's `http://localhost:8000/` can be swapped for the hosted URL, and the local download can still ship as a fallback.
+The app is stdlib only, so no `requirements.txt` is needed. Deploying `counsel-portal/` to Vercel serves the portal from `api/index.py` with `vercel.json` routing every path to it. Hosted at https://blackthorn-counsel-portal.vercel.app/. Do not hand players the `counsel-portal/` folder: `api/index.py` holds the packed records, and decoding the blob gives the flag without any injection. If hosting fails on the night, `python3 serve.py` runs the same app locally as a fallback, at the cost of that shortcut.
 
 ## What this proves and does not prove
 

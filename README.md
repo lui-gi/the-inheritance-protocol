@@ -8,9 +8,9 @@ Adrian Vale, founder of Blackthorn Security, is found dead in his library at 10:
 
 ## How the room works
 
-The CTF runs as a custom TryHackMe room with no VM. Each flag is its own task with its own text, download, and answer field. Every artifact is a file the player downloads and examines on their own machine, so nothing depends on a machine IP or a running service.
+The CTF runs as a custom TryHackMe room with no VM. Each flag is its own task with its own text, download, and answer field. Most artifacts are files the player downloads and examines on their own machine, so nothing depends on a machine IP.
 
-The Counsel Portal and the Last Testament tasks are small web apps. They are meant to be hosted on Vercel, and each also runs locally with its bundled `serve.py`.
+Three tasks use something hosted on Vercel, which players open by URL: the Invitation's portal snapshot (https://blackthorn-portal.vercel.app), and the Counsel Portal (https://blackthorn-counsel-portal.vercel.app) and Last Testament (https://blackthorn-case-board.vercel.app) web apps. Each also runs locally with its bundled `serve.py` as a fallback.
 
 Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
@@ -37,14 +37,14 @@ The team task assumes the room is team-based. Turn that on in the room's **Gener
 
 | # | Task | Folder | What the player downloads |
 | :-- | :-- | :-- | :-- |
-| 1 | The Invitation | `challenges/01-invitation/` | `invitation.png` and the `blackthorn-portal/` snapshot |
+| 1 | The Invitation | `challenges/01-invitation/` | `invitation.png` (the portal snapshot is hosted) |
 | 2 | Portrait in the Hall | `challenges/02-portrait/` | `portrait.jpg` |
 | 3 | The Smart Lock | `challenges/03-smart-lock/` | `lock-controller.log` and `device-record.zip` |
 | 4 | Ghost Admin | `challenges/04-ghost-admin/` | the `blackthorn-server/` snapshot |
 | 5 | The Two Wills | `challenges/05-two-wills/` | the two will PDFs, `archive-entry.txt`, and `replacement-record.zip` |
-| 6 | Counsel Portal | `challenges/06-counsel-portal/` | the `counsel-portal/` web app |
+| 6 | Counsel Portal | `challenges/06-counsel-portal/` | nothing: the hosted Counsel Portal |
 | 7 | Commit History | `challenges/07-commit-history/` | the `blackthorn-dashboard/` Git repository, `README.txt`, and `signing-record.zip` |
-| 8 | The Last Testament | `challenges/08-last-testament/` | the `case-board/` web app |
+| 8 | The Last Testament | `challenges/08-last-testament/` | nothing: the hosted case board |
 
 The tasks build on each other: evidence found in earlier tasks is needed in later ones, and the Last Testament task asks for answers from the Smart Lock, the Ghost Admin, the Two Wills, and the Commit History tasks.
 
@@ -84,7 +84,21 @@ Requirements:
 
 The Commit History task's `blackthorn-dashboard/` folder holds its own `.git`, so this repository ignores it. Run `make_repo.py` to recreate it after cloning and before publishing.
 
-## Running the web apps locally
+## Hosting
+
+Each hosted folder is linked to its own Vercel project (the `.vercel/` link is gitignored). To redeploy after a change:
+
+```
+cd challenges/01-invitation/blackthorn-portal/portal.blackthorn.thm   # project blackthorn-portal
+cd challenges/06-counsel-portal/counsel-portal                        # project blackthorn-counsel-portal
+cd challenges/08-last-testament/case-board                            # project blackthorn-case-board
+
+npx vercel deploy --prod
+```
+
+On a fresh clone, link first with `npx vercel link --project <name>`. The two apps' `.vercelignore` keeps `serve.py` and `README.txt` off the hosted site.
+
+## Running the web apps locally (fallback)
 
 ```
 cd challenges/01-invitation/blackthorn-portal      # or
@@ -100,8 +114,9 @@ Each needs Python 3.7 or newer and nothing else. The `README.txt` in each folder
 ## Publishing a task
 
 1. Rebuild the task's artifacts with its build script.
-2. Zip the player-facing files listed in the table above. Leave out `build/`, `organizer/`, and `task.md`.
-3. Upload the zip as the task file in the TryHackMe room, paste in the text from `task.md`, and set the flag as the task answer.
+2. For a hosted task (6 and 8, and task 1's portal), redeploy to Vercel (see Hosting) and check the live URL. Do not upload the app folder as a task file.
+3. Zip the player-facing files listed in the table above, if any. Leave out `build/`, `organizer/`, and `task.md`.
+4. Upload the zip as the task file in the TryHackMe room, paste in the text from `task.md`, and set the flag as the task answer.
 
 ## Changing a task
 

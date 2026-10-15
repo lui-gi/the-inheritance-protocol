@@ -2,21 +2,18 @@
 
 Flag: `THM{THE_GUEST_LIST_CHANGED}`
 
-Target solve time: about 5 minutes. Skills: QR decoding, viewing page source. No VM is involved: the task ships two downloads, and the portal runs on the player's own machine.
+Target solve time: about 5 minutes. Skills: QR decoding, viewing page source. No VM is involved: the task ships one download, and the portal snapshot is hosted on Vercel at https://blackthorn-portal.vercel.app/.
 
 ## Intended solution
 
-1. Download both task files: `invitation.png` and `task1-portal.zip`. Unzip the portal.
+1. Download `invitation.png`.
 2. Decode the QR code on `invitation.png`, for example `zbarimg invitation.png`, a phone camera, or any QR decoder. It yields `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`.
-3. In the unzipped `blackthorn-portal` folder, run `python3 serve.py` (the bundled `README.txt` walks through this). The snapshot comes up at `http://localhost:8000/`.
-4. Swap the dead hostname for the local one and keep the path: `http://localhost:8000/rsvp/hallows-eve-1031/`.
-5. View the page source (Ctrl+U in a browser, or `curl`). An HTML comment above the guest list contains the flag and the edit timestamp.
+3. Swap the dead hostname for the hosted snapshot and keep the path: `https://blackthorn-portal.vercel.app/rsvp/hallows-eve-1031/`.
+4. View the page source (Ctrl+U in a browser, or `curl`). An HTML comment above the guest list contains the flag and the edit timestamp.
 
-## Accepted shortcut
+## No shortcut
 
-`grep -r "THM{" .` over the unzipped folder finds the flag without touching the QR code or the server. So does opening `portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html` straight from disk. This is deliberate: it is a fair forensics move on an opening flag. The snapshot holds only the front page and the event page, and the front page does not link to the event, so the QR code remains the natural route when browsing. The local server also refuses to list folders, so `/rsvp/` cannot be browsed.
-
-Players who take the shortcut still land on the comment that states the timestamp, so they do not miss the clue.
+The snapshot is no longer a download, so it cannot be grepped. The front page does not link to the event page, and Vercel does not list folders, so `/rsvp/` cannot be browsed. The QR code is the way in.
 
 ## What players should take away
 
@@ -28,16 +25,16 @@ This places Celeste in the house without accusing her. Do not explain why she wa
 ## Hints, in order of generosity
 
 1. "Any QR decoder will do, including the camera in your pocket. You only need the address it gives you."
-2. "The address is dead, but your local copy is not. Run `serve.py`, then replace `portal.blackthorn.thm` with `localhost:8000` and keep the rest of the address."
+2. "The address is dead, but the recovered copy is not. Replace `portal.blackthorn.thm` with `blackthorn-portal.vercel.app` and keep the rest of the address."
 3. "Browsers show you the page. Ctrl+U shows you what the page is made of."
 
 ## Publishing to the room
 
-- Zip `blackthorn-portal/` (keeping the `blackthorn-portal` folder as the archive root) into `task1-portal.zip`. This is done by hand once the task is final: no zip is kept in the repo.
-- Upload both as task files: `invitation.png` and `task1-portal.zip`.
-- Check that the uploaded `invitation.png` still decodes after download. If the platform will not take two files, or recompresses the image beyond reading, fall back to zipping the two together.
+- Upload `invitation.png` as the task file. Check that it still decodes after download; if the platform recompresses it beyond reading, zip it.
+- The snapshot is hosted at https://blackthorn-portal.vercel.app/, deployed from `blackthorn-portal/portal.blackthorn.thm/` (Vercel project `blackthorn-portal`). Redeploy after editing the pages: `cd challenges/01-invitation/blackthorn-portal/portal.blackthorn.thm && npx vercel deploy --prod`.
+- If hosting fails on the night, zip `blackthorn-portal/` into `task1-portal.zip` as a fallback; players run `python3 serve.py` (its README covers that) and use `localhost:8000` in place of the hosted address.
 - Paste `task.md` into the task body and set the answer to the flag above.
 
 ## Rebuilding
 
-`invitation.png` is a hand-made image with no build script. If the QR payload, the print date, the reply date, or the printed guest list changes, the image has to be remade by hand, and its QR must still decode to the payload in `canon/canon.md`. The portal needs no build step: `blackthorn-portal/` is the source, so edit `serve.py`, `README.txt`, and the pages under `portal.blackthorn.thm/` in place. Keep `canon/canon.md` in sync.
+`invitation.png` is a hand-made image with no build script. If the QR payload, the print date, the reply date, or the printed guest list changes, the image has to be remade by hand, and its QR must still decode to the payload in `canon/canon.md`. The portal needs no build step: `blackthorn-portal/` is the source, so edit the pages under `portal.blackthorn.thm/` in place (and `serve.py`, `README.txt` for the local fallback), then redeploy. Keep `canon/canon.md` in sync.

@@ -22,17 +22,16 @@ You are an outside digital investigator. Nobody here can charm you, because you 
 
 ## How this room works
 
-- There is no machine to start. Every task comes with a download that you examine on your own computer or on the AttackBox.
+- There is no machine to start. Most tasks come with a download that you examine on your own computer or on the AttackBox. Three tasks instead send you to a small website, linked in the task.
 - The tasks build on each other. Keep notes as you go: device IDs, dates, hashes, and names found early are needed later, and the last task asks for several of them.
 - Every flag looks like `THM{UPPER_SNAKE_CASE}`. Some tasks ask a checkpoint question or two before the flag.
-- Three tasks include a small website that runs on your machine with one command. Each comes with a README that covers Windows and troubleshooting.
 
 ## Your toolkit
 
 Nothing here needs a paid tool or anything exotic. Before you begin, check that you have:
 
-- A terminal, and Python 3 (`python3 --version`)
-- A web browser, including its developer tools (F12)
+- A terminal
+- A web browser, including its developer tools (F12). The websites keep your progress in that browser, so avoid private windows.
 - A text editor, plus `grep` or any other way to search inside files
 - A QR code reader. The camera on your phone counts.
 - `exiftool`, or any EXIF metadata viewer
