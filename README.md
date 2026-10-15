@@ -64,10 +64,9 @@ Only the artifacts and `task.md` go to players. The design document, `canon/`, e
 
 ## Rebuilding the artifacts
 
-Each task has one build script that regenerates its artifacts. The builds are reproducible, so rerunning one without changing it gives the same output.
+Each task except the Invitation has one build script that regenerates its artifacts. The Invitation's `invitation.png` is a hand-made image with no build step. The builds are reproducible, so rerunning one without changing it gives the same output.
 
 ```
-python3 challenges/01-invitation/build/make_invitation.py
 python3 challenges/02-portrait/build/make_portrait.py
 python3 challenges/03-smart-lock/build/make_logs.py
 python3 challenges/04-ghost-admin/build/make_server.py
@@ -80,7 +79,7 @@ python3 challenges/08-last-testament/build/make_board.py
 Requirements:
 
 - The Smart Lock, the Ghost Admin, the Two Wills, the Family Secrets, and the Last Testament tasks need only Python 3 and its standard library.
-- The Invitation and the Portrait in the Hall tasks need the packages in their `build/requirements.txt` (`qrcode` and `pillow`). The Invitation task also expects the Noto Serif fonts to be installed.
+- The Portrait in the Hall task needs the packages in its `build/requirements.txt`.
 - The Commit History task needs `git` and `ssh-keygen`.
 
 The Commit History task's `blackthorn-dashboard/` folder holds its own `.git`, so this repository ignores it. Run `make_repo.py` to recreate it after cloning and before publishing.

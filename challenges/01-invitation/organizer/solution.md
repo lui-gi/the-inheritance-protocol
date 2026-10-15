@@ -40,10 +40,4 @@ This places Celeste in the house without accusing her. Do not explain why she wa
 
 ## Rebuilding
 
-Run `make_invitation.py` after changing the QR payload, the print date, or the printed guest list. The portal needs no build step: `blackthorn-portal/` is the source, so edit `serve.py`, `README.txt`, and the pages under `portal.blackthorn.thm/` in place. Keep `canon/canon.md` in sync.
-
-```
-python3 -m venv .venv
-.venv/bin/pip install -r challenges/01-invitation/build/requirements.txt
-.venv/bin/python challenges/01-invitation/build/make_invitation.py
-```
+`invitation.png` is a hand-made image with no build script. If the QR payload, the print date, the reply date, or the printed guest list changes, the image has to be remade by hand, and its QR must still decode to the payload in `canon/canon.md`. The portal needs no build step: `blackthorn-portal/` is the source, so edit `serve.py`, `README.txt`, and the pages under `portal.blackthorn.thm/` in place. Keep `canon/canon.md` in sync.
