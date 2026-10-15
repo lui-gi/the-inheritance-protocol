@@ -344,19 +344,17 @@ function renderBlock(block) {
 }
 
 // ---------------------------------------------------------------------------
-// task.md -> { label, title, body blocks, hints, questions }
+// task.md -> { title, body blocks, hints, questions }
 // ---------------------------------------------------------------------------
 
 function parseTask(markdown) {
   var blocks = toBlocks(markdown);
-  var task = { label: "", title: "", body: [], hints: [], questions: [] };
+  var task = { title: "", body: [], hints: [], questions: [] };
 
   var heading = blocks.length && blocks[0].match(/^#\s+(.*)$/);
   if (heading) {
     blocks.shift();
-    var split = heading[1].match(/^([^:]+):\s*(.*)$/);
-    task.label = split ? split[1] : "";
-    task.title = split ? split[2] : heading[1];
+    task.title = heading[1];
   }
 
   // Everything from the first "## ... question(s)" heading on is questions.
@@ -508,14 +506,14 @@ function buildQuestion(entry, question, index) {
   return node;
 }
 
-function buildTask(entry) {
+function buildTask(entry, position) {
   var task = parseTask(entry.markdown);
   var node = el("section", "task");
   node.id = entry.id;
 
   var head = el("button", "task-head");
   head.appendChild(el("span", "task-status"));
-  head.appendChild(el("span", "task-num", escapeHtml(task.label)));
+  head.appendChild(el("span", "task-num", "Task " + position));
   head.appendChild(el("span", "task-title", inline(task.title)));
   head.appendChild(el("span", "chevron", "&#9662;"));
   head.addEventListener("click", function () { node.classList.toggle("open"); });
@@ -564,7 +562,7 @@ function buildTask(entry) {
 function start() {
   var container = document.getElementById("tasks");
   fetch("/api/room").then(function (r) { return r.json(); }).then(function (entries) {
-    entries.forEach(function (entry) { container.appendChild(buildTask(entry)); });
+    entries.forEach(function (entry, i) { container.appendChild(buildTask(entry, i)); });
     updateProgress();
     var target = (location.hash && document.getElementById(location.hash.slice(1)))
       || container.querySelector(".task:not(.done)") || container.querySelector(".task");

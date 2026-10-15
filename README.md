@@ -18,18 +18,18 @@ Flags use the format `THM{UPPER_SNAKE_CASE}`.
 
 Players may use an AI assistant to learn a tool or explain a concept, the way they would use any tutorial. They must not hand our challenge files to an AI and ask it to solve them. Every question is solvable with the toolset introduced at the start of the room, and the point is to do the forensics yourself. Use AI as a guide, not as the investigator.
 
-This is its own room task (`challenges/00-introduction/task-3-ai-disclosure.md`): players must answer `I understand` to complete it, before the investigation starts.
+This is its own room task (`challenges/00d-ai-disclosure/`): players must answer `I understand` to complete it, before the investigation starts.
 
 ## Setup tasks
 
-Four short tasks open the room, all in `challenges/00-introduction/`. None has a download.
+Four short tasks open the room. Each has its own folder, named so it sorts before the investigation tasks. None has a download.
 
-| Room task | Task | File | Answer |
+| Room task | Task | Folder | Answer |
 | :-- | :-- | :-- | :-- |
-| 0 | Welcome to Blackthorn House | `task-0-blackthorn-house.md` | no answer needed |
-| 1 | New to This? TryHackMe and CTFs | `task-1-tryhackme-and-ctfs.md` | `THM{UPPER_SNAKE_CASE}` |
-| 2 | Assemble Your Investigators | `task-2-create-your-team.md` | no answer needed |
-| 3 | House Rule: AI Is a Guide | `task-3-ai-disclosure.md` | `I understand` |
+| 0 | Welcome to Blackthorn House | `challenges/00a-welcome/` | no answer needed |
+| 1 | New to This? TryHackMe and CTFs | `challenges/00b-tryhackme/` | `THM{UPPER_SNAKE_CASE}` |
+| 2 | Assemble Your Investigators | `challenges/00c-team/` | no answer needed |
+| 3 | House Rule: AI Is a Guide | `challenges/00d-ai-disclosure/` | `I understand` |
 
 ## Tasks
 
