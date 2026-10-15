@@ -51,14 +51,14 @@ HOW TO START THE PORTAL
 FINDING YOUR WAY AROUND
 -----------------------
 
-The portal used to live at http://portal.blackthorn.thm/ and that address
-is gone for good. While the script is running, the same site lives at
-http://localhost:8000/ instead.
+The recovered portal is normally online at
+https://blackthorn-portal.vercel.app/. While the script is running, the
+same site lives at http://localhost:8000/ instead.
 
 So when a clue gives you a portal address, swap the front of it and keep
 the rest:
 
-  http://portal.blackthorn.thm/some/page/
+  https://blackthorn-portal.vercel.app/some/page/
   becomes
   http://localhost:8000/some/page/
 

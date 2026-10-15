@@ -8,7 +8,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 - Timezone: America/New_York. Halloween 2026 falls on a Saturday and is still on daylight time, so every timestamp uses the offset `-04:00`.
 - Timestamp format in artifacts: ISO 8601 with offset, for example `2026-10-31T22:17:00-04:00`.
 - Account names: first initial, dot, surname (`a.vale`, `m.vale`, `e.vale`, `n.park`, `c.ward`, `t.grant`).
-- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. The investigators put the nightly portal snapshot back online at `https://blackthorn-portal.vercel.app/`; the source is the folder named after the hostname, with a local `serve.py` as a fallback.
+- House portal hostname (offline in the story): `portal.blackthorn.thm`. The room has no VM. The investigators put the nightly portal snapshot back online at `https://blackthorn-portal.vercel.app/`, which the invitation's QR code points to directly; the source is the folder named after the hostname, with a local `serve.py` as a fallback.
 
 ## Timeline
 
@@ -68,7 +68,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 - Event page path: `/rsvp/hallows-eve-1031/` (source `blackthorn-portal/portal.blackthorn.thm/rsvp/hallows-eve-1031/index.html`, hosted at `https://blackthorn-portal.vercel.app/rsvp/hallows-eve-1031/`)
 - The snapshot holds only the portal front page and the event page. There are no decoy pages and no `guests.json`.
-- QR payload: `http://portal.blackthorn.thm/rsvp/hallows-eve-1031/`
+- QR payload: `https://blackthorn-portal.vercel.app/rsvp/hallows-eve-1031/`
 - Printed guest list (four): Evelyn Vale, Marcus Vale, Nina Park, Theo Grant.
 - Printed reply date: "Kindly reply by 24 October" (card footer, above the print date).
 - Live guest list (five): the four above plus Celeste Ward.
