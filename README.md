@@ -31,6 +31,8 @@ Four short tasks open the room. Each has its own folder, named so it sorts befor
 | 2 | Assemble Your Investigators | `challenges/00c-team/` | no answer needed |
 | 3 | House Rule: AI Is a Guide | `challenges/00d-ai-disclosure/` | `I understand` |
 
+The team task assumes the room is team-based. Turn that on in the room's **General Settings** tab when creating it, and tell players the team size limit on the night (TryHackMe allows up to 20).
+
 ## Tasks
 
 | # | Task | Folder | What the player downloads |
