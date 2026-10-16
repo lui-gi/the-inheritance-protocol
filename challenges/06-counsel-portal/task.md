@@ -12,6 +12,13 @@ Open it in your browser. The first visit can take a second or two to wake the po
 
 As a guest you can read the five filed statements. The sealed records are where the secrets actually live, and the guest view will not hand those over. The portal was thrown together quickly, though, and it does not keep your words separate from its own: whatever you type in the search box is dropped straight into the question it asks its database.
 
+Bonus hint(s) from Luigi (the GOAT):
+- Look up the OWASP Top 10
+- What are typical vulnerabilities in webapps with input fields?
+- What is actually happening in the backend when a user queries a database?
+- Did you guys know that the execs accept bribes? Might get an extra hint, you never know...
+
+
 A few pointers:
 
 - Read all five statements first. Each one contains a lie. Four of those lies are about something other than the library. Look at when each statement was filed, too: one of them was not left alone.

@@ -135,7 +135,7 @@
 2026-10-31T21:57:06-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
 2026-10-31T22:02:47-04:00 lock door=SERVER-ROOM event=UNLOCK result=GRANTED account=m.vale device_ID=BH-PH-0102
 2026-10-31T22:04:11-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=m.vale device_ID=BH-TAB-0417
-2026-10-31T22:04:11-04:00 hub  NOTICE unfamiliar device on account m.vale. Device record sealed. It opens with the device ID
+2026-10-31T22:04:11-04:00 hub  ERROR:NOTICE unfamiliar device on account m.vale. Device record sealed. It opens with the device ID
 2026-10-31T22:09:44-04:00 hub  WARN door=LIBRARY held open 30 seconds, autolock skipped
 2026-10-31T22:09:49-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207
 2026-10-31T22:12:40-04:00 lock door=SERVICE-ENTRANCE event=UNLOCK result=GRANTED account=staff.kitchen device_ID=BH-BDG-0207

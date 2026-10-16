@@ -9,9 +9,9 @@ Download the task file and unzip it. You will find:
 - `lock-controller.log`, the hub's record of every door in the house on Halloween
 - `device-record.zip`, a sealed record the hub made for one particular device
 
-Start with the log. Find the moment the library opened, and look closely at what did the opening. The hub noticed something odd about it too, and said so.
+Start with the log and find the moment the library opened, and look closely at what device did the opening. The hub noticed something odd about it too, and logged an error.
 
-The zip is locked. Its password is the ID of the device that opened the library, typed exactly as the log writes it.
+The zip is locked and its password is the ID of the device that opened the library, typed exactly as in the log.
 
 A few pointers:
 

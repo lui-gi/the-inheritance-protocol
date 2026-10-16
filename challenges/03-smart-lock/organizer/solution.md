@@ -36,7 +36,7 @@ Devices in the lock log:
 
    ```
    2026-10-31T22:04:11-04:00 lock door=LIBRARY event=UNLOCK result=GRANTED account=m.vale device_ID=BH-TAB-0417
-   2026-10-31T22:04:11-04:00 hub  NOTICE unfamiliar device on account m.vale. Device record sealed. It opens with the device ID
+   2026-10-31T22:04:11-04:00 hub  ERROR:NOTICE unfamiliar device on account m.vale. Device record sealed. It opens with the device ID
    ```
 
 3. Notice the device. `grep m.vale lock-controller.log` shows 23 unlocks on Marcus's account: 22 from his phone `BH-PH-0102`, and this one from `BH-TAB-0417`. Searching for `BH-TAB-0417` shows it appears nowhere else in the file.

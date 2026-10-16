@@ -313,7 +313,7 @@ the same on Linux, macOS, the AttackBox, and Windows.
 
   git log                         every commit, newest first, with author and date
   git log --oneline               the same, one line each, with short hashes
-  git show SHORTHASH              exactly what one commit changed
+  git show SHORTHASH              shows exactly what one commit changed
   git log -p                      every commit together with what it changed
   git log -S "SOME TEXT"          only the commits that added or removed that text
 

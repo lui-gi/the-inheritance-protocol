@@ -5,3 +5,6 @@ challenges/07-commit-history/blackthorn-dashboard/
 # Vercel CLI project links and pulled env (contain tokens)
 .vercel/
 .env*
+
+# Local beta-test playthrough (player-facing copy of challenges/)
+playtest/

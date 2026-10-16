@@ -2,7 +2,7 @@
 
 Adrian Vale wrote one will. He was very clear about that. He was clear about most things, usually twice, and louder the second time.
 
-The estate archive disagrees. When we opened Adrian's entry after the lockdown, there were two wills in it. Both carry his name. Both look official. One of them is called "FINAL", which in this family is less a description than a warning.
+The estate archive disagrees. When we opened Adrian's entry after the lockdown, there were two wills in it. Both carry his name and both look official. One of them is called "FINAL", which in this family is less a description than a warning.
 
 Back in the Portrait in the Hall task, Adrian told you what to do if this ever happened: trust the signed hash, not the filename. He also said he filed a checksum of the real will on the day he signed it. We found that receipt.
 

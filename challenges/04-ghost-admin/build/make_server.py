@@ -75,7 +75,7 @@ may do by its number, not its name.
 SEARCHING
 ---------
 
-The log is far too long to read. Search it instead.
+The log is far too long to read, refer back to the toolkit we suggested in Task 1.
 
   Linux, macOS, AttackBox:
 

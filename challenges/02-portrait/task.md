@@ -4,7 +4,7 @@ Every great house has a portrait that watches you walk past. Blackthorn House ha
 
 Adrian Vale's likeness hangs in the east hall on a digital frame, smirking at anyone who has ever asked him for a raise. The staff say he fussed over that picture a few nights before the dinner, which is odd behavior for a man who claimed he never looked at it. We pulled the image file straight off the frame. It is in this task's download.
 
-Download the task file and unzip it. You will find:
+Download the task file. You will find:
 
 - `portrait.jpg`, the portrait exactly as the frame stored it
 

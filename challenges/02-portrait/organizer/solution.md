@@ -22,7 +22,7 @@ The catalogue number is flavour only. It is not a password for anything.
 
 ## Intended solution
 
-1. Download and unzip the task file.
+1. Download the task file.
 2. Read the metadata: `exiftool portrait.jpg`. Without exiftool, `strings -n 8 portrait.jpg | head` shows the same fields, and so does any online EXIF viewer.
 3. Read the User Comment. It is Adrian's note, and all of it is readable except one short string near the end: `VEhNe1RSVVNUX1RIRV9IQVNIfQ==`.
 4. Take the nudge in the sentence before it ("put it in a costume", "Its alphabet has sixty-four letters", "any decoder will take it off") and decode the string as Base64. Either of these works:

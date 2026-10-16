@@ -76,7 +76,7 @@ SCRIPTED = [
     lock("21:51:26", "LIBRARY", "a.vale", PHONE_ADRIAN),
     lock("22:02:47", "SERVER-ROOM", "m.vale", PHONE_MARCUS),
     lock("22:04:11", "LIBRARY", "m.vale", TABLET),
-    hub("22:04:11", "NOTICE", "unfamiliar device on account m.vale. Device record sealed. It opens with the device ID"),
+    hub("22:04:11", "ERROR:NOTICE", "unfamiliar device on account m.vale. Device record sealed. It opens with the device ID"),
     hub("22:09:44", "WARN", "door=LIBRARY held open 30 seconds, autolock skipped"),
     hub("22:19:03", "ALERT", "lockdown engaged. Exterior doors sealed"),
     hub("22:19:41", "ERROR", "network uplink lost. Logging locally until the uplink returns"),
