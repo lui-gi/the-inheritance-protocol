@@ -143,6 +143,10 @@ STYLE = """
     margin: 0; min-height: 100vh; color: var(--ink); font-family: var(--serif); line-height: 1.5;
     background:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .09 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+      radial-gradient(circle at 30% 40%, rgba(70, 40, 15, .1) 0 .9px, transparent 1.5px) 0 0 / 7px 11px,
+      radial-gradient(circle at 70% 20%, rgba(255, 238, 205, .08) 0 .8px, transparent 1.4px) 3px 5px / 13px 9px,
+      radial-gradient(circle at 20% 80%, rgba(60, 32, 12, .08) 0 1.3px, transparent 2px) 5px 2px / 29px 23px,
+      radial-gradient(ellipse at 70% 30%, rgba(255, 230, 190, .06) 0 2px, transparent 3px) 11px 7px / 41px 37px,
       radial-gradient(ellipse at 30% 20%, #c79a64, transparent 60%),
       radial-gradient(ellipse at 80% 90%, #9c6f41, transparent 55%),
       var(--cork);
@@ -217,12 +221,24 @@ STYLE = """
   button[disabled] { opacity: .6; cursor: wait; }
   .wrong { margin: 10px 0 0; font-family: var(--hand); color: var(--red); }
 
-  .solved .stamp { position: absolute; top: 12px; right: 12px; padding: 2px 8px; font: bold .85rem var(--type); letter-spacing: .2em;
+  .solved { border-top: 5px solid var(--red); }
+  .solved .tag { color: #fff; background: var(--red); border-color: var(--red); }
+  .solved .stamp { position: absolute; top: 12px; right: 12px; padding: 2px 8px; font: bold 1rem var(--type); letter-spacing: .2em;
     text-transform: uppercase; color: var(--red); border: 3px double var(--red); transform: rotate(-12deg); opacity: .85; }
-  .answer { margin-top: 10px; padding: 4px 8px; font: .8rem var(--type); background: #fff; border: 1px solid #ddd2bd; overflow-wrap: anywhere; }
+  .answer { margin-top: 10px; padding: 4px 8px; font: bold .82rem var(--type); overflow-wrap: anywhere;
+    background: linear-gradient(100deg, rgba(255, 240, 120, .2), rgba(255, 236, 110, .85) 6%, rgba(255, 232, 100, .7) 94%, rgba(255, 240, 120, .2)); }
   .note { margin: 10px 0 0; font-size: .92rem; color: #3b342b; }
   .flash .stamp { animation: thump .5s cubic-bezier(.3, 1.5, .5, 1) both; }
-  .flash { animation: glow 1.6s ease-out; }
+  .flash { animation: glow 1.8s ease-out, bump .5s cubic-bezier(.3, 1.6, .5, 1); }
+  .progress i.pop { animation: pop .5s .3s cubic-bezier(.3, 1.8, .5, 1) both; }
+
+  /* The confirmation that slams onto the board when an exhibit is pinned. */
+  .toast { position: fixed; left: 50%; top: 42%; z-index: 60; pointer-events: none; text-align: center;
+    padding: 18px 34px 16px; background: rgba(251, 248, 239, .96); border: 5px double var(--red); color: var(--red);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7); transform: translate(-50%, -50%) rotate(-6deg);
+    animation: slam .55s cubic-bezier(.3, 1.5, .5, 1) both, fadeout .5s 2.1s ease-in forwards; }
+  .toast strong { display: block; font: bold clamp(1.4rem, 5vw, 2.4rem) var(--type); letter-spacing: .14em; text-transform: uppercase; }
+  .toast span { display: block; margin-top: 4px; font: 1.05rem var(--hand); color: var(--ink); }
   .shake { animation: shake .45s; }
 
   .final { color: #efe6d6; background: linear-gradient(160deg, #3a302b, var(--envelope)); }
@@ -257,6 +273,9 @@ STYLE = """
   @keyframes pop { from { transform: scale(0); } }
   @keyframes thump { from { opacity: 0; transform: rotate(-12deg) scale(2.4); } }
   @keyframes glow { 0% { box-shadow: 0 0 0 3px var(--red), 0 0 50px rgba(195, 35, 27, .7); } }
+  @keyframes bump { 40% { scale: 1.06; } }
+  @keyframes slam { from { opacity: 0; transform: translate(-50%, -50%) rotate(-14deg) scale(2.6); } }
+  @keyframes fadeout { to { opacity: 0; transform: translate(-50%, -50%) rotate(-6deg) scale(.92); } }
   @keyframes shake { 20%, 60% { translate: -7px 0; } 40%, 80% { translate: 7px 0; } }
 
   @media (max-width: 600px) {
@@ -348,12 +367,32 @@ SCRIPT = """
     target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
     if (target.classList.contains('solved')) {
       target.classList.add('flash');
+      confirmPin(target);
     } else if (target.querySelector('.wrong')) {
       target.classList.add('shake');
       var input = target.querySelector('input[type=text]');
       if (input) input.focus({ preventScroll: true });
     }
     return target;
+  }
+
+  function confirmPin(card) {
+    var lit = document.querySelectorAll('.progress i.on');
+    if (lit.length) lit[lit.length - 1].classList.add('pop');
+    var tag = card.querySelector('.tag');
+    var toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    var head = document.createElement('strong');
+    head.textContent = (tag ? tag.textContent.split(' ').slice(0, 2).join(' ') : 'Evidence') + ' confirmed';
+    var line = document.createElement('span');
+    line.textContent = document.querySelector('.final.open')
+      ? 'All four pinned. The archive is listening.'
+      : 'Pinned to the board.';
+    toast.appendChild(head);
+    toast.appendChild(line);
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.remove(); }, 2800);
   }
 
   var pending = 0;
@@ -377,7 +416,7 @@ SCRIPT = """
       var fresh = new DOMParser().parseFromString(r.text, 'text/html').querySelector('main');
       fresh.classList.add('settled');
       document.querySelector('main').replaceWith(fresh);
-      history.replaceState(null, '', '/' + r.url.hash);
+      history.replaceState(null, '', '/');
       draw(false);
       var target = spotlight(r.url.hash);
       if (target && target.classList.contains('solved')) draw(target);
@@ -432,7 +471,7 @@ def _board(given, role, wrong):
             if answer is not None:
                 parts.append(
                     '<article class="card slot solved"' + anchor + style + '>'
-                    + '<span class="stamp">Pinned</span><span class="tag">Exhibit %d</span>' % number
+                    + '<span class="stamp">Pinned</span><span class="tag">Exhibit %d &#10003;</span>' % number
                     + when + what
                     + '<div class="answer">' + html.escape(answer) + '</div>'
                     + '<p class="note">' + html.escape(_unseal(row["sealed_note"], answer)) + '</p></article>')
