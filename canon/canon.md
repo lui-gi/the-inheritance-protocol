@@ -193,7 +193,7 @@ Add to it whenever a task introduces a new name, timestamp, device ID, hash, or 
 
 ## The Last Testament facts
 
-- Artifact: `case-board/`, a WSGI app hosted at `https://blackthorn-case-board.vercel.app/` (local `serve.py` as a fallback). A timeline with four locked rows, then the estate archive's release page for Adrian's message.
+- Artifact: `case-board/`, a WSGI app hosted at `https://blackthorn-case-board.vercel.app/` (local `serve.py` as a fallback). A detective board: the timeline as pinned cards joined by red string, with four missing exhibits, then the estate archive's release page for Adrian's message.
 - The four answers, in row order: `4fc4f25` (the Commit History task), `hvac-sync` (the Ghost Admin task), `BH-TAB-0417` (the Smart Lock task), and the replacement will's SHA-256 (the Two Wills task). If any of these change upstream, `build/make_board.py` must be updated and rerun.
 - The release page trusts a `role` cookie, set to `guest` on the first visit. Changing it to `trustee` releases the message once the board is complete.
 - Adrian's message: archive entry `EA-0043`, "For the Trustee, at midnight", recorded 2026-10-30T22:10:00-04:00, release time 2026-11-01T00:00:00-04:00, addressed to Celeste. It says the papers revoking her authority as Trustee are drawn up on his desk in the library, that he will sign them in front of the family at midnight, and that an independent trustee takes over in the morning. Unsigned, they end nothing, which is why his death before midnight matters.

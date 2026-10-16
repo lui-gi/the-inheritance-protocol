@@ -26,22 +26,22 @@ case-board/
 
 `serve.py` and Vercel both import the same `app` object from `api/index.py`. The app keeps nothing on the server: the visitor's progress and role live in cookies, which is what Vercel's stateless runtime needs and is also the vulnerability.
 
-Nothing that spoils the ending is readable in `api/index.py`. Each answer is stored only as a hash, each row's note is sealed with that row's answer, and Adrian's message is sealed with all four answers together. A player who reads the source instead of the page still needs the four answers. The build checks this.
+Nothing that spoils the ending is readable in `api/index.py`. Each answer is stored only as a hash, each exhibit's note is sealed with that exhibit's answer, and Adrian's message is sealed with all four answers together. A player who reads the source instead of the page still needs the four answers. The build checks this.
 
 To rebuild after editing anything: `python3 challenges/08-last-testament/build/make_board.py`.
 
-## The four rows
+## The four exhibits
 
-| Row | Timeline moment | Asks for | Answer | From |
+| Exhibit | Timeline moment | Asks for | Answer | From |
 | :---- | :---- | :---- | :---- | :---- |
 | 1 | 29 Oct, 19:26. The dashboard learns to say `MARCUS-ADMIN` | Short hash of the commit | `4fc4f25` | Commit History |
 | 2 | 29 Oct, 23:12. A hidden root account logs in for the last time | Name of the account | `hvac-sync` | Ghost Admin |
 | 3 | 31 Oct, 22:04. The library unlocks on Marcus's account | Device ID | `BH-TAB-0417` | The Smart Lock |
 | 4 | 31 Oct, 22:26. A second will appears | SHA-256 of the will Adrian did not sign | `18a6966de197eb1d0866769e6960ea0fa03eb90daec7cd75c4e67e4fa0cd16c6` | The Two Wills |
 
-These are the design document's four: commit history, access logs, device ID, and hashes. Answers are trimmed and case is ignored. Rows can be solved in any order. A solved row shows a short note saying what that evidence proved, and those notes name Celeste and her workstation `BH-WS-0418`.
+These are the design document's four: commit history, access logs, device ID, and hashes. Answers are trimmed and case is ignored. Exhibits can be solved in any order. A pinned exhibit gets a PINNED stamp, a confirmation banner, and a short note saying what that evidence proved, and those notes name Celeste and her workstation `BH-WS-0418`.
 
-Six other rows are always visible and need no answer: the will signing (1 Oct), the guest list change (28 Oct), dessert (21:30), Adrian found (22:17), lockdown (22:19), and the locked midnight message.
+Six other cards are always visible and need no answer: the will signing (1 Oct), the guest list change (28 Oct), dessert (21:30), Adrian found (22:17), lockdown (22:19), and the locked midnight message.
 
 ## The vulnerability
 
@@ -56,8 +56,8 @@ There is no signature and no server-side session. The refusal page prints the re
 ## Intended solution
 
 1. Open the hosted board (https://blackthorn-case-board.vercel.app/).
-2. Fill in the four locked rows with the answers above. Read the notes that appear.
-3. The last row now offers "Ask the archive to release it". Click it. The archive refuses:
+2. Pin the four missing exhibits with the answers above. Read the notes that appear.
+3. The sealed envelope at the end of the board now offers "Ask the archive to release it". Click it. The archive refuses:
 
    ```
    RELEASE WITHHELD
@@ -97,9 +97,9 @@ An investigators' note follows the transcript and states the case before the fla
 | Question in the design document | Where the board answers it |
 | :---- | :---- |
 | Who killed Adrian Vale? | The flag. |
-| What was changed or forged after his death? | Row 4: the will was replaced at 22:26. |
-| Which account appears guilty at first, and why is that misleading? | Rows 2 and 3: `m.vale`. His hidden account was idle, and the library was opened from the Legal Office tablet. |
-| What four pieces of digital evidence connect the killer to the cover-up? | The four rows. |
+| What was changed or forged after his death? | Exhibit 4: the will was replaced at 22:26. |
+| Which account appears guilty at first, and why is that misleading? | Exhibits 2 and 3: `m.vale`. His hidden account was idle, and the library was opened from the Legal Office tablet. |
+| What four pieces of digital evidence connect the killer to the cover-up? | The four exhibits. |
 | What was the killer's motive? | Adrian's message: the revocation at midnight. |
 
 ## Shortcuts
@@ -110,18 +110,18 @@ Reading `api/index.py` gives the cookie names and the role, but not the answers,
 
 Any capitalisation of `trustee` works.
 
-Teams who skipped a task cannot finish this one. That is intended: this task is the one that requires the others. Give them the hint for the missing row if time is short.
+Teams who skipped a task cannot finish this one. That is intended: this task is the one that requires the others. Give them the hint for the missing exhibit if time is short.
 
 ## Common stumbles
 
 - Editing the cookie and not reloading the page.
 - Adding a second cookie called `role` with a different path instead of editing the existing one. The "Clear the board" link resets everything.
-- Pasting the hash with a trailing newline is fine: answers are trimmed. Pasting the genuine will's hash instead of the replacement's is the usual wrong answer for row 4.
+- Pasting the hash with a trailing newline is fine: answers are trimmed. Pasting the genuine will's hash instead of the replacement's is the usual wrong answer for exhibit 4.
 - Private windows and "block all cookies" settings stop the board remembering anything.
 
 ## Hints, in order of generosity
 
-1. "Each locked row names the task its answer came from. Row 4 wants the hash of the will that did not match Adrian's receipt, the same one that opened the zip in the Two Wills task."
+1. "Each missing exhibit names the task its answer came from. Exhibit 4 wants the hash of the will that did not match Adrian's receipt, the same one that opened the zip in the Two Wills task."
 2. "The archive told you the role it wants and where it read yours from. Open your browser's developer tools with F12 and look for Cookies under Application or Storage."
 3. "Change the `role` cookie from `guest` to `trustee` and reload the release page."
 
@@ -136,7 +136,7 @@ The app is stdlib only, so no `requirements.txt` is needed. Deploying `case-boar
 
 ## Rebuilding
 
-Run this after changing the timeline, an answer, the message, or the flag. If the Two Wills task's wills or the Commit History task's repository are ever rebuilt with different contents, their hashes change: update rows 4 and 1 in `build/make_board.py` and rerun. The build needs only the Python standard library.
+Run this after changing the timeline, an answer, the message, or the flag. If the Two Wills task's wills or the Commit History task's repository are ever rebuilt with different contents, their hashes change: update exhibits 4 and 1 in `build/make_board.py` and rerun. The build needs only the Python standard library.
 
 ```
 python3 challenges/08-last-testament/build/make_board.py
