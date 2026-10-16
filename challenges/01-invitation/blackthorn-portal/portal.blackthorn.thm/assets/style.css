@@ -1,66 +1,212 @@
 :root {
-  --ink: #e9e1cf;
-  --muted: #a89f8a;
-  --night: #120f14;
-  --panel: #1c1820;
-  --ember: #c8642a;
+  --ink: #ece3cf;
+  --muted: #a69c86;
+  --faint: #6f6676;
+  --night: #0d0a10;
+  --panel: #19141d;
+  --panel-hi: #221b27;
+  --line: #3b3142;
+  --gold: #c9a35c;
+  --ember: #d0682c;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
+
+html { background: var(--night); }
 
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 3rem 1rem;
-  background: var(--night);
+  padding: 4rem 1rem;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.6;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(208, 104, 44, 0.16), transparent 55%),
+    radial-gradient(ellipse at 50% 120%, rgba(90, 40, 110, 0.22), transparent 60%),
+    var(--night);
+  background-attachment: fixed;
 }
 
+/* The card: an engraved invitation with a double rule and corner flourishes. */
 .card {
+  position: relative;
   width: 100%;
-  max-width: 38rem;
+  max-width: 40rem;
   align-self: flex-start;
-  padding: 2.5rem;
-  background: var(--panel);
-  border: 1px solid #3a3140;
-  border-top: 4px solid var(--ember);
+  padding: 3.25rem 3rem 2.5rem;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 40%);
+  border: 1px solid var(--line);
+  outline: 1px solid rgba(201, 163, 92, 0.35);
+  outline-offset: -10px;
+  box-shadow:
+    0 0 0 1px #000,
+    0 30px 80px -20px rgba(0, 0, 0, 0.85),
+    0 0 120px -40px rgba(208, 104, 44, 0.35);
+  animation: rise 0.9s ease-out both;
 }
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--gold);
+  opacity: 0.7;
+  pointer-events: none;
+}
+.card::before { top: 18px; left: 18px; border-right: 0; border-bottom: 0; }
+.card::after { bottom: 18px; right: 18px; border-left: 0; border-top: 0; }
+
+.card > :first-child { margin-top: 0; }
 
 .eyebrow {
   margin: 0;
-  color: var(--ember);
-  font-size: 0.8rem;
-  letter-spacing: 0.25em;
+  text-align: center;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
 }
 
-h1 { margin: 0.25rem 0 1rem; font-size: 2.2rem; font-weight: normal; }
+h1 {
+  margin: 0.4rem 0 0.25rem;
+  text-align: center;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 24px rgba(208, 104, 44, 0.25);
+}
+
+/* Ornamental divider under the title. */
+h1::after {
+  content: "\2766";
+  display: block;
+  margin: 0.9rem auto 0;
+  width: 12rem;
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left 50% / 4.5rem 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right 50% / 4.5rem 1px no-repeat;
+  opacity: 0.75;
+  text-shadow: none;
+}
 
 h2 {
-  margin: 2rem 0 0.5rem;
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid #3a3140;
-  color: var(--ember);
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2.25rem 0 0.75rem;
+  color: var(--gold);
+  font-size: 0.8rem;
   font-weight: normal;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
+h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
 
-.lede { font-style: italic; color: var(--muted); }
+.lede {
+  margin: 1.5rem auto 0;
+  max-width: 30rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+}
 
-.status { color: var(--ember); letter-spacing: 0.2em; font-family: monospace; }
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+  color: var(--ember);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+}
+.status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 10px var(--ember);
+  animation: pulse 1.8s ease-in-out infinite;
+}
 
 ul { padding-left: 1.2rem; }
+ul li::marker { color: var(--gold); }
 
-.schedule, .guests { list-style: none; padding: 0; }
+.schedule, .guests { list-style: none; padding: 0; margin: 0; }
 
-.schedule span { display: inline-block; width: 6rem; color: var(--muted); }
+.schedule li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(59, 49, 66, 0.8);
+}
+.schedule li:last-child { border-bottom: 0; color: var(--ember); }
+.schedule span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding-top: 0.15rem;
+}
 
-.guests li { padding: 0.2rem 0; }
+.guests {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.25rem 1.5rem;
+}
+.guests li { padding: 0.25rem 0; }
+.guests li::before { content: "\2020\00a0\00a0"; color: var(--faint); }
 
-.fine { margin: 2.5rem 0 0; color: var(--muted); font-size: 0.8rem; font-family: monospace; }
+.fine {
+  margin: 2.75rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+::selection { background: rgba(208, 104, 44, 0.4); color: #fff; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@media (max-width: 520px) {
+  body { padding: 1.5rem 0.75rem; font-size: 1rem; }
+  .card { padding: 2.5rem 1.4rem 2rem; }
+  .card::before { top: 14px; left: 14px; }
+  .card::after { bottom: 14px; right: 14px; }
+  .schedule li { grid-template-columns: 5.25rem 1fr; gap: 0.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .status::before { animation: none; }
+}
