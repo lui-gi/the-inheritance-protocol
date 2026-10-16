@@ -188,44 +188,77 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blackthorn Legal Office :: Counsel Portal</title>
 <style>
-  :root {{ color-scheme: light dark; }}
-  body {{ font-family: Georgia, "Times New Roman", serif; max-width: 760px;
-         margin: 2.5rem auto; padding: 0 1rem; line-height: 1.5;
-         background: #faf7f2; color: #1c1a17; }}
-  @media (prefers-color-scheme: dark) {{
-    body {{ background: #15130f; color: #e8e2d6; }}
-    .card {{ background: #1e1b16; border-color: #3a342a; }}
-    input {{ background: #15130f; color: #e8e2d6; border-color: #3a342a; }}
-    .err {{ background: #2a1512; color: #f1c0b4; }}
+  :root {{
+    --paper: #f4efe4; --ink: #1d1a1f; --muted: #6b645c; --rust: #a8431f;
+    --rule: #d8cfbf; --backdrop: #2a2629;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --mono: ui-monospace, Menlo, Consolas, monospace;
   }}
-  h1 {{ font-size: 1.5rem; margin-bottom: 0.1rem; }}
-  .sub {{ color: #8a8275; font-style: italic; margin-top: 0; }}
-  form {{ margin: 1.5rem 0; }}
-  input {{ font: inherit; padding: 0.45rem 0.6rem; width: 70%;
-           border: 1px solid #c9c0b0; border-radius: 4px; }}
-  button {{ font: inherit; padding: 0.45rem 0.9rem; border-radius: 4px;
-            border: 1px solid #7a2e2e; background: #7a2e2e; color: #fff;
+  * {{ box-sizing: border-box; }}
+  body {{ margin: 0; min-height: 100vh; display: flex; justify-content: center;
+         padding: 4rem 1rem; background: var(--backdrop); color: var(--ink);
+         font-family: var(--serif); font-size: 1.05rem; line-height: 1.6; }}
+  main {{ width: 100%; max-width: 42rem; align-self: flex-start;
+          padding: 3.5rem 3rem 2.5rem; background: var(--paper);
+          outline: 1px solid var(--rust); outline-offset: -14px;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); }}
+  header {{ text-align: center; }}
+  .eyebrow {{ margin: 0; color: var(--rust); font-size: 0.75rem;
+              letter-spacing: 0.3em; text-transform: uppercase; }}
+  h1 {{ margin: 0.5rem 0 0; font-size: clamp(1.7rem, 5.5vw, 2.2rem);
+        font-weight: normal; line-height: 1.2; }}
+  .sub {{ margin: 0.5rem 0 0; color: var(--muted); font-style: italic; }}
+  .divider {{ margin: 2rem auto; width: 9rem; color: var(--rust); font-size: 0.5rem;
+              line-height: 1; text-align: center;
+              background: linear-gradient(var(--rust), var(--rust)) left center / 4rem 1px no-repeat,
+                          linear-gradient(var(--rust), var(--rust)) right center / 4rem 1px no-repeat; }}
+  .intro {{ margin: 0; text-align: center; }}
+  form {{ display: flex; gap: 0.5rem; margin: 2rem 0 1.5rem; }}
+  input {{ flex: 1; min-width: 0; font: inherit; padding: 0.55rem 0.75rem;
+           background: #fffdf8; color: var(--ink); border: 1px solid var(--rule);
+           border-radius: 2px; }}
+  input:focus {{ outline: 1px solid var(--rust); border-color: var(--rust); }}
+  button {{ font: inherit; font-size: 0.8rem; letter-spacing: 0.2em;
+            text-transform: uppercase; padding: 0.55rem 1.1rem; border-radius: 2px;
+            border: 1px solid var(--rust); background: var(--rust); color: var(--paper);
             cursor: pointer; }}
-  .card {{ border: 1px solid #ddd3c2; border-radius: 6px; padding: 0.8rem 1rem;
-           margin: 0.8rem 0; background: #fff; }}
-  .who {{ font-weight: bold; }}
-  .role {{ color: #8a8275; font-weight: normal; font-style: italic; }}
-  .when {{ color: #8a8275; font-size: 0.85rem; }}
-  .err {{ background: #fdecea; color: #7a2e2e; padding: 0.7rem 1rem;
-          border-radius: 6px; font-family: ui-monospace, monospace;
-          font-size: 0.85rem; white-space: pre-wrap; }}
-  footer {{ color: #8a8275; font-size: 0.8rem; margin-top: 2.5rem;
-            border-top: 1px solid #ddd3c2; padding-top: 0.8rem; }}
+  button:hover {{ background: #8e3517; }}
+  .card {{ padding: 1.1rem 0; border-top: 1px solid var(--rule); }}
+  .card:last-of-type {{ border-bottom: 1px solid var(--rule); }}
+  .card p {{ margin: 0.5rem 0 0; }}
+  .who {{ font-size: 1.1rem; }}
+  .role {{ color: var(--muted); font-style: italic; }}
+  .when {{ color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em;
+           text-transform: uppercase; }}
+  .sealed .who {{ color: var(--rust); }}
+  .sealed {{ background: rgba(168, 67, 31, 0.06); padding: 1.1rem 1rem;
+             border-left: 2px solid var(--rust); }}
+  .empty {{ text-align: center; color: var(--muted); font-style: italic; }}
+  .err {{ padding: 0.8rem 1rem; background: #f7e3da; color: #7a2a12;
+          border-left: 2px solid var(--rust); font-family: var(--mono);
+          font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; }}
+  footer {{ margin-top: 2.5rem; text-align: center; color: var(--muted);
+            font-size: 0.75rem; }}
+  @media (max-width: 520px) {{
+    body {{ padding: 1.5rem 0.75rem; font-size: 1rem; }}
+    main {{ padding: 2.75rem 1.5rem 2rem; outline-offset: -10px; }}
+    form {{ flex-direction: column; }}
+  }}
 </style>
 </head>
 <body>
-  <h1>Blackthorn Legal Office</h1>
-  <p class="sub">Counsel Portal &mdash; case file VALE-1031 &mdash; guest (read only)</p>
-  <p>Search the first-interview statements on file, taken by counsel on the
+<main>
+  <header>
+    <p class="eyebrow">Blackthorn Legal Office</p>
+    <h1>Counsel Portal</h1>
+    <p class="sub">Case file VALE-1031 &middot; guest (read only)</p>
+  </header>
+  <div class="divider">&#9670;</div>
+  <p class="intro">Search the first-interview statements on file, taken by counsel on the
      night. Guests see filed statements only; counsel's working notes and the
      portal's revision records are sealed.</p>
   <form method="get" action="/">
-    <input type="text" name="q" value="{query_value}" placeholder="search statements, e.g. library">
+    <input type="text" name="q" value="{query_value}" placeholder="search statements, e.g. library" aria-label="Search statements">
     <button type="submit">Search</button>
   </form>
   {results}
@@ -233,6 +266,7 @@ PAGE = """<!doctype html>
     Blackthorn Legal Office case portal. Access is logged. Guest role may read
     filed statements. For sealed material, contact counsel (c.ward).
   </footer>
+</main>
 </body>
 </html>"""
 
@@ -256,13 +290,14 @@ def _render_results(con, q):
             + '</div>'
         )
     if not rows:
-        return '<p><em>No statements match that search.</em></p>'
+        return '<p class="empty">No statements match that search.</p>'
     cards = []
     for suspect, role, kind, time, body in rows:
         label = {'statement': '', 'note': ' [SEALED COUNSEL NOTE]'}.get(
             kind, ' [SEALED REVISION RECORD]')
         cards.append(
-            '<div class="card"><div class="who">'
+            '<div class="card' + ('' if kind == 'statement' else ' sealed')
+            + '"><div class="who">'
             + html.escape(suspect)
             + ' <span class="role">(' + html.escape(role) + ')</span>'
             + html.escape(label)
